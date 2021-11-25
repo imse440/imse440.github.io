@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IMSE 586</title>
+    <link rel='stylesheet' href='style.css' type='text/css'>
+</head>
+<body>
+
+<h2>IMSE 440: Applied Statistical Models in Engineering</h2>
+
+<div class="container">
+
+<main>
+
+<h3>
+    <a href="./syllabus" style="margin-right:120px">Syllabus</a><a href="TBD" style="margin-right:120px">Canvas</a><a href="./project/">Project</a>
+</h3>
+
+<h3 id=toc><span>Schedule</span></h3>
+    
+<table style="width:65%" class="center">
+    <tr>
+      <th>Week</th>
+      <th>Topics</th>
+    </tr>
+    <tr>
+      <td>0</td>
+      <td>Course introduction, statistics review, Introduction to Python</td>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>Introduction to data analysis in Python</td>
+    </tr>
+    <!-- <tr>
+        <td>2</td>
+        <td>Introduction to data analysis in Python (cont'd)</td>
+    </tr> -->
+    <tr>
+        <td>2</td>
+        <td>Simple linear regression, parameter estimation</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>Assessing the accuracy of the coefficient estimates</td>
+    </tr>
+    <tr>
+        <td>4</td>
+        <td>Assessing the accuracy of the model, correlation</td>
+    </tr>
+    <tr>
+        <td>5</td>
+        <td>Confidence/prediction intervals</td>
+    </tr>
+    <tr>
+        <td>6</td>
+        <td>Multiple linear regression, model utility test</td>
+    </tr>
+    <tr>
+        <td>7</td>
+        <td>Interactions, categorical predictors</td>
+    </tr>
+    <tr>
+        <td>8</td>
+        <td>Model diagnostics, model evaluation, overfitting</td>
+    </tr>
+    <tr>
+        <td>9</td>
+        <td>Cross validation, model selection</td>
+    </tr>
+    <tr>
+        <td>10</td>
+        <td>Logistic regression, classifier evaluation</td>
+    </tr>
+    <tr>
+        <td>11</td>
+        <td>Introduction to design of experiments, comparing experiments</td>
+    </tr>
+    <tr>
+        <td>12</td>
+        <td>Experiments with a single factor, completely randomized design</td>
+    </tr>
+    <tr>
+        <td>13</td>
+        <td>Blocking factors and common designs, randomized complete block design, Latin Squares design</td>
+    </tr>
+  </table>
+
+  <iframe src="https://calendar.google.com/calendar/embed?src=c_7889t1t9gohgjhmc6sboehela4%40group.calendar.google.com&ctz=America%2FDetroit" style="border: 0" width="850" height="500" frameborder="0" scrolling="no"></iframe>
+
+</main>    
+</div>
+
+<div id="site-footer">
+	<footer>
+		<p>This website is hosted on <a href="https://github.com/imse586/imse586.github.io">our GitHub repository</a>.</p>
+		<p>Created by <a href="http://umich.edu/~fredfeng/">Fred Feng</a> &nbsp;|&nbsp; <a href="https://umdearborn.edu/">University of Michigan-Dearborn</a></p>
+	</footer>
+</div>
+
+</body>
+
+<script>
+    // Add folder name to all lecture paths in the table of content
+    var a = document.getElementById("toc-table").getElementsByTagName('a');
+    for (var i = 0; i < a.length; i++) {
+        a[i].pathname = "./lectures" + a[i].pathname;
+    }
+</script>
+
+</html>
