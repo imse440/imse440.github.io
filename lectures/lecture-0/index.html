@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>IMSE 440 Lecture 0</title>
+    <meta charset="utf-8">
+    <!-- <link href='./style.css' rel='stylesheet' type='text/css'> -->
+    <style>
+        @import url(https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap);
+        @import url(https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap);
+        @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+        body {
+            font-family: 'Roboto'; 
+            font-weight: bold; 
+            line-height: 1.4;
+        }
+
+        .remark-code, .remark-inline-code {
+            font-family: 'Ubuntu Mono';
+        }
+
+        .remark-slide-content h1 {
+            font-size: 40px; 
+            text-align: center;
+        }
+
+        .remark-slide-content p, .remark-slide-content li {
+            font-size:30px; 
+            margin: 20px 0;
+        }
+
+        a:link, a:visited, a:active, a:hover {
+          color: #0645AD;
+        }
+
+        a:link {
+            text-decoration: none;
+        }
+
+        a:hover {
+          text-decoration: underline;
+        }
+
+        img {
+            max-height: 100%;
+        }
+
+        .quote_author {
+            display: block; 
+            text-align: right;
+        }
+
+        .source {
+            margin-top: -40px;
+        }
+
+        a.sourcelink:link, a.sourcelink:visited, a.sourcelink:active, a.sourcelink:hover {
+            color:lightgray;
+            font-size: 12pt;
+            text-decoration: none;
+        }
+
+        .red {
+            color:red;
+        }
+        .green {
+            color:green;
+        }
+        .gray {
+            color:gray;
+        }
+        .lightgray {
+            color:lightgray;
+        }
+
+        .purple {
+            color: purple;
+        }
+
+        td, th {
+            border: 1px solid black; 
+            /* font-size: 22px; */
+            font-size: 30px;    /* bayes' rule table */
+            /* width: 120px; */
+        }
+
+        table {
+            border-collapse: collapse;
+        }
+
+        .huge { 
+            font-size: 200%;
+        }
+        .large {
+            font-size: 160%;
+        } 
+        .small { 
+            font-size: 80%;
+        }
+        .tiny { 
+            font-size: 60%;
+        }
+
+        .column:first-of-type {float:left}
+        .column:last-of-type {float:right}
+
+        .split-30 .column:first-of-type {width: 30%}
+        .split-30 .column:last-of-type {width: 70%}
+        .split-40 .column:first-of-type {width: 40%}
+        .split-40 .column:last-of-type {width: 60%}
+        .split-50 .column:first-of-type {width: 50%}
+        .split-50 .column:last-of-type {width: 50%}
+        .split-60 .column:first-of-type {width: 60%}
+        .split-60 .column:last-of-type {width: 40%}
+        .split-70 .column:first-of-type {width: 70%}
+        .split-70 .column:last-of-type {width: 30%}
+    </style>
+
+  </head>
+  <body>
+
+<textarea id="source">
+
+class: center, middle
+
+## IMSE 440 
+## Applied Statistical Models in Engineering
+
+<br/>
+### Instructor: Fred Feng
+### Lecture 0
+
+---
+class: split-60
+
+.column[
+## About the instructor
+
+<br>
+Fred Feng
+
+.red[fredfeng]@umich.edu
+
+Assistant Professor @ IMSE
+
+Website: [umich.edu/~fredfeng](http://umich.edu/~fredfeng)
+
+Research group: [fenggroup.org](https://fenggroup.org/)
+]
+
+.column[
+<br><br><br>
+![:scale 40%](./images/feng.png)
+]
+
+---
+
+class: center, middle
+
+# Course website
+
+.huge[<https://imse440.github.io>]
+
+---
+# Canvas is used for
+
+<br>
+
+- Announcements
+- Lecture materials
+- Homework
+- Project submissions
+- Grades
+
+---
+
+# Some general study tips
+
+
+- Type along - Learning by doing
+
+  .center[![:scale 50%](./images/ridebike.jpg)]
+
+---
+# Some general study tips
+
+- The homework are meant to be an essential part of your learning experience. 
+
+- Start early.
+
+--
+
+- Ask for help.
+
+  - Take advantage of the office hours or email us.
+
+--
+
+- Back up your work (homework, project)
+
+  - [Dropbox at UM](https://its.umich.edu/communication/collaboration/dropbox)
+
+---
+# Course survey
+
+- A short survey was posted on Canvas Quizzes. 
+
+- Purpose: Inform the instructor about your academic / technical background & needs
+
+- The survey is optional. 
+
+- However, you are encouraged to fill it out.
+
+
+---
+# Why programming in applied statistics?
+
+<br>
+- Flexibility & customization
+- Reproducible research
+- Collaborative work
+- Version control
+
+---
+
+# Why Python?
+
+.center[![:scale 60%](./images/python-logo.png)]
+
+- Open source, free, and widely available
+- Massive open-source community
+
+---
+
+# Why Python?
+
+- ### Extensive libraries
+  - [NumPy](https://numpy.org/)
+  - [SciPy](https://www.scipy.org/)
+  - [pandas](https://pandas.pydata.org/)
+  - [statsmodels](https://www.statsmodels.org/)
+  - [scikit-learn](https://scikit-learn.org/)
+  - and many more
+
+---
+
+.center[![:scale 100%](./images/pythonvislandscape.png)]
+
+---
+class: middle, center
+
+.center[![:scale 80%](./images/xkcd-python.png)]
+
+<div style="margin-top: -20px; text-align: center;"><a class="sourcelink" href="https://xkcd.com/353/">Image source</a></div>
+
+---
+
+# Why Python?
+
+- ### Beginner friendly
+
+  - "High-level" programing language
+  - Intuitive syntax
+
+--
+
+.center[![:scale 40%](https://i2.wp.com/lightroastcomics.com/wp-content/uploads/2018/04/parselfingers.png)]
+
+<div style="margin-top: -50px; text-align: left;"><a class="sourcelink" href="http://lightroastcomics.com/parselfingers">Image source</a></div>
+
+
+---
+# Why Python?
+
+- ### Widely popular
+
+  - [IEEE: Top Programming Languages 2020](https://spectrum.ieee.org/static/interactive-the-top-programming-languages-2020)
+
+  - [TIOBE index](https://www.tiobe.com/tiobe-index/)
+
+  - [Widely used in industry](https://scikit-learn.org/stable/testimonials/testimonials.html)
+
+  - [Job qualifications](https://midas.umich.edu/careers/)
+
+
+---
+
+# Jupyter Notebook
+
+To run Python, we will use a browser-based application called [Jupyter Notebook](https://jupyter.org/).
+
+---
+# Install Python / Jupyter notebook
+
+<br>
+We will use Anaconda, a common Python distribution bundled with other popular tools. 
+
+<br>
+You can follow the installation instruction at
+
+<https://frfeng.github.io/anaconda-install>
+
+---
+
+# Local recourses of data science
+
+<br>
+
+* [Michigan Institute for Data Science (MIDAS)](https://midas.umich.edu/)
+
+
+---
+class: middle, center
+
+## In God we trust, 
+## all others must bring data. 
+
+.quote_author[[W. Edwards Deming](https://en.wikipedia.org/wiki/W._Edwards_Deming)]
+
+
+---
+# Assignments
+
+- Install Anaconda
+- Read the syllabus in its entirety
+- Course survey
+- Suggested readings
+  - [Jupyter Notebook documentation](https://jupyter-notebook.readthedocs.io/en/stable/notebook.html )
+
+
+
+<!-- ------------------------------------------ -->
+
+</textarea>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_HTML&delayStartupUntil=configured" type="text/javascript"></script>
+
+<script>
+remark.macros.scale = function (percentage) {
+  var url = this;
+  return '<img src="' + url + '" style="width: ' + percentage + '" />';
+};
+
+var slideshow = remark.create({
+  countIncrementalSlides: false,
+  highlightLanguage: 'python',
+  highlightStyle: 'magula', 
+  highlightSpans: true,
+  highlightLines: true,
+});
+
+      // Setup MathJax
+      MathJax.Hub.Config({
+          tex2jax: {
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+          }
+      });
+
+      MathJax.Hub.Configured();
+</script>
+</body>
+</html>
