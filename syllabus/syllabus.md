@@ -41,7 +41,7 @@ With the growth of automated systems, data analysis became an essential tool in 
 The first part of the course introduces students to simple linear models, multiple linear models, model evaluation, model diagnosis, analysis of variance, residual analysis, and model selection. 
 The second part of the course introduces students to design of experiments and commonly used designs such as the completely randomized design, randomized complete block design, and Latin squares design. 
 The course also provides the students with experience handling data for engineering applications via in-class activities and assignments. 
-Student completes a major project to answer a set of engineering questions and challenges.
+The student completes a major project to answer a set of engineering questions and challenges.
 
 ## Program goals
 
@@ -71,7 +71,7 @@ At the completion of the course, students will be able to
 ## Tools and technologies
 
 Students will need access to 
-- a computer running one of the following operating system: Windows, MacOS, Unix.
+- a computer running one of the following operating systems: Windows, MacOS, Unix.
 - internet access on the computer
 - a scientific calculator
 
@@ -82,21 +82,19 @@ There will be roughly weekly homework (for a total of nine assignments).
 **Policies**
 
 - All homework will be posted and submitted on Canvas.
-- **Late homework will not be accepted** without valid documented excuse. Barring extraordinary circumstances, the documented excuse must be available to the instructor at least two (2) academic calendar days prior to the deadline.
+- **Late homework will not be accepted** without a valid documented excuse. Barring extraordinary circumstances, the documented excuse must be available to the instructor at least two (2) academic calendar days prior to the deadline.
 Valid excuses include your own illness or injury, family emergencies, certain University-approved curricular and extra-curricular activities, and religious holidays. 
-- It is highly recommended to submit early. You can submit unlimited number of times for each assignment. Only the latest submission will be graded. You are responsible for any last-minute technical or non-technical issues.  
-- The excuses that will not be accepted include, but not limited to, 
+- The excuses that will not be accepted include, but are not limited to, 
   - missed the deadline by *any* amount of time
-  - missed the deadline due to last-minute issues (e.g., network, computer)
+  - missed the deadline due to last-minute technical issues (e.g., network, computer) or non-technical issues
   - submitted incomplete file(s) (e.g., missing the data files that are needed to run your code)
   - submitted a wrong file(s)
   - submitted to a wrong assignment
-
+- It is highly recommended to submit early. You can submit an unlimited number of times for each assignment. Only the latest submission will be graded. 
+- **Your one lowest homework grade will be dropped when calculating the final grade.** No questions asked. An un-submitted work counts as zero.
 - Graded homework would be returned in typically two weeks. 
 The solutions will also be posted on Canvas.
 It is recommended to go through the solutions (even briefly) for your study purposes.
-- **We will drop your one lowest homework grade when calculating the final grade.** 
-An un-submitted work counts as zero.
 
 **Format requirements**
 
@@ -116,14 +114,13 @@ There is one midterm exam, which is scheduled on **Wednesday, March 24** during 
 **Formats**
 
 - Closed book, closed notes.
-- Cheat sheet
-    - You may bring up to two (2) pieces of cheat sheet to an exam.
+- Cheatsheet
+    - You may bring up to two (2) pieces of cheatsheet to an exam.
     - Each paper needs to be no larger than letter-size (8" x 11").
     - Double-sided is okay.
     - Note you can *not* bring more than two pieces of paper, even if they are single-sided or in smaller sizes.
     - The cheat sheet needs to be **handwritten by you**.
-    - You are required to submit your cheat sheet along with your exam copy.
-    It is recommended to make a photo copy of your cheat sheet before the exam to keep for yourself.   
+    - You are required to submit your cheatsheet along with your exam copy. Print your full name on the cheatsheet.
 - A standalone scientific calculator is allowed. Sharing a calculator with another person is *not* allowed.
 - Cell phones, tablets, laptops, and any other devices are not allowed, and they should not be put on the desk top.
 - To help you prepare for the exams, a practice exam with solutions will be posted before each exam.
@@ -146,7 +143,7 @@ No makeup or early exam will be given without valid documented excuse and *prior
 
 The final grades may be curved as necessary.
 
-Requests for improving grades based on individual needs will *never* be considered.
+Requests for improving grades based on individual needs will *not* be considered.
 
 <h2 id="honor-code">Honor code</h2>
 
@@ -169,7 +166,7 @@ The citation should provide enough information so that the original source of th
 
 **Homework-specific rules**
 
-- All homework are to be completed on your own. 
+- All homework is to be completed on your own. 
 - You are allowed to consult with other students in the current class during the conceptualization of a problem. However, all written work, whether in scrap or final form, are to be generated by you working alone.
 - In each homework, you are required to disclose any person that you have discussed the homework with.
 - You are *not* allowed to discuss the problem set with anyone outside the current class. 
@@ -181,7 +178,7 @@ If a student provided unauthorized help to other students, all parties will rece
 
 **Exam-specific rules**
 
-- In an exam you shall work alone. You may *not* receive (or give) any help from another person or unauthorized resource.
+- In an exam, you shall work alone. You may *not* receive (or give) any help from another person or unauthorized resource.
 - Penalty policy: **Any offense in an exam will automatically result in a failing grade (E) for the course.**
 Once you have read this syllabus to completion please use *confidence interval* as the answer to the question in the first homework. 
 
@@ -196,12 +193,16 @@ And you need to properly cite the code snippets that you borrowed elsewhere.
 - Work that includes material derived in any way from the efforts of another author, either by direct quotation or paraphrasing, should be fully and properly documented. 
 To avoid plagiarism, you should cite all sources of both ideas and direct quotations, including those found on the internet. 
 - You are not allowed to self-plagiarize, meaning that you can not submit your own previously produced work (e.g., from another course that you took or are currently taking).
-- **Penalty policy**: An offense in an project will result in receiving a failing grade (E) for the course.
+- **Penalty policy**: An offense in a project will result in receiving a failing grade (E) for the course.
 
 ## Copyright policy
 
 You shall not send, upload, or distribute any of the course materials to another person or on the internet. 
-The course materials include the lecture videos, notebooks, and homework and the solutions.
+The course materials include the lecture materials, homework, and exams.
+
+## COVID-19 vaccination & face-covering policy
+In order to protect our classes, campus, and community from COVID-19 infections, the University of Michigan has instituted a [mandatory vaccination](https://umdearborn.edu/about/policies-and-procedures/general-university-policies-and-procedures/university-michigan-covid-19-vaccination-policy) and [face covering policy](https://president.umich.edu/news-communications/letters-to-the-community/covid-19-update-requiring-face-coverings-indoors-to-enhance-community-safety/) for the fall semester. Please remember to report your [proof of vaccination](https://umich.qualtrics.com/jfe/form/SV_425w4eoxN3zSMqq) and to wear a mask indoors and on the campus shuttle *regardless of vaccination status*.
+Additional COVID-19 information, including FAQs, can be found at <https://campusblueprint.umich.edu/>
 
 ## Food pantry
 
