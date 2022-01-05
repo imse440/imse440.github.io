@@ -11,11 +11,18 @@ You will decide on your own project topic and find the data that you want to use
 You need to identify research questions and select data set(s) that are meaningful, reasonably complex (so that you can showcase a variety of things that you've learned), and feasible given the project timeline. 
 As a rule of thumb, your project should be significantly more complex than the homework problems and lecture examples.
 
-## Requirements
+## General requirements
 
 - You are required to use Python and Jupyter Notebook for this project.
-- You are free to include analysis or visualization using other software or languages that we do not cover in the class, however, they should only serve as supplementary components of your project.
-- You are free to include data analysis, visualization, modeling methods that we do not cover in the class.
+- You are free to include data analysis and modeling methods that we do not cover in the class. However, they should only serve as supplementary components of your project.
+
+## Important dates
+
+Throughout the second half of the semester, there will be four submissions: a project proposal, two project presentations (in pre-recorded videos), and a final report.
+
+- **March 7 (Monday) at 6:11 PM**: Project proposal submission deadline
+- **April 11 (Monday) at 6:11 PM**: Video presentation submission deadline
+- **April 22 (Monday) at 6:11 PM**: (1) Final video presentation and (2) final report submission deadline
 
 ## Project proposal (10% of project grade)
 
@@ -36,39 +43,42 @@ The goal of the proposal is to make sure you select a topic and data set(s) that
 - Your proposal may serve as part of your final report later on.
 - If for any reason you are considering making major changes to your project topic and/or data sets after the proposal submission, consult with the instructor as early as possible.
 
+Note as we discussed in the lectures, regression models are suited for [cross-sectional data](https://en.wikipedia.org/wiki/Cross-sectional_data). 
+These data are what you should be using for your project.
+Do not select [time-series data](https://en.wikipedia.org/wiki/Time_series), as the independence assumption in regression models is likely violated. 
+
 ### Proposal grading rubric
 
-Each component listed below will be graded on a continuous scale. 
+Each component listed below will be graded. 
 Under each component are the descriptions for three levels of "Excellent",
 "Good", and "Poor".
 
-- **Background & data description** (10 points)
+- **Background & data description**
     - Background and data clearly described
     - Background and data described but lacking clarity
     - Background and data not described
-- **Research questions** (10 points)
+- **Research questions**
     - Defined clear and meaningful research questions
     - Research questions are present but not articulated clearly
     - Did not define any research questions
-- **Literature review** (10 points)
+- **Literature review**
     - Identified more than two relevant works or extensive discussion of at least two
     - Identified and discussed at least two relevant works
     - Did not look into the literature
-- **Methods description** (10 points)
+- **Methods description**
     - A clear plan on how analysis and modeling would be used to answer research questions
     - Plan on how to answer questions described but lacking clarity
     - No discussion of how analysis and modeling may be used to answer research questions
-- **Composition** (10 points)
+- **Composition**
     - The proposal was clearly written, coherent, and well organized.
     - Writing and organization needs improvement
     - Not clear, coherent, or lacks overall organization.
 
-## Project presentation (30% of project grade)
+## Project presentation (20% of project grade)
 
 -   You are required to submit a video of you presenting your project.
     The video should be **under 10 minutes**.
-    The video file should be in one of the following formats: MP4 (preferred), MOV, WMV, and AVI.
--   The presentation should include all major parts of your project, with a focus on the results. 
+-   The presentation should include *all major parts of your project, with a focus on the results*.
     The following time allocation should be roughly followed.
     - 1 min: Introduction/background
     - 1 min: Research questions and the methods to answer them:
@@ -77,12 +87,29 @@ Under each component are the descriptions for three levels of "Excellent",
     - 1 min: Discussions and conclusions
 -   To record your presentation you are free to use whatever recording software that you are comfortable with. 
     If you are not familiar with the tools, we recommend the free and open-source software [OBS Studio](https://obsproject.com). 
-    (All our lecture videos were recorded with it.) 
-    It's fairly easy to use but do make sure to budget some time to learn the basics.
+    It is fairly easy to use, but do make sure to budget some time to learn the basics.
+- The video file should be in one of the following formats: MP4 (preferred), MOV, WMV, and AVI.
+
+### Things to keep in mind when preparing for the presentation (and the final report)
+
+- The audience of the project presentation and final report is someone who has general knowledge about statistics, regression, and machine learning, 
+    but may not necessarily know anything about Python, and they may not be familiar with the data sets that you are using.
+- Thus, your presentation and report should generally not include any codes (leave them in the Jupyter notebook as part of the final submission).
+- You should also avoid using programming jargons (e.g., "dataframe" or any function names such as `groupby`), 
+    or any dataset-specific terms (e.g., "co2_level_mi").
+    Rather, describe things in plain English.
+
+### Presentation self-checklist
+
+- Are the texts in the visuals (e.g., figures, tables, slides) easy for the audience to read? 
+    If not, use larger fonts and better text/background colors.
+- Am I just reading the texts in the slides? Generally, do not putting long sentences in your slides. Rather, use keywords, charts, tables. They are much easier for the audience to read and understand.
+- Are all the axis in the charts labeled? Are the units of the measurement clear to the audience?
+- Are all the images and text not created by me clearly cited? 
 
 ### Presentation rubric
 
-- **Content** (20 points)
+- **Content**
     - The presentation demonstrated excellent knowledge of the course content. 
         All major parts of the project were included with a focus on the data analysis methods/results and discussion. 
         The presentation utilized an abundance of materials, including visuals or diagrams to clearly and effectively communicate the work with the audience.
@@ -92,7 +119,7 @@ Under each component are the descriptions for three levels of "Excellent",
     - The presentation did not demonstrate sufficient knowledge of the course content. 
         Major parts (e.g., results) were absent. 
         The presentation lacked materials to communicate with the audience.
-- **Coherence and organization** (10 points)
+- **Coherence and organization**
     - The project was clearly presented. 
         The transitions and flow were easy to follow. 
         The slides were error-free and logically presented.
@@ -102,7 +129,7 @@ Under each component are the descriptions for three levels of "Excellent",
     - The audience had to make a considerable effort to understand the underlying logic and flow of ideas. 
         The transitions and flow were not logical. 
         The slides contained many errors and a lack of logical progression.
-- **Presentation skills** (10 points)
+- **Presentation skills**
     - The speaker was fluent on the topic and had clear articulation.
         Enthusiasm and confidence were exuded. 
         The materials were presented in a way that held audience's attention. 
@@ -116,12 +143,17 @@ Under each component are the descriptions for three levels of "Excellent",
         The presentation did not hold audience's attention. 
         The presentation went over by more than 3 minutes.
 
-## Final report (60% of project grade)
+## Final project presentation (20% of project grade)
 
-You are required to submit a final project report, which should include the following sections.
+After you submit your first presentation, the instructor will provide feedback on your project, so that you can make improvements on your final presentation and report.
+
+The final presentation will be graded using the same rubric as the preliminary presentation described above.
+## Final report (50% of project grade)
+
+You are required to submit a final report of your project, which should include the following sections.
 
 - Project title
-- Abstract (a self-contained, short summary of your work, 250 words or less)
+- Abstract (a self-contained, short summary of your project, 250 words or less)
 - Introduction (e.g., background, motivations)
 - Research questions
 - Methods
@@ -130,22 +162,16 @@ You are required to submit a final project report, which should include the foll
     - A detailed description of your data treatment, analysis, and
         modeling workflow. Data treatment could include data cleaning,
         treating missing data, and other steps taken.
-- Results (e.g., data visualization, model validations)
-- Discussions (e.g., how the research questions were answered, any interesting insights, study limitations)
+- Results (e.g., modeling work)
+- Discussions
+    - How the research questions were answered
+    - Any practical implications based on the findings
+    - Study limitations
+    - Any interesting insights (optional)
 - Conclusions
 - References
 - Appendix (if needed)
 
-### Things to keep in mind when writing the report
-
-Your final report should be different from your Jupyter notebook in some major ways:
-
-- The audience of the report is someone who has general knowledge about statistics and machine learning 
-    but may not necessarily know anything about Python, and they may not be familiar with the data sets you are using.
-- Thus, your report should generally not include any codes (leave them in the notebook). 
-    Rather, describe things in plain English.
-- You should also avoid using programming jargons (e.g., "dataframe" or any function names such as `groupby`), 
-    or anything specific to the data set (e.g., column names such as "co2_level_mi").
 
 ### Final report submission requirements
 
@@ -159,18 +185,18 @@ Your final report should be different from your Jupyter notebook in some major w
 
 ### Final report rubric
 
-- **Subject knowledge** (50 points)
+- **Subject knowledge**
     - The report demonstrated excellent knowledge of the course content and technical skills by integrating major and minor concepts and methods into the work. 
       The report also demonstrated evidence of extensive research effort and a depth of thinking about the topic.
     - The report demonstrated good knowledge of the course content and technical skills by integrating major concepts and methods into the work. 
       The report also demonstrated evidence of limited research effort and/or initial thinking about the topic.
     - The report did not demonstrate sufficient knowledge of the course content, technical skills, evidence of the research effort, or depth of thinking about the topic.
-- **Correctness** (15 points)
+- **Correctness**
     - The methods and discussions (e.g., data analysis, modeling, interpretations of results) were correct and appropriate to
         answer the research questions.
     - The methods and discussion were mostly correct with some minor errors.
     - The methods or discussion were incorrect or not appropriate to answer the research questions.
-- **Research reproducibility** (15 points)
+- **Research reproducibility**
     - Complete code, data, and other necessary files were provided so that I'm able to reproduce all your work. 
         The codes in the Jupyter notebook were well organized and easy to read. 
         An abundance of Markdown cells was used to enhance the notebook's readability (see [Markdown for Jupyter notebooks cheatsheet](https://medium.com/ibm-data-science-experience/markdown-for-jupyter-notebooks-cheatsheet-386c05aeebed)).
@@ -179,7 +205,7 @@ Your final report should be different from your Jupyter notebook in some major w
     A few Markdown cells were used.
     - The submission did not include all files needed for others to reproduce your work. 
         The codes in the Jupyter notebook were difficult to read or lack organization.
-- **Composition** (10 points)
+- **Composition**
     - The report was clearly written and well organized. 
         The underlying logic was clearly articulated and easy to follow.
         Sentences were grammatical and free from errors.
@@ -189,7 +215,7 @@ Your final report should be different from your Jupyter notebook in some major w
     - The report lacked overall organization. 
         The reader had to make a considerable effort to understand the underlying logic and flow of ideas. 
         Grammatical and spelling errors made it difficult for the reader to interpret the text in places.
-- **Contribution** (10 points)
+- **Contribution**
     - The report offered some new or interesting insights into the topic under discussion. 
         Study limitations were discussed in detail for others who may want to use the results.
     - The methods and discussion were mostly correct with some minor errors. 
@@ -209,16 +235,12 @@ Your final report should be different from your Jupyter notebook in some major w
 - For all project submissions (the proposal, presentation, and report), a late submission (within 24 hours) will receive an automatic 30% point deduction.
 - Late submission for more than 24 hours will receive 0 points.
 
-## Important dates
 
-- **March 14 (Monday) at 6:11 PM**: Project proposal submission deadline
-- **April 18 (Monday) at 6:11 PM**: Video presentation submission deadline
-- **April 22 (Monday) at 6:11 PM**: Final report submission deadline
-- 🎈**IMSE 440 Expo**🎈 (COVID-pending event, date TBD):
+<!-- - 🎈**IMSE 440 Expo**🎈 (COVID-pending event, date TBD):
 To showcase what you accomplished in this course, we *may* host an expo for you to present your project. 
 The event will be open to all. 
 Your participation is encouraged.
-However, you can opt out if you do not wish to participate for any reason, and it will not affect your grade in any way.
+However, you can opt out if you do not wish to participate for any reason, and it will not affect your grade in any way. -->
 <!-- - **April 21 (Tuesday) starting at noon **: 🎈**IMSE 440 Expo**🎈 
 To showcase what you accomplished in this course, we will host a Zoom Expo that streams the videos that you and your fellow classmates submitted. 
 This event will be advertised to our College and open to the public.
