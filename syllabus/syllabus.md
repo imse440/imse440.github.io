@@ -10,7 +10,7 @@ IMSE 317 or BENG 364 or ME 364
 
 Mondays & Wednesdays 11:00 AM - 12:15 PM
 
-Location: TBD
+Location: 1321 ELB
 
 ## Who is the <font color="red">instructor</font>?
 
@@ -20,13 +20,15 @@ Location: TBD
 
 - Wednesdays 10:00 AM - 10:30 AM and 3:00 PM - 3:30 PM, in-person at my office (2320 HPEC)
 - Thursdays 3:00 PM - 4:00 PM, on Zoom at <https://umich.zoom.us/my/fredfeng>
+    - Students will be admitted to the meeting room *one at a time*, so that they can talk to the instructor individually.
+    - Please wait in the Zoom waiting room for your turn if there are multiple students present.
 - If you can't meet during the office hours, you can email me with a request for a meeting at another time.
 
 ## How can I contact you?
 
 <fredfeng@umich.edu>
 
-**Email** is the preferred way to contact the instructor (rather than Canvas message).
+**Email** is the preferred way to contact me (rather than Canvas message).
 Use subject line: **IMSE 440 - My Topic**
 
 I do *not* monitor the Canvas assignment comment sections. 
@@ -151,7 +153,7 @@ UM-Dearborn values academic honesty and integrity.
 It is your responsibility to understand, accept, and comply with the University's standards of academic conduct as set forth by the 
 [**Academic Code of Conduct**](http://catalog.umd.umich.edu/academic-policies-campus/academic-code-of-conduct/), 
 as well as policies established by the schools and colleges. 
-**Cheating, collusion, misconduct, fabrication, and plagiarism are considered serious offenses. Violations will not be tolerated and may result in penalties up to and including expulsion from the University.**
+Cheating, collusion, misconduct, fabrication, and plagiarism are considered serious offenses. Violations will not be tolerated and may result in penalties up to and including expulsion from the University.
 
 **General course rules**
 
@@ -160,8 +162,9 @@ as well as policies established by the schools and colleges.
 Work that includes material derived in any way from the efforts of another author, either by direct quotation or paraphrasing, should be fully and properly documented. 
 To avoid plagiarism, you should cite all sources of both ideas and direct quotations, including those found on the internet. 
 The citation should provide enough information so that the original source of the material can be located.
+- **All violations will be penalized and reported to the University's Academic Integrity Board (AIB) *with no exceptions*.**
 - If you have any questions about whether something is or is not allowed, ask the instructor *beforehand*.
-- All violations will be penalized and reported to the University's Academic Integrity Board (AIB) *with no exceptions*.
+
 
 **Homework rules**
 
