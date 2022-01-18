@@ -203,8 +203,12 @@ You shall not send, upload, or distribute any of the course materials to another
 The course materials include, but are not limited to, the lecture materials, homework, and exams.
 
 ## What are the <font color="red">COVID-19 vaccination & face-covering</font> policies?
-In order to protect our classes, campus, and community from COVID-19 infections, the University of Michigan has instituted a [mandatory vaccination](https://umdearborn.edu/about/policies-and-procedures/general-university-policies-and-procedures/university-michigan-covid-19-vaccination-policy) and [face covering policy](https://president.umich.edu/news-communications/letters-to-the-community/covid-19-update-requiring-face-coverings-indoors-to-enhance-community-safety/) for the fall semester. Please remember to report your [proof of vaccination](https://umich.qualtrics.com/jfe/form/SV_425w4eoxN3zSMqq) and to wear a mask indoors and on the campus shuttle *regardless of vaccination status*.
-Additional COVID-19 information, including FAQs, can be found at <https://campusblueprint.umich.edu/>
+
+- Before coming to campus, students are required to complete the [ResponsiBLUE](https://responsiblue.umich.edu/sign-in) daily health screening.
+- Required vaccination, [face-covering](https://president.umich.edu/news-communications/letters-to-the-community/covid-19-update-requiring-face-coverings-indoors-to-enhance-community-safety/), and daily health screening policies will remain in place for the Winter 2022 semester.
+- All students must be compliant with the [vaccination policy](https://umdearborn.edu/offices/external-relations/key-issues/um-dearborn-covid-19-response/vaccine-information) by Jan 3, 2022 and by Feb 4, 2022 for [required boosters](https://umdearborn.edu/offices/external-relations/key-issues/um-dearborn-covid-19-response/resources/campus-communications-date/articles/vaccine-booster-policy).
+- If you feel sick, please follow [the university guidelines](https://umdearborn.edu/policies-and-procedures/faculty-staff-policies-and-procedures/faculty-handbook-policies/instructional-faculty-guidelines-student-or-faculty-personal-covid-cases).
+- Students should report positive COVID illness to <DearbornCOVIDsupport@umich.edu> or call 313-593-5056.
 
 ## Food pantry
 
