@@ -37,6 +37,8 @@ In the Zoom meeting
 - Use your University email
 - Use subject line: **IMSE 440 - My Topic**
 
+I do *not* monitor the Canvas assignment comment sections.
+
 <!-- ## GSI
 
 TBA
