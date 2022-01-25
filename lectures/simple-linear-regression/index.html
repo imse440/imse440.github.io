@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>IMSE 440 Lecture 6</title>
+    <meta charset="utf-8">
+    <style>
+      @import url(https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap);
+      @import url(https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap);
+      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+      body {font-family: 'Roboto'; font-weight: bold; line-height: 1.4;}
+      .remark-code, .remark-inline-code {font-family: 'Ubuntu Mono'; }
+      .remark-slide-content h1 {font-size: 40px; text-align: center;}
+      .remark-slide-content p, .remark-slide-content li {font-size:30px; margin: 20px 0;}
+      a:link {text-decoration: none;}
+      img{max-height: 100%;}
+      .quote_author {display: block; text-align: right;}
+      .source {font-size: 24px;}
+      .red {color:red;}
+      .green {color:green}
+      .blue {color:blue}
+      .gray {color:gray}
+      .lightgray {color:lightgray}
+      td, th {border: 1px solid black; font-size: 30px;}
+      table{border-collapse: collapse;}
+      .huge { font-size: 200% } 
+      .large { font-size: 140% } 
+      .small { font-size: 90% }
+      .tiny { font-size: 75% }
+    </style>
+  </head>
+  <body>
+
+<textarea id="source">
+
+class: center, middle
+
+## IMSE 440 
+## Applied Statistical Models in Engineering
+
+<br/>
+
+## Linear regression
+
+[ISLR book](https://www.statlearning.com): Chapter 3.1
+
+---
+
+```
+import pandas as pd
+df = pd.read_csv('./data/advertising.csv')
+```
+
+.center[![:scale 50%](images/advertising.png)]
+
+---
+
+```
+import matplotlib.pyplot as plt
+plt.scatter(x='TV', y='sales', data=df)
+```
+
+.center[![:scale 100%](images/tv_sales.png)]
+
+
+
+---
+# Questions we may ask
+
+- .red[Is there a relationship] between advertising budget (TV, radio, and newspaper) and the sales?
+--
+
+- If yes, .red[how strong] is the relationship?
+--
+
+- Is the relationship .red[linear]?
+--
+
+- .red[How accurately] can we estimate the effect of each medium on sales?
+--
+
+- Given the budget, how accurately can we .red[predict future] sales?
+--
+
+- Is there .red[synergy] among the media?
+
+
+
+---
+
+# [Linear regression](https://en.wikipedia.org/wiki/Linear_regression)
+
+Study the relationship between two or more variables.
+
+$$\text{sales} = a + b \cdot \text{TV}$$
+
+--
+
+.green[Independent variables] ($x$): 
+
+Input variables, also called .green[predictors] or .green[features].
+
+--
+
+.red[Dependent variable] ($y$):
+
+Output variable, also called .red[target] or .red[response].
+
+--
+
+$$\text{sales} = \beta_0 + \beta_1 \cdot \text{TV} + \beta_2 \cdot \text{radio} + \beta_3 \cdot \text{newspaper}$$
+
+---
+
+# [Simple linear regression](https://en.wikipedia.org/wiki/Simple_linear_regression)
+
+The model takes the form
+
+$$\require{color}\colorbox{yellow}{$Y= \beta_0 + \beta_1 \cdot x + \epsilon$}$$
+
+$$\text{where }\; \epsilon \sim \text{N}(0, \sigma^2)$$
+
+--
+
+$x$ is any given input to the model. 
+
+--
+
+$\epsilon$ is the error term. 
+
+- modeled as a [normally-distributed](https://probstats.org/normal.html) random variable
+
+--
+
+$\beta_0$ and $\beta_1$ are unknown parameters in the model.
+
+--
+
+.red[Question: Is $Y$ a random variable?]
+
+---
+$$\require{color}\colorbox{yellow}{$Y= \beta_0 + \beta_1 \cdot x + \epsilon$}$$
+
+$$\text{where }\; \epsilon \sim \text{N}(0, \sigma^2)$$
+
+- What is the .red[expected value] of $Y$?
+
+- What is the .red[variance] of $Y$?
+
+- What .red[distribution] does $Y$ follow?
+
+
+---
+
+$$Y= \beta_0 + \beta_1 \cdot x + \epsilon$$
+
+$$\text{where }\; \epsilon \sim \text{N}(0, \sigma^2)$$
+
+$$Y \sim \text{N}(\beta_0 + \beta_1 x, \sigma^2)$$
+
+$\beta_0$: .red[intercept]: expected value of $Y$ when $x=0$.
+
+
+--
+<br><br>
+$\beta_1$: .red[slope]: expected change of $Y$ per unit change of $x$.
+
+
+---
+# Visualizing $\beta_0$ and $\beta_1$
+
+.center[![:scale 65%](images/xyplane.jpg)]
+
+---
+# Estimate the parameters from data
+
+$$\text{E}[\text{sales}] = \beta_0 + \beta_1 \cdot \text{TV}$$
+
+.center[![:scale 85%](images/tv_sales.png)]
+
+
+---
+What would be our "best" estimates of $\beta_0$ and $\beta_1$?
+
+(What it the model that .green[fits the data the best]?)
+
+.center[![:scale 60%](images/xyplane.jpg)]
+
+--
+
+$$e_i=y_i-\hat{y}_i=y_i-(\beta_0+\beta_1x_i), \; i=1, 2, \cdots, n.$$
+
+
+---
+
+Can we use the sum of the residuals as a measure?
+
+$$e_1+e_2+\cdots+e_n$$
+
+--
+
+Bad idea, as the positive and negative residuals would cancel each other out. 
+
+--
+
+We square the residuals before summing them up. 
+
+$$\begin{aligned}
+\text{RSS}&=e\_1^2+e\_2^2+\cdots+e\_n^2 \\\
+\\\
+&=\sum\_{i=1}^n e\_i^2 =\sum\_{i=1}^n \big[y\_i-(\beta\_0+\beta\_1 x\_i)\big]^2 \\\
+\end{aligned}
+$$
+
+It is called the [Residual Sum of Squares (RSS)](https://en.wikipedia.org/wiki/Residual_sum_of_squares).
+
+
+---
+
+We choose $\beta_0$ and $\beta_1$ such that the RSS is minimized. 
+
+$$ \min\_{\beta\_0, \beta\_1}f(\beta\_0, \beta\_1)=\text{RSS}= \sum\_{i=1}^n \big[y\_i - (\beta\_0 + \beta\_1 x\_i)\big]^2 $$
+
+This method is called .red[Ordinary Least Squares (OLS)]
+
+
+---
+# Ordinary Least Squares (OLS)
+
+
+$$ \min_{\beta_0, \beta_1}f(\beta_0, \beta_1)=\sum\big[y_i - (\beta_0 + \beta_1x_i)\big]^2 $$
+
+--
+
+
+Take partial derivatives w.r.t. $\beta_0$ and $\beta_1$, set them to 0.
+
+$$\begin{aligned}
+\frac{\partial f(\beta_0, \beta_1)}{\partial \beta_0} &= -\sum2\big[y_i - (\beta_0 + \beta_1x_i)\big]=0 \\\
+\\\
+\frac{\partial f(\beta_0, \beta_1)}{\partial \beta_1} &= -\sum2\big[y_i - (\beta_0 + \beta_1x_i)\big]x_i=0
+\end{aligned}
+$$
+
+--
+
+Then use linear algebra to solve for $\beta_0$ and $\beta_1$.
+
+---
+
+# Calculus refresher
+
+$$\begin{aligned}
+\frac{d}{dx}\(c)&=0 \\\
+\\\
+\frac{d}{dx}\(kx)&=k \\\
+\\\
+\frac{d}{dx}\big(x^2\big)&=2x
+\end{aligned}
+$$
+
+The chain rule:
+
+$$\frac{d}{dx}\bigg(f\big(g(x)\big)\bigg)=f'\big(g(x)\big)\cdot g'(x)$$
+
+
+---
+# OLS solution
+
+<br>
+
+$$
+\large{
+\begin{aligned}
+\hat{\beta}\_1&=\frac{n\sum{x\_i y\_i}-\sum{x\_i}\sum{y\_i}}{n\sum{x\_i^2}-(\sum{x\_i})^2} \\\
+\\\
+&=\frac{\sum{(x\_i-\bar{x})(y\_i-\bar{y})}}{\sum{(x\_i-\bar{x})^2}} =\frac{S\_{xy}}{S\_{xx}} \\\
+\\\
+\hat{\beta}\_0&=\bar{y}-\bar{x}\hat{\beta}\_1 \\\
+\end{aligned}
+}
+$$
+
+
+---
+# Visualizing the OLS method
+
+$$\small{\min_{\beta_0, \beta_1}f(\beta_0, \beta_1)=\sum\big[y_i - (\beta_0 + \beta_1x_i)\big]^2}$$
+
+<br>
+.center[![:scale 100%](images/RSS_curve.png)]
+
+
+---
+# Visualizing the OLS method
+
+<br><br>
+
+<https://seeing-theory.brown.edu/regression-analysis/>
+
+
+
+<!-- ========================================================================================== -->
+
+</textarea>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_HTML&delayStartupUntil=configured" type="text/javascript"></script>
+<script src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<script>
+remark.macros.scale = function (percentage) {
+  var url = this;
+  return '<img src="' + url + '" style="width: ' + percentage + '" />';
+};
+
+var slideshow = remark.create({
+  countIncrementalSlides: false,
+  highlightLanguage: 'python',
+  highlightStyle: 'magula', 
+  highlightSpans: true,
+  highlightLines: true,
+});
+
+      // Setup MathJax
+      MathJax.Hub.Config({
+          tex2jax: {
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'], 
+          inlineMath: [['$','$'], ['$','$']]
+          },
+          "HTML-CSS": { scale: 90, linebreaks: { automatic: true } }   // change default font size
+      });
+
+      MathJax.Hub.Configured();
+
+</script>
+
+
+</body>
+</html>
