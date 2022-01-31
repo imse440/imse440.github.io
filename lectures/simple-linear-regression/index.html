@@ -76,13 +76,13 @@ plt.scatter(x='TV', y='sales', data=df)
 - Is the relationship .red[linear]?
 --
 
-- .red[How accurately] can we estimate the effect of each medium on sales?
+- .red[How accurately] can we estimate the effect of each channel on sales?
 --
 
-- Given the budget, how accurately can we .red[predict future] sales?
+- Given the budget, how accurately can we .red[predict] future sales?
 --
 
-- Is there .red[synergy] among the media?
+- Is there [synergy](https://en.wikipedia.org/wiki/Synergy) effect among the media?
 
 
 
@@ -92,7 +92,7 @@ plt.scatter(x='TV', y='sales', data=df)
 
 Study the relationship between two or more variables.
 
-$$\text{sales} = a + b \cdot \text{TV}$$
+$$\text{sales} = f(\text{TV}) = a + b \cdot \text{TV}$$
 
 --
 
@@ -104,11 +104,16 @@ Input variables, also called .green[predictors] or .green[features].
 
 .red[Dependent variable] ($y$):
 
-Output variable, also called .red[target] or .red[response].
+Output variable, also called .red[response] or .red[target].
 
 --
 
-$$\text{sales} = \beta_0 + \beta_1 \cdot \text{TV} + \beta_2 \cdot \text{radio} + \beta_3 \cdot \text{newspaper}$$
+$$
+\begin{aligned}
+\text{sales} &= f(\text{TV}, \text{radio}, \text{newspaper}) \\\
+&= \beta_0 + \beta_1 \cdot \text{TV} + \beta_2 \cdot \text{radio} + \beta_3 \cdot \text{newspaper} \\\
+\end{aligned}
+$$
 
 ---
 
@@ -217,23 +222,37 @@ It is called the [Residual Sum of Squares (RSS)](https://en.wikipedia.org/wiki/R
 
 ---
 
+Given $n$ pairs of data
+
+$$(x_1, y_1), (x_2, y_2), \cdots, (x_n, y_n)$$
+
 We choose $\beta_0$ and $\beta_1$ such that the RSS is minimized. 
 
 $$ \min\_{\beta\_0, \beta\_1}f(\beta\_0, \beta\_1)=\text{RSS}= \sum\_{i=1}^n \big[y\_i - (\beta\_0 + \beta\_1 x\_i)\big]^2 $$
 
-This method is called .red[Ordinary Least Squares (OLS)]
+This method is called [Ordinary Least Squares (OLS)](https://en.wikipedia.org/wiki/Ordinary_least_squares).
 
 
 ---
 # Ordinary Least Squares (OLS)
 
 
-$$ \min_{\beta_0, \beta_1}f(\beta_0, \beta_1)=\sum\big[y_i - (\beta_0 + \beta_1x_i)\big]^2 $$
+$$ \min\_{\beta\_0, \beta\_1}f(\beta\_0, \beta\_1)=\sum\_{i=1}^n \big[y\_i - (\beta\_0 + \beta\_1x\_i)\big]^2 $$
 
 --
 
 
 Take partial derivatives w.r.t. $\beta_0$ and $\beta_1$, set them to 0.
+
+$$\begin{aligned}
+\frac{\partial f(\beta_0, \beta_1)}{\partial \beta_0} &=0 \\\
+\\\
+\frac{\partial f(\beta_0, \beta_1)}{\partial \beta_1} & =0
+\end{aligned}
+$$
+
+
+???
 
 $$\begin{aligned}
 \frac{\partial f(\beta_0, \beta_1)}{\partial \beta_0} &= -\sum2\big[y_i - (\beta_0 + \beta_1x_i)\big]=0 \\\
@@ -281,9 +300,26 @@ $$
 }
 $$
 
+---
+
+<!-- Given $n$ pairs of data -->
+
+$$(x_1, y_1), (x_2, y_2), \cdots, (x_n, y_n)$$
+
+[Sample covariance](https://en.wikipedia.org/wiki/Covariance#Calculating_the_sample_covariance):
+
+$$\text{cov}(x, y)=\frac{\sum{(x\_i-\bar{x})(y\_i-\bar{y})}}{n-1}$$
+
+[Sample variance](https://imse317.github.io/lectures/chap-1/measure-of-variability):
+
+$$\text{var}(x)=\frac{\sum{(x\_i-\bar{x})^2}}{n-1}$$
+
+OLS slope estimate:
+
+$$\hat{\beta}\_1 = \frac{\sum{(x\_i-\bar{x})(y\_i-\bar{y})}}{\sum{(x\_i-\bar{x})^2}} =\frac{\text{cov}(x, y)}{\text{var}(x)}$$
 
 ---
-# Visualizing the OLS method
+# Visualizing OLS
 
 $$\small{\min_{\beta_0, \beta_1}f(\beta_0, \beta_1)=\sum\big[y_i - (\beta_0 + \beta_1x_i)\big]^2}$$
 
@@ -292,13 +328,22 @@ $$\small{\min_{\beta_0, \beta_1}f(\beta_0, \beta_1)=\sum\big[y_i - (\beta_0 + \b
 
 
 ---
-# Visualizing the OLS method
+# Visualizing OLS
 
 <br><br>
 
 <https://seeing-theory.brown.edu/regression-analysis/>
 
+---
+# Resources on probability and statistics
 
+<br>
+
+.large[.center[<https://imse317.github.io/>]]
+
+<br>
+
+.large[.center[<https://probstats.org/>]]
 
 <!-- ========================================================================================== -->
 
