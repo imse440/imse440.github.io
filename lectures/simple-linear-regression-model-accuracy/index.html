@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>IMSE 440 - Assessing model accuracy</title>
+    <meta charset="utf-8">
+    <style>
+      @import url(https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap);
+      @import url(https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap);
+      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+      body {font-family: 'Roboto'; font-weight: bold; line-height: 1.4;}
+      .remark-code, .remark-inline-code {font-family: 'Ubuntu Mono'; font-size: 20pt;}
+      .remark-slide-content h1 {font-size: 40px; text-align: center;}
+      .remark-slide-content p, .remark-slide-content li {font-size:30px; margin: 20px 0;}
+      a:link {text-decoration: none;}
+      img{max-height: 100%;}
+      .quote_author {display: block; text-align: right;}
+      .source {font-size: 24px;}
+      .red {color:red;}
+      .green {color:green}
+      .blue {color:blue}
+      .gray {color:gray}
+      .lightgray {color:lightgray}
+      td, th {border: 1px solid black; font-size: 30px;}
+      table{border-collapse: collapse;}
+      .huge { font-size: 200% } 
+      .large { font-size: 140% } 
+      .small { font-size: 90% }
+      .tiny { font-size: 60% }
+    </style>
+  </head>
+  <body>
+
+<textarea id="source">
+
+class: center, middle
+
+## IMSE 440 
+## Applied Statistical Models in Engineering
+
+<br/>
+
+## Simple linear regression
+
+## Assessing model accuracy
+
+[ISLR book](https://www.statlearning.com): Chapter 3.1.3
+
+---
+# Assessing the accuracy of the model
+
+If the $H_0$ is rejected, meaning there is a significant relationship between $x$ and $y$,
+
+--
+
+we want to see .red[how strong is this relationship]. 
+
+--
+
+.center[How?]
+
+--
+
+Look at the extent to which the model fits the data.
+
+--
+
+.center[
+![:scale 38%](images/xyplane_1.jpg)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+![:scale 38%](images/xyplane_2.png)
+]
+
+---
+
+.center[
+![:scale 40%](images/xyplane_1.jpg)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+![:scale 40%](images/xyplane_2.png)
+]
+
+How about using the "average amount of errors"  ?
+
+$$\text{RSE}=\sqrt{\frac{e_1^2+e_2^2+\cdots+e_n^2}{n-2}}=\sqrt{\frac{\text{RSS}}{n-2}}$$
+
+--
+
+RSE provides an absolute measure of model accuracy.
+
+---
+
+$$\text{RSE}=\sqrt{\frac{e_1^2+e_2^2+\cdots+e_n^2}{n-2}}=\sqrt{\frac{\text{RSS}}{n-2}}$$
+
+In the advertising example, "sales ~ TV"
+
+```
+RSE = 3.26
+```
+
+--
+
+Interpretation
+
+The actual sales in each market deviate from the model prediction by an average of 3,260 unit. 
+
+--
+
+<br>
+
+It is not always clear what constitutes a "good" RSE.
+
+---
+
+# Residual Sum of Squares
+
+$$
+\small{
+\begin{aligned}
+&\text{RSS}=e_1^2+e_2^2+\cdots+e_n^2 \\\
+\\\
+&\text{where $e_i=y_i-\hat{y}_i$} \\\
+\end{aligned}
+}
+$$
+
+For a simple linear regression model, &nbsp;
+$\small{\hat{y}_i=\hat{\beta}_0+\hat{\beta}_1x_i}$
+
+.center[![:scale 30%](images/xyplane_1.jpg)]
+
+--
+
+RSS measures the total amount of variability that is .red[left unexplained] after fitting the model. 
+
+---
+# Total Sum of Squares
+
+$$
+\small{
+\begin{aligned}
+&\text{TSS}=(y_1-\bar{y})^2+(y_2-\bar{y})^2+\cdots+(y_n-\bar{y})^2 \\\
+\\\
+&\text{where $\bar{y}=\frac{1}{n}\sum y_i$} \\\
+\end{aligned}
+}
+$$
+
+.center[![:scale 30%](images/xyplane_1.jpg)]
+
+--
+
+TSS measures the total amount of variability that is .red[inherent in the response $Y$] before fitting a model.
+
+---
+# Total Sum of Squares
+
+$$
+\small{
+\begin{aligned}
+&\text{TSS}=(y_1-\bar{y})^2+(y_2-\bar{y})^2+\cdots+(y_n-\bar{y})^2 \\\
+\\\
+&\text{where $\bar{y}=\frac{1}{n}\sum y_i$} \\\
+\end{aligned}
+}
+$$
+
+Note to calculate TSS we only need the data about $y$.
+
+TSS has nothing to do with what model is used.
+
+---
+
+$$R^2=\frac{\text{TSS}-\text{RSS}}{\text{TSS}}=1-\frac{\text{RSS}}{\text{TSS}}$$
+
+--
+
+$R^2$ measures the .red[proportion] of variability in $Y$ that is explained by the model.
+
+--
+
+In the advertising example, "sales ~ TV"
+
+```
+R2 = 0.612
+```
+
+--
+
+Interpretation
+
+61.2% of the variability in the sales is explained by a linear regression on TV budget.
+
+
+---
+
+.center[![:scale 80%](images/R2_visual_1.jpg)]
+
+--
+
+.center[![:scale 40%](images/R2_visual_2.jpg)]
+
+
+.gray[.tiny[[Image source](https://twitter.com/TedPetrou/status/1205897381356683264)]]
+
+---
+
+
+$$R^2=1-\frac{\text{RSS}}{\text{TSS}}$$
+
+Property: 
+
+$$R^2 \leq 1$$
+
+--
+If a model is accurate, the RSS will be much smaller compared to TSS, $R^2$ will be close to 1. 
+
+
+---
+
+$$R^2=1-\frac{\text{RSS}}{\text{TSS}}$$
+
+$$
+\begin{aligned}
+\text{where } \text{RSS}&=\sum (y_i - \hat{y}_i)^2 \\\
+\text{and } \text{TSS}&=\sum (y_i - \bar{y})^2 \\\
+\end{aligned}
+$$
+
+The TSS can be considered as a special case of RSS when a "mean model" is used.
+
+$$\hat{y}_i=\bar{y}$$
+
+.center[![:scale 30%](images/xyplane_1.jpg)]
+
+---
+
+$$R^2=1-\frac{\text{RSS}}{\text{TSS}}$$
+
+$$
+\begin{aligned}
+\text{where } \text{RSS}&=\sum (y_i - \hat{y}_i)^2 \\\
+\text{and } \text{TSS}&=\sum (y_i - \bar{y})^2 \\\
+\end{aligned}
+$$
+
+The definition of $R^2$ does not rely on the form of the model (e.g., linear regression). 
+
+--
+
+<br>
+
+In an OLS linear regression, we minimize RSS.
+
+$$\text{thus, }\text{RSS} \leq \text{TSS}$$
+
+$$\text{thus, }0 \leq R^2 \leq 1$$
+
+
+---
+
+$$R^2=1-\frac{\text{RSS}}{\text{TSS}}$$
+
+However, in theory, $R^2 \leq 0$ does not always hold.
+
+<br>
+.center[
+![:scale 40%](images/xyplane_1.jpg)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+![:scale 40%](images/xyplane_1.jpg)
+]
+
+
+--
+
+In practice, we can always fall back to a "mean model" which has $R^2=0$.
+
+
+<!-- ========================================================================================== -->
+
+</textarea>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_HTML&delayStartupUntil=configured" type="text/javascript"></script>
+<script src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<script>
+remark.macros.scale = function (percentage) {
+  var url = this;
+  return '<img src="' + url + '" style="width: ' + percentage + '" />';
+};
+
+var slideshow = remark.create({
+  countIncrementalSlides: false,
+  highlightLanguage: 'python',
+  highlightStyle: 'magula', 
+  highlightSpans: true,
+  highlightLines: true,
+});
+
+      // Setup MathJax
+      MathJax.Hub.Config({
+          tex2jax: {
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'], 
+          inlineMath: [['$','$'], ['$','$']]
+          },
+          "HTML-CSS": { scale: 90, linebreaks: { automatic: true } }   // change default font size
+      });
+
+      MathJax.Hub.Configured();
+
+</script>
+
+
+</body>
+</html>
