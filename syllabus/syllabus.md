@@ -120,6 +120,9 @@ See the [Project Guidelines](../project) for details.
 
 There is one midterm exam, which is scheduled on **Monday, March 28** during the lecture time (11:00 AM - 12:15 PM).
 
+The exam is pen-and-paper based and will focus on the theoretical concepts and methods that we covered during the lectures using the whiteboard, slides, and Jupyter notebook non-coding notes. 
+There will be *no* coding related questions.
+
 **Formats**
 
 - Closed book, closed notes.
