@@ -275,6 +275,82 @@ However, in theory, $R^2 \leq 0$ does not always hold.
 In practice, we can always fall back to a "mean model" which has $R^2=0$.
 
 
+---
+<!-- # Correlation -->
+
+Population covariance and correlation (coefficient)
+
+$$\small{
+  \begin{aligned}
+  \text{cov}(X, Y)&=\text{E}\big[\big(X-\text{E}[X]\big)\big(Y-\text{E}[Y]\big)\big] \\\
+  \\\
+  \rho&=\frac{\text{cov}(X, Y)}{\sqrt{\text{var}(X) \text{var}(Y)}} \\\
+  \end{aligned}
+}
+$$
+
+--
+Sample covariance and correlation (coefficient)
+
+$$\small{
+  \begin{aligned}
+  \text{cov}(x, y)&=\frac{\sum(x\_i-\bar{x})(y\_i-\bar{y})}{n-1}=\frac{S\_{xy}}{n-1} \\\
+  \\\
+  r&=\frac{\sum(x\_i-\bar{x})(y\_i-\bar{y})}{\sqrt{\sum(x\_i-\bar{x})^2\sum(y\_i-\bar{y})^2}}=\frac{S\_{xy}}{\sqrt{S\_{xx}S\_{yy}}} \\\
+  \end{aligned}
+}
+$$
+
+---
+
+$$\small{r=\frac{\sum(x\_i-\bar{x})(y\_i-\bar{y})}{\sqrt{\sum(x\_i-\bar{x})^2\sum(y\_i-\bar{y})^2}}=\frac{S\_{xy}}{\sqrt{S\_{xx}S\_{yy}}}}$$
+
+$r$ measures the .red[linear relationship] between $x$ and $y$.
+
+<br>
+
+--
+
+
+
+
+![:scale 100%](https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Correlation_examples2.svg/1000px-Correlation_examples2.svg.png)
+
+---
+
+$$\small{r=\frac{\sum(x\_i-\bar{x})(y\_i-\bar{y})}{\sqrt{\sum(x\_i-\bar{x})^2\sum(y\_i-\bar{y})^2}}=\frac{S\_{xy}}{\sqrt{S\_{xx}S\_{yy}}}}$$
+
+<!-- ![:scale 100%](./images/Correlation_examples_1.png) -->
+
+Can we use $r$ to assess the accuracy of a fitted OLS simple linear regression model?
+
+--
+
+<br>
+
+Yes, In fact, for OLS simple linear regression, we have
+
+$$R^2=r^2$$
+
+
+---
+
+$x$: ice cream sales 🍦
+
+$y$: number of people drowning in swimming pool 🏊
+
+--
+
+Are $x$ and $y$ correlated?
+
+--
+
+<br><br><br>
+
+# .red[Correlation does not equal causation.]
+
+
+
 <!-- ========================================================================================== -->
 
 </textarea>
