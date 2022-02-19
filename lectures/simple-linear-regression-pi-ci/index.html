@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>IMSE 440 - Assessing model accuracy</title>
+    <meta charset="utf-8">
+    <style>
+      @import url(https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap);
+      @import url(https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap);
+      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+      body {font-family: 'Roboto'; font-weight: bold; line-height: 1.4;}
+      .remark-code, .remark-inline-code {font-family: 'Ubuntu Mono'; font-size: 20pt;}
+      .remark-slide-content h1 {font-size: 40px; text-align: center;}
+      .remark-slide-content p, .remark-slide-content li {font-size:30px; margin: 20px 0;}
+      a:link {text-decoration: none;}
+      img{max-height: 100%;}
+      .quote_author {display: block; text-align: right;}
+      .source {font-size: 24px;}
+      .red {color:red;}
+      .green {color:green}
+      .blue {color:blue}
+      .gray {color:gray}
+      .lightgray {color:lightgray}
+      td, th {border: 1px solid black; font-size: 30px;}
+      table{border-collapse: collapse;}
+      .huge { font-size: 200% } 
+      .large { font-size: 140% } 
+      .small { font-size: 90% }
+      .tiny { font-size: 60% }
+    </style>
+  </head>
+  <body>
+
+<textarea id="source">
+
+class: center, middle
+
+## IMSE 440 
+## Applied Statistical Models in Engineering
+
+<br/>
+
+## Simple linear regression
+
+## Confidence & prediction intervals
+
+[ISLR book](https://www.statlearning.com): Chapter 3.2.2
+
+---
+# Why do we develop statistical models?
+
+- Make inferences
+
+  - Is there a relationship? 
+  - How strong is the relationship?
+  - Which variable(s) are of most importance?
+  - Is there synergy among variables?
+
+--
+
+- Make predictions
+
+  - What is the predicted sales in a new market if we spend 150 in TV ads?
+  - How confident are we with the predictions?
+
+---
+
+# Making predictions
+
+Once we developed a model (i.e., estimated the model parameter from data), we can make predictions with 
+
+$$\hat{y}=\hat{\beta}_0+\hat{\beta}_1x^*$$
+
+$$\text{where $x^*$ is any given value.}$$
+
+.center[![:scale 40%](./images/xyplane_1.png)]
+
+---
+
+# How confident are we w/ the predictions?
+
+$$\small{
+  \begin{aligned}
+    \hat{y}&=\hat{\beta}\_0+\hat{\beta}\_1 x^\* \\\
+    \\\
+    \hat{Y}_{mean}&=\hat{B}\_0+\hat{B}_1 x^\* \\\
+  \end{aligned}
+  }
+  $$
+
+--
+
+Previously, we showed the sample .red[slope] estimator
+
+$$\small{
+\begin{aligned}
+  \hat{B}\_1&=\frac{\sum (x\_i-\bar{x})Y\_i}{S\_{xx}} \\\
+  \hat{B}\_1&\sim \text{N}(\beta\_1, \frac{\sigma^2}{S\_{xx}})
+\end{aligned}
+}
+$$
+
+The sample .green[intercept] estimator
+
+$$\small{\hat{B}_0}=\bar{Y}-\bar{x}\hat{B}_1$$
+
+
+---
+
+$$\small{\hat{B}_0}=\bar{Y}-\bar{x}\hat{B}_1$$
+
+$$\small{\text{E}[\hat{B}_0]=?\;\;\;\;\text{var}(\hat{B}_0)=?}$$
+
+---
+$$\small{\hat{Y}_{mean}=\hat{B}\_0+\hat{B}_1 x^\*}$$
+
+---
+# CI for the mean response at $x=x^*$
+
+
+$$\small{
+  \begin{aligned}
+  \\\
+  \hat{Y}\_{mean}&=\hat{B}\_0+\hat{B}\_1 x^\* \\\
+  \\\
+  \text{E}\big[\hat{Y}\_{mean}\big]&=\beta\_0+\beta\_1 x^* \\\
+  \\\
+  \text{SE}\big(\hat{Y}\_{mean}\big)&\approx\text{RSE}\sqrt{\frac{1}{n}+\frac{(x-\bar{x})^2}{S\_{xx}}} \\\
+  \end{aligned}
+}$$
+
+--
+
+The CI for the mean response at $x=x^*$ is
+
+$$\small{\hat{\beta}\_0+\hat{\beta}\_1 x^* \pm t\_{\frac{\alpha}{2}, n-2}\cdot}\text{SE}\big(\hat{Y}\_{mean}\big)$$
+
+<!-- Let's construct a CI for $\small{\hat{Y}_{mean}=\hat{B}\_0+\hat{B}_1 x^\*}$ -->
+
+<!-- $$\small{\text{E}\big[\hat{Y}\_{mean}\big]=?\;\;\;\;\text{var}\big(\hat{Y}\_{mean}\big)=?}$$ -->
+
+
+
+
+
+<!-- ========================================================================================== -->
+
+</textarea>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_HTML&delayStartupUntil=configured" type="text/javascript"></script>
+<script src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<script>
+remark.macros.scale = function (percentage) {
+  var url = this;
+  return '<img src="' + url + '" style="width: ' + percentage + '" />';
+};
+
+var slideshow = remark.create({
+  countIncrementalSlides: false,
+  highlightLanguage: 'python',
+  highlightStyle: 'magula', 
+  highlightSpans: true,
+  highlightLines: true,
+});
+
+      // Setup MathJax
+      MathJax.Hub.Config({
+          tex2jax: {
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'], 
+          inlineMath: [['$','$'], ['$','$']]
+          },
+          "HTML-CSS": { scale: 90, linebreaks: { automatic: true } }   // change default font size
+      });
+
+      MathJax.Hub.Configured();
+
+</script>
+
+
+</body>
+</html>
