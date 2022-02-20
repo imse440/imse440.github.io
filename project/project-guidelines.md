@@ -28,24 +28,28 @@ Throughout the second half of the semester, there will be four submissions: a pr
 
 - You are required to submit a project proposal (in PDF). 
 The goal of the proposal is to make sure you select a topic and data set(s) that are suitable for the project and you are on the right track.
-- The proposal should be no more than two pages. It should include the following
-    - Project tentative title
-    - Background: A brief description of the background of the problem
-    - Research question(s): What do you want to figure out?
-    - Literature review: What has been done by others? Report on at least two relevant references.
-    - Data set(s): Briefly describe the data set(s) you plan to use.
+- The proposal should be about two pages. It should include the following
+    - **Project tentative title**
+    - **Background**: A brief description of the background of the problem
+    - **Research questions**: What do you want to figure out?
+    - **Literature review**: What has been done by others regarding the research questions? Report on at least two relevant references.
+    - **Data set(s)**: Briefly describe the data set(s) you plan to use.
         Include the URLs to access the data. 
+        Typically a single data set is sufficient for this project.
         It is recommended to use publicly-available data.
-    - Method description: what are the technical plans on how the research questions will be answered 
+        See the Data Sources section below (near the bottom of this document) for starting places to look for data. 
+    - **Method description**: what are the technical plans on how the research questions will be answered 
         (e.g., how you plan to analyze the data? what modeling work to conduct? 
         how to address the research questions based on the results?)
-    - A brief description of what you have done so far.
+        Note I understand that we have not covered some of the modeling methods. See the [scheduled course topics](../) for more information. Describe your methods as best as you can.   
+    - (Optional) A brief description of what you have done so far.
 - Your proposal may serve as part of your final report later on.
 - If for any reason you are considering making major changes to your project topic and/or data sets after the proposal submission, consult with the instructor as early as possible.
 
-Note as we discussed in the lectures, regression models are suited for [cross-sectional data](https://en.wikipedia.org/wiki/Cross-sectional_data). 
-These data are what you should be using for your project.
-Do not select [time-series data](https://en.wikipedia.org/wiki/Time_series), as the independence assumption in regression models is likely violated. 
+Note regression models are mostly suited for [cross-sectional data](https://en.wikipedia.org/wiki/Cross-sectional_data). 
+Think of the data sets we used in the lectures and homework. 
+Cross-sectional data are what you should use for your project.
+Do *not* use [time-series data](https://en.wikipedia.org/wiki/Time_series) (.e.g, outdoor temperature by dates), as the independence assumption in regression models is likely violated (e.g., today's temperature is highly correlated with (thus not independent to) yesterday's temperature.) 
 
 ### Proposal grading rubric
 
