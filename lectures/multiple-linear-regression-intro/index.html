@@ -71,7 +71,7 @@ class: center, middle
 ## IMSE 440
 ## Applied Statistical Models in Engineering
 <br>
-## Multiple linear regression
+## Multiple linear regression - Introduction
 
 ---
 
@@ -138,14 +138,17 @@ $\beta_j$: the slope associated with $x_j$ where $j=1, 2, \cdots, p$
 
 
 ---
+# Parameter estimation
 
-$$\small{\text{sales}=\beta_0+\beta_1\cdot\text{TV}+\beta_2\cdot\text{radio}+\beta_3\cdot\text{newspaper}+\epsilon}$$
+
+$$\text{sales}=\beta_0+\beta_1\cdot\text{TV}+\beta_2\cdot\text{radio}+\beta_3\cdot\text{newspaper}+\epsilon$$
 
 How do we estimate the model parameters?
 
-.center[![:scale 45%](./images/advertising.png)]
+.center[![:scale 40%](./images/advertising.png)]
 
 ---
+# Parameter estimation
 
 $$Y=\beta_0+\beta_1\cdot x_1+\beta_2\cdot x_2+\cdots+\beta_p\cdot x_p+\epsilon$$
 
@@ -156,11 +159,15 @@ $$y\_2, \;x\_{1, 2}, \;x\_{2, 2}, \;x\_{3, 2}, \cdots, \;x\_{p, 2}$$
 $$\cdots$$
 $$y\_n, \;x\_{1, n}, \;x\_{2, n}, \;x\_{3, n}, \cdots, \;x\_{p, n}$$
 
+--
+
+Most ideas in the .red[multiple] linear regression are natural extensions of the .green[simple] linear regression. 
+
 ---
 
 # Ordinary Least Squares (OLS)
 
-We choose the parameters such that the Residual Sum of Squares (RSS) is minimized.
+We choose the parameters ($\beta_0, \beta_1, \cdots, \beta_p$) such that the Residual Sum of Squares (RSS) is minimized.
 
 $$
 \begin{aligned}
@@ -173,14 +180,15 @@ $$
 
 --
 
-In practice, we rely on software (e.g., `statsmodels`) to calculate the estimates. 
+In practice, we rely on statistical software/libraries (e.g., `statsmodels`) to calculate the estimates. 
 
 ---
-# First question once we have the model
+First question:
+
+.red[Is the model useful at all in predicting the response?]
 
 $$Y=\beta_0+\beta_1\cdot x_1+\beta_2\cdot x_2+\cdots+\beta_p\cdot x_p+\epsilon$$
 
-.red[Is the model useful at all in predicting the response?]
 
 --
 
@@ -228,6 +236,201 @@ Equivalently, we reject $H\_0$ if $p\text{-value} < \alpha$.
 --
 
 The model utility test is often called F-test.
+
+---
+Next question: If we conclude that the model is useful, 
+.red[which subset of the predictors are useful?]
+
+$$H_0: \beta_j = 0, \;\;\;\;H_a: \\beta_j \neq 0$$
+
+<!-- $$
+\begin{aligned}
+&H_0: \beta_j = 0 \\\
+&H_a: \\beta_j \neq 0 \\\
+\end{aligned}
+$$ -->
+
+--
+
+$$\text{$t$-test:}\;\;\;\;\;\;\text{$t$-statistic}=\frac{\hat{\beta}_j}{\text{SE}\big(\hat{\beta}_j\big)}$$
+
+--
+
+We reject $H_0$ and state $x_j$ is a significant predictor if
+
+$$|\text{$t$-statistic}|>t_{\alpha/2, n-p-1} \;\;\;\;\text{or}\;\;\;\;p\text{-value} < \alpha$$
+
+
+--
+
+Confidence interval for each slope estimate $\hat{\beta}_j$
+
+$$\hat{\beta}\_j \pm t\_{\alpha/2, n-p-1} \cdot \text{SE}\big(\hat{\beta}\_j\big)$$
+
+
+---
+
+How accurate is the model?
+
+--
+
+.green[Average amount of errors]: Residual Standard Error
+
+$$\small{\text{Simple linear regression: }\;\;\;\;\text{RSE}=\sqrt{\frac{\text{RSS}}{n-2}}}$$
+
+--
+
+$$\small{\text{Multiple linear regression: }\;\;\;\;\text{RSE}=\sqrt{\frac{\text{RSS}}{n-p-1}}}$$
+
+--
+
+`"sales ~ TV"`
+
+```
+RSE = 3.259
+```
+
+--
+
+`"sales ~ TV + radio + newspaper"`
+
+```
+RSE = 1.686
+```
+
+---
+
+How accurate is the model?
+
+$R^2 \text{statistic}$ (also called .green[coefficient of determination])
+
+$$R^2=\frac{\text{TSS}-\text{RSS}}{\text{TSS}}=1-\frac{\text{RSS}}{\text{TSS}}$$
+
+--
+
+`"sales ~ TV"`
+
+```
+R2 = 0.612
+```
+
+--
+
+`"sales ~ TV + radio + newspaper"`
+
+```
+R2 = 0.897
+```
+
+---
+How to make a prediction?
+
+$$Y=\beta_0+\beta_1\cdot x_1+\beta_2\cdot x_2+\cdots+\beta_p\cdot x_p+\epsilon$$
+
+$$\text{where } \epsilon \sim \text{N}(0, \sigma^2)$$
+
+--
+
+True regression plane
+
+$$\text{E}[Y]=\beta_0+\beta_1\cdot x_1+\beta_2\cdot x_2+\cdots+\beta_p\cdot x_p$$
+
+--
+
+Lease squares plane (fitted model based on OLS)
+
+$$\hat{y}=\hat{\beta}_0+\hat{\beta}_1\cdot x_1+\hat{\beta}_2\cdot x_2+\cdots+\hat{\beta}_p\cdot x_p$$
+
+We use the $\hat{y}$ above to make a prediction.
+
+---
+How accurate is the prediction?
+
+Often times we want to build a confidence interval (CI) around the prediction (which is a single number) to reflect the prediction accuracy.
+
+--
+
+Confidence interval of the mean:
+
+It's a CI of the .red[average response for all observations] at $x_1=x_1^\*, x_2=x_2^\*, \cdots, x_p=x_p^*$
+
+$$\hat{Y}_{\text{mean}}=\hat{B}_0+\hat{B}_1\cdot x_1^\*+\hat{B}_2\cdot x_2^\*+\cdots+\hat{B}_p\cdot x_p^*$$
+
+--
+
+$$\small{\hat{\beta}\_0+\hat{\beta}\_1\cdot x\_1^\*+\hat{\beta}\_2\cdot x\_2^\*+\cdots+\hat{\beta}\_p\cdot x\_p^* \;\pm\; t\_{\frac{\alpha}{2}, n-p-1} \cdot \text{SE}\big(\hat{Y}_{\text{mean}}\big)}$$
+
+---
+<!-- How accurate is the prediction? -->
+
+Prediction interval (PI):
+
+It's a CI of .red[one particular, single observation] at $x_1=x_1^\*, x_2=x_2^\*, \cdots, x_p=x_p^*$
+
+$$
+  \begin{aligned}
+  \hat{Y}&=\hat{B}\_0+\hat{B}\_1\cdot x\_1^\*+\hat{B}\_2\cdot x\_2^\*+\cdots+\hat{B}\_p\cdot x\_p^*+\epsilon \\\
+  &=\hat{Y}\_{\text{mean}}+\epsilon \\\
+  \end{aligned}
+$$
+
+--
+
+$$\small{\hat{\beta}\_0+\hat{\beta}\_1\cdot x\_1^\*+\hat{\beta}\_2\cdot x\_2^\*+\cdots+\hat{\beta}\_p\cdot x\_p^* \;\pm\; t\_{\frac{\alpha}{2}, n-p-1} \cdot \text{SE}(\hat{Y})}$$
+
+--
+The formula to calculate $\text{SE}\big(\hat{Y}_{\text{mean}}\big)$ and $\text{SE}(\hat{Y})$ are complex in the multiple linear regression case. 
+
+In practice we can get the CI of the mean and PI from software (e.g., `statsmodels`).
+
+---
+Is there any "synergy" among the predictors?
+
+$$\text{sales}=\beta_0+\beta_1\cdot\text{TV}+\beta_2\cdot\text{radio}+\epsilon$$
+
+--
+
+$$\hat{\text{sales}}=2.9211+0.0458\cdot\text{TV}+0.1880\cdot\text{radio}$$
+
+A 1-unit increase in TV budget corresponds to an expected 0.0458 increase of the sales.
+
+--
+
+This is always the case .red[regardless of the radio budget].
+
+--
+
+In reality, however, the effectiveness of TV on sales .red[may depend on the level of the radio budget].
+
+E.g., maybe when the radio budget is high, the TV is more effective (i.e., 1-unit increase of TV corresponds to more sales increase). 
+
+---
+
+In marketing: synergy (effect)
+
+In statistics: interaction (effect)
+
+--
+
+How can we model the interaction effect?
+
+--
+
+$$\text{sales}=\beta_0+\beta_1\cdot\text{TV}+\beta_2\cdot\text{radio}\color{red}{+\beta_3\cdot\text{TV $\cdot$ radio}}+\epsilon$$
+
+<br>
+
+--
+The effect of TV on sales depends on radio. 
+
+--
+
+We can perform the same *t*-test to examine if the interaction effect is significant or not. 
+
+--
+
+.small[**Hierarchical principle**: if we include an interaction in a model, we should also include the main effects, even if the *p*-values associated with the main effects are not significant. ]
+
 
 
 <!-- ========================================================================================== -->
