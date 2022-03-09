@@ -21,8 +21,8 @@ As a rule of thumb, your project should be significantly more complex than the h
 Throughout the second half of the semester, there will be four submissions: a project proposal, two project presentations (in pre-recorded videos), and a final report.
 
 - **March 7 (Monday) at 6:11 PM**: Project proposal submission deadline
-- **April 11 (Monday) at 6:11 PM**: Video presentation submission deadline
-- **April 22 (Monday) at 6:11 PM**: (1) Final video presentation and (2) final report submission deadline
+- **April 18 (Monday) at 6:11 PM**: Video presentation submission deadline
+- **April 25 (Monday) at 6:11 PM**: (1) Final video presentation and (2) final report submission deadline
 
 ## Project proposal (10% of project grade)
 
