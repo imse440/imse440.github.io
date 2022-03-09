@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>IMSE 440 Lecture 15</title>
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jstat@latest/dist/jstat.min.js"></script> 
+    <meta charset="utf-8">
+    <style>
+      @import url(https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap);
+      @import url(https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap);
+      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+      body {font-family: 'Roboto'; font-weight: bold; line-height: 1.4;}
+      .remark-code, .remark-inline-code {font-family: 'Ubuntu Mono'; font-size: 20pt;}
+      .remark-slide-content h1 {font-size: 40px; text-align: center;}
+      .remark-slide-content p, .remark-slide-content li {font-size:30px; margin: 20px 0;}
+      a:link {text-decoration: none;}
+      img{max-height: 100%;}
+      .quote_author {display: block; text-align: right;}
+      .source {font-size: 24px;}
+      .red {color:red;}
+      .green {color:green}
+      .blue {color:blue}
+      .gray {color:gray}
+      .lightgray {color:lightgray}
+      td, th {border: 1px solid black; font-size: 30px;}
+      table{border-collapse: collapse;}
+      .huge { font-size: 200% } 
+      .large { font-size: 140% } 
+      .small { font-size: 90% }
+      .tiny { font-size: 60% }
+      circle {
+        opacity: 0.5;
+        r: 6;
+        }
+
+        .x-axis, .y-axis {
+        font-size: 12pt;
+        font-family: sans-serif;
+        }
+
+        .axis-label {
+            font-size: 14pt;
+            font-family: sans-serif;
+            color: red;
+        }
+
+        .formula {
+            font-size: 18pt;
+            font-family: sans-serif;
+        }
+
+
+        .regression {
+            stroke-width: 2px;
+            stroke:black;
+        }
+
+        #dropdown {
+            text-align: center;
+        }
+    </style>
+
+  </head>
+  <body>
+
+<textarea id="source">
+
+class: center, middle
+
+## IMSE 440
+## Applied Statistical Models in Engineering
+<br>
+
+## Multiple linear regression
+## Categorical predictors
+
+[ISLR book](https://www.statlearning.com): Chapter 3.3.1
+
+---
+# Categorical predictors
+
+.center[![:scale 90%](./images/credit.png)]
+
+--
+
+A binary dummy variable:
+
+$$
+\small{
+\text{student} = 
+\begin{cases}
+    1, & \text{if “Yes”,} \\\
+    0, & \text{if “No”.}
+\end{cases}
+}
+$$
+
+--
+
+The category that is set to zero is commonly referred to as the .red[baseline].
+
+--
+
+$$\small{\text{balance}=\beta_0+\beta_1\cdot\text{income}+\beta_2\cdot\text{student}+\epsilon}$$
+
+---
+
+$$
+\small{
+\begin{aligned}
+\text{balance}&=\beta_0+\beta_1\cdot\text{income}+\beta_2\cdot\text{student}+\epsilon \\\
+\\\
+\text{E[balance]}&=\beta_0+\beta_1\cdot\text{income}+\beta_2\cdot\text{student}
+\end{aligned}
+}
+$$
+
+--
+
+<br>
+
+$$
+\small{
+\begin{aligned}
+\color{gray}{\text{For non-students:}}\;\;\;\;\text{E[balance]}&=\beta_0+\beta_1\cdot\text{income}+\beta_2\cdot \color{red}{0} \\\
+\\\
+&=\beta_0+\beta_1\cdot\text{income} \\\
+\\\
+\color{gray}{\text{For students:}}\;\;\;\;\text{E[balance]}&=\beta_0+\beta_1\cdot\text{income}+\beta_2\cdot \color{red}{1} \\\
+\\\
+&=(\beta_0+\beta_2)+\beta_1\cdot\text{income} \\\
+\end{aligned}
+}
+$$
+
+--
+
+What are the interpretations of the model parameters?
+
+
+---
+
+What if the effect of income on balance is different for students vs. non-students?
+
+--
+
+$$
+\small{
+\begin{aligned}
+\text{balance}=\beta_0&+\beta_1\cdot\text{income} \\\
+&+\beta_2\cdot\text{student} \\\
+&+ \color{blue}{\beta_3\cdot\text{income $\cdot$ student}}+\epsilon \\\
+\end{aligned}
+}
+$$
+
+--
+
+$$
+\small{
+\begin{aligned}
+\color{gray}{\text{For non-students:}}\;\;\;\;\text{E[balance]}=\beta_0&+\beta_1\cdot\text{income} \\\
+&+\beta_2\cdot \color{red}{0} \\\
+&+ \beta_3\cdot\text{income $\cdot$} \color{red}{0} \\\
+=\beta_0&+\beta_1\cdot\text{income} \\\
+\\\
+\color{gray}{\text{For students:}}\;\;\;\;\text{E[balance]}=\beta_0&+\beta_1\cdot\text{income} \\\
+&+\beta_2\cdot \color{red}{1} \\\
+&+ \beta_3\cdot\text{income $\cdot$} \color{red}{1} \\\
+=\beta_0 &+ \beta_2+(\beta_1+\beta_3)\cdot\text{income} \\\
+\end{aligned}
+}
+$$
+
+---
+
+$$
+\small{
+\begin{aligned}
+\color{gray}{\text{For non-students:}}\;\;\;\;\text{E[balance]}=\beta_0&+\beta_1\cdot\text{income} \\\
+\\\
+\color{gray}{\text{For students:}}\;\;\;\;\text{E[balance]}=\beta_0 &+ \beta_2+(\beta_1+\beta_3)\cdot\text{income} \\\
+\end{aligned}
+}
+$$
+
+
+---
+# Categorical predictors with 3+ levels
+
+![:scale 100%](./images/credit.png)
+
+Ethnicity: African American, Asian, Caucasian
+
+--
+
+A dummy variable that takes 3 values? For example:
+
+$$
+\small{
+\text{ethnicity} = 
+\begin{cases}
+    0, & \text{if “African American”,} \\\
+    1, & \text{if “Asian”,} \\\
+    2, & \text{if “Caucasian”.} \\\
+\end{cases}
+}
+$$
+
+--
+
+$$\small{\text{balance}=\beta_0+\beta_1\cdot\text{income}+\beta_2\cdot\text{ethnicity}+\epsilon}$$
+
+---
+
+$$\small{\text{E[balance]}=\beta_0+\beta_1\cdot\text{income}+\beta_2\cdot\text{ethnicity}}$$
+
+
+
+--
+
+
+$$
+\small{
+\begin{aligned}
+\color{gray}{\text{For African American:}}\;\;\text{E[balance]}&=\beta_0+\beta_1\cdot\text{income}+\beta_2\cdot \color{red}{0} \\\
+\\\
+&=\beta_0+\beta_1\cdot\text{income} \\\
+\\\
+\color{gray}{\text{For Asian:}}\;\;\text{E[balance]}&=\beta_0+\beta_1\cdot\text{income}+\beta_2\cdot \color{red}{1} \\\
+\\\
+&=(\beta_0+\beta_2)+\beta_1\cdot\text{income} \\\
+\\\
+\color{gray}{\text{For Caucasian:}}\;\;\text{E[balance]}&=\beta_0+\beta_1\cdot\text{income}+\beta_2\cdot \color{red}{2} \\\
+\\\
+&=(\beta_0+2\beta_2)+\beta_1\cdot\text{income} \\\
+\end{aligned}
+}
+$$
+
+---
+A better way: using .red[two] binary dummy variables
+
+$$
+\small{
+\text{asian} = 
+\begin{cases}
+    1, & \text{if “Asian”,} \\\
+    0, & \text{otherwise.} \\\
+\end{cases}
+},\;\;\;
+\text{caucasian} = 
+\begin{cases}
+    1, & \text{if Caucasian,} \\\
+    0, & \text{otherwise.} \\\
+\end{cases}
+$$
+
+--
+
+$$\small{
+  \text{(asian, caucasian)}=
+  \begin{cases}
+  (1, 0), & \text{if “Asian”,} \\\
+  (0, 1), & \text{if “Caucasian”,} \\\
+  (0, 0), & \text{if “African American”.} \\\
+\end{cases}
+}$$
+
+--
+
+$$\small{\text{balance}=\beta_0+\beta_1\cdot\text{income}+\beta_2\cdot\text{asian}+\beta_3\cdot\text{caucasian}+\epsilon}$$
+
+---
+
+$$\small{\text{E[balance]}=\beta_0+\beta_1\cdot\text{income}+\beta_2\cdot\text{asian}+\beta_3\cdot\text{caucasian}}$$
+
+
+$$
+\small{
+\begin{aligned}
+\color{gray}{\text{For AA:}}\;\;
+\text{E[balance]}&=\beta_0+\beta_1\cdot\text{income}+\beta_2\cdot 0 +\beta_3\cdot 0 \\\
+&=\beta_0+\beta_1\cdot\text{income} \\\
+\\\
+\color{gray}{\text{For Asian:}}\;\;
+\text{E[balance]}&=\beta_0+\beta_1\cdot\text{income}+\beta_2\cdot 1 +\beta_3\cdot 0 \\\
+&=(\beta_0+\beta_2)+\beta_1\cdot\text{income} \\\
+\\\
+\color{gray}{\text{For Caucasian:}}\;\;
+\text{E[balance]}&=\beta_0+\beta_1\cdot\text{income}+\beta_2\cdot 0 +\beta_3\cdot 1 \\\
+&=(\beta_0+\beta_3)+\beta_1\cdot\text{income} \\\
+\\\
+\end{aligned}
+}
+$$
+
+---
+What if a categorical predictor has 4 levels (A, B, C, D) ?
+
+<br><br>
+
+--
+
+In general, we need .red[one fewer] dummy binary variables than the number of levels. 
+
+---
+# We can further add the interaction terms
+
+<br>
+
+$$\small{
+  \begin{aligned}
+  \text{balance}=\beta_0&+\beta_1\cdot\text{income}\\\
+  &+\beta_2\cdot\text{asian}\\\
+  &+\beta_3\cdot\text{caucasian} \\\
+  &+\beta_4\cdot\text{income}\cdot \text{asian}   \;\;\;\;\;\;\;\;\;\;\;\;\;\;\; \color{lightgray}{\rightarrow \text{2-way interaction}}\\\
+  &+\beta_5\cdot\text{income}\cdot \text{caucasian} \;\;\;\;\;\;\;\;\; \color{lightgray}{\rightarrow \text{2-way interaction}}\\\
+  &+\beta_6\cdot\text{income}\cdot \text{asian} \cdot \text{caucasian} \color{lightgray}{\rightarrow \text{3-way interaction}}\\\
+  &+\epsilon
+  \end{aligned}
+}
+$$
+
+
+
+<!-- ========================================================================================== -->
+
+</textarea>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_HTML&delayStartupUntil=configured" type="text/javascript"></script>
+<script src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<script>
+remark.macros.scale = function (percentage) {
+  var url = this;
+  return '<img src="' + url + '" style="width: ' + percentage + '" />';
+};
+
+var slideshow = remark.create({
+  countIncrementalSlides: false,
+  highlightLanguage: 'python',
+  highlightStyle: 'magula', 
+  highlightSpans: true,
+  highlightLines: true,
+});
+
+      // Setup MathJax
+      MathJax.Hub.Config({
+          tex2jax: {
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'], 
+          inlineMath: [['$','$'], ['$','$']]
+          },
+          "HTML-CSS": { scale: 90, linebreaks: { automatic: true } }   // change default font size
+      });
+
+      MathJax.Hub.Configured();
+
+</script>
+
+</body>
+</html>
