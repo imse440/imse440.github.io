@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>IMSE 440 - logistic regression</title>
+    <meta charset="utf-8">
+    <style>
+      @import url(https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap);
+      @import url(https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap);
+      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+      body {font-family: 'Roboto'; font-weight: bold; line-height: 1.4;}
+      .remark-code, .remark-inline-code {font-family: 'Ubuntu Mono'; font-size:26px;}
+      .remark-slide-content h1 {font-size: 40px; text-align: center;}
+      .remark-slide-content p, .remark-slide-content li {font-size:30px; margin: 20px 0;}
+      a:link {text-decoration: none;}
+      img{max-height: 100%;}
+      .quote_author {display: block; text-align: right;}
+      .source {font-size: 24px;}
+      .red {color:red;}
+      .green {color:green;}
+      .gray {color:gray}
+    </style>
+  </head>
+  <body>
+
+<textarea id="source">
+
+class: center, middle
+
+## IMSE 440
+## Applied Statistical Models in Engineering
+<br>
+
+## Logistic regression
+
+[ISLR book](https://www.statlearning.com): Chapter 4.3
+
+---
+# Will a credit card customer default?
+
+```
+import pandas as pd
+df = pd.read_csv('./data/default.csv')
+df.head()
+```
+
+.center[![:scale 70%](images/default_dataframe.png)]
+
+
+---
+
+$$\text{default_binary}=
+\begin{cases}
+    1, & \text{if } \text{default = Yes,} \\\
+    0, & \text{if } \text{default = No.}
+\end{cases}
+$$
+
+
+--
+
+```
+plt.scatter(x='balance', y='default_binary', data=df, 
+            s=200, alpha=.1)
+```
+
+<br>
+.center[![:scale 100%](images/default_scatter.png)]
+
+
+---
+# Logistic regression
+
+<!-- <br> -->
+$$p(x)=\frac{e^{\beta_0+\beta_1x}}{1+e^{\beta_0+\beta_1x}}$$
+
+$p(x)$: probability of default given that the balance is $x$. 
+
+--
+
+<br>
+.center[![:scale 100%](images/default_model.png)]
+
+---
+# Logistic regression
+
+$$p(x)=\frac{e^{\beta_0+\beta_1x}}{1+e^{\beta_0+\beta_1x}}$$
+
+
+
+
+
+
+???
+
+$$
+\begin{aligned}
+p(x)&=\frac{e^{\beta_0+\beta_1x}}{1+e^{\beta_0+\beta_1x}} \\\
+\\\
+\frac{p(x)}{1-p(x)}&=e^{\beta_0+\beta_1x} \\\
+\\\
+\ln{\frac{p(x)}{1-p(x)}}&=\beta_0+\beta_1x \\\
+\end{aligned}
+$$
+
+The log-odds (or logit) is a linear function of $x$.
+
+---
+# Interpretation of the slope parameter $\beta_1$
+
+$$\frac{p(x)}{1-p(x)}=e^{\beta_0+\beta_1x}$$
+
+When we increase $x$ by $1$, the odds
+
+$$
+\begin{aligned}
+\frac{p(x+1)}{1-p(x+1)}&=e^{\beta_0+\beta_1(x+1)} \\\
+&=e^{\beta_1}e^{\beta_0+\beta_1x} \\\
+&=e^{\beta_1}\frac{p(x)}{1-p(x)}
+\end{aligned}
+$$
+
+increase by a ratio of $e^{\beta_1}$.
+
+
+---
+# Interpretation of the slope parameter $\beta_1$
+
+$$\ln{\frac{p(x)}{1-p(x)}}=\beta_0+\beta_1x$$
+
+When we increase $x$ by $1$, the log-odds
+
+$$
+\begin{aligned}
+\ln{\frac{p(x+1)}{1-p(x+1)}}&=\beta_0+\beta_1(x+1) \\\
+&=\beta_0+\beta_1x+\beta_1\\\
+&=\ln{\frac{p(x)}{1-p(x)}}+\beta_1
+\end{aligned}
+$$
+
+increase by $\beta_1$.
+
+
+<!-- ------------------------------------------ -->
+
+</textarea>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_HTML&delayStartupUntil=configured" type="text/javascript"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({startOnLoad:true});</script>
+
+<script>
+remark.macros.scale = function (percentage) {
+  var url = this;
+  return '<img src="' + url + '" style="width: ' + percentage + '" />';
+};
+
+var slideshow = remark.create({
+  countIncrementalSlides: false,
+  highlightLanguage: 'python',
+  highlightStyle: 'github', 
+  highlightSpans: true,
+  highlightLines: true,
+});
+
+      // Setup MathJax
+      MathJax.Hub.Config({
+          tex2jax: {
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+          inlineMath: [['$','$'], ['\\(','\\)']]
+          }
+      });
+
+      MathJax.Hub.Configured();
+</script>
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>IMSE 440 - More on linear regression</title>
+    <meta charset="utf-8">
+    <style>
+      @import url(https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap);
+      @import url(https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap);
+      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+      body {font-family: 'Roboto'; font-weight: bold; line-height: 1.4;}
+      .remark-code, .remark-inline-code {font-family: 'Ubuntu Mono'; font-size:26px;}
+      .remark-slide-content h1 {font-size: 40px; text-align: center;}
+      .remark-slide-content p, .remark-slide-content li {font-size:30px; margin: 20px 0;}
+      a:link {text-decoration: none;}
+      img{max-height: 100%;}
+      .quote_author {display: block; text-align: right;}
+      .source {font-size: 24px;}
+      .red {color:red;}
+      .green {color:green;}
+      .gray {color:gray}
+    </style>
+  </head>
+  <body>
+
+<textarea id="source">
+
+class: center, middle
+
+## IMSE 440
+## Applied Statistical Models in Engineering
+<br>
+
+## More on linear regression
+
+---
+
+class: center, middle
+
+# When .red[not] to use linear regression?
+
+---
+
+$$Y=\beta_0+\beta_1x_1+\cdots+\beta_px_p+\epsilon$$
+
+$$\text{where }\;\epsilon \sim \text{N}(0, \sigma^2)$$
+
+One of the assumptions: the errors are i.i.d.
+
+--
+
+For some data, the variable values are not independent. 
+
+- Time series data (or called longitudinal data)
+
+.center[![:scale 70%](images/msft.png)]
+
+--
+
+Regression is typically used for [cross-sectional data](https://en.wikipedia.org/wiki/Cross-sectional_data).
+
+
+---
+# Nonlinear relationship
+
+--
+
+.center[Ice cream sales vs. outside temperature]
+
+--
+
+.center[
+.gray[(hypothetical data)]
+![:scale 90%](images/icecream_vs_temp.png)
+]
+
+---
+# What features to consider?
+
+--
+
+<br>
+.center[Distance vs. elevation gain for Fred's 25 bike rides]
+
+![:scale 53%](images/dist_vs_elevation_1.png)
+--
+&nbsp;&nbsp;&nbsp;![:scale 44%](images/dist_vs_elevation_2.png)
+
+
+
+
+
+<!-- ------------------------------------------ -->
+
+</textarea>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_HTML&delayStartupUntil=configured" type="text/javascript"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({startOnLoad:true});</script>
+
+<script>
+remark.macros.scale = function (percentage) {
+  var url = this;
+  return '<img src="' + url + '" style="width: ' + percentage + '" />';
+};
+
+var slideshow = remark.create({
+  countIncrementalSlides: false,
+  highlightLanguage: 'python',
+  highlightStyle: 'github', 
+  highlightSpans: true,
+  highlightLines: true,
+});
+
+      // Setup MathJax
+      MathJax.Hub.Config({
+          tex2jax: {
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+          inlineMath: [['$','$'], ['\\(','\\)']]
+          }
+      });
+
+      MathJax.Hub.Configured();
+</script>
+</body>
+</html>
