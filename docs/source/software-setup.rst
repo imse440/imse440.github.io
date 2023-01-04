@@ -23,28 +23,49 @@ Download the installer that matches your operating system.
 Install
 -------
 
-.. tabs::
+For Windows
 
-   .. group-tab:: Windows
+- Double-click the downloaded file to start the installation. 
+- Use all of the defaults for installation except make sure to check *Make Anaconda the default Python*.
 
-      - Double-click the downloaded file to start the installation. 
+For MacOS
 
-      - Use all of the defaults for installation except make sure to check *Make Anaconda the default Python*.
+- Double-click the downloaded file to start the installation. 
+- Use all of the defaults for installation except make sure to check *Make Anaconda the default Python*.
 
-   .. group-tab:: MacOS
+For Linux
 
-      - Double-click the downloaded file to start the installation. 
+- Open a terminal window.
+- Type ``bash Anaconda-`` and then press tab. The name of the file you just downloaded should appear. Press **Enter**.
+- You will follow the text-only prompts. When there is a colon at the bottom of the screen, press the down arrow to move down through the text. 
+- Type ``yes`` and press **Enter** to approve the license. 
+- Press **Enter** to approve the default location for the files. 
+- Type ``yes`` and press **Enter** to add Anaconda to your PATH (this makes Anaconda the default Python).
 
-      - Use all of the defaults for installation except make sure to check *Make Anaconda the default Python*.
 
-   .. group-tab:: Linux
 
-      - Open a terminal window.
-      - Type ``bash Anaconda-`` and then press tab. The name of the file you just downloaded should appear. Press **Enter**.
-      - You will follow the text-only prompts. When there is a colon at the bottom of the screen, press the down arrow to move down through the text. 
-      - Type ``yes`` and press **Enter** to approve the license. 
-      - Press **Enter** to approve the default location for the files. 
-      - Type ``yes`` and press **Enter** to add Anaconda to your PATH (this makes Anaconda the default Python).
+.. .. tabs::
+
+..    .. group-tab:: Windows
+
+..       - Double-click the downloaded file to start the installation. 
+
+..       - Use all of the defaults for installation except make sure to check *Make Anaconda the default Python*.
+
+..    .. group-tab:: MacOS
+
+..       - Double-click the downloaded file to start the installation. 
+
+..       - Use all of the defaults for installation except make sure to check *Make Anaconda the default Python*.
+
+..    .. group-tab:: Linux
+
+..       - Open a terminal window.
+..       - Type ``bash Anaconda-`` and then press tab. The name of the file you just downloaded should appear. Press **Enter**.
+..       - You will follow the text-only prompts. When there is a colon at the bottom of the screen, press the down arrow to move down through the text. 
+..       - Type ``yes`` and press **Enter** to approve the license. 
+..       - Press **Enter** to approve the default location for the files. 
+..       - Type ``yes`` and press **Enter** to add Anaconda to your PATH (this makes Anaconda the default Python).
 
 
 Launch JupyterLab
@@ -52,27 +73,41 @@ Launch JupyterLab
 
 First, you will need to launch your operating system's command-line interface (CLI). 
 
-.. tabs::
+For Windows: Go to the search bar, type in ``anaconda prompt``, and press **Enter**.
 
-   .. group-tab:: Windows
+.. image:: images/CLI.png
+   :width: 800
+   :alt: Command-line interface
 
-      - Go to the search bar, type in ``anaconda prompt``, and press **Enter**.
+For MacOS: Go to the Spotlight Search (the magnifying glass icon), type in ``terminal``, and press **return**.
 
-      .. image:: images/CLI.png
-        :width: 800
-        :alt: Command-line interface
+.. image:: images/terminal-mac.png
+   :width: 800
+   :alt: Command-line interface
 
-   .. group-tab:: MacOS
+For Linux: Go to the search bar, type in ``terminal``, and press **Enter**.
 
-      - Go to the Spotlight Search (the magnifying glass icon), type in ``terminal``, and press **return**.
+.. .. tabs::
 
-      .. image:: images/terminal-mac.png
-        :width: 800
-        :alt: Command-line interface
+..    .. group-tab:: Windows
 
-   .. group-tab:: Linux
+..       - Go to the search bar, type in ``anaconda prompt``, and press **Enter**.
 
-      - Go to the search bar, type in ``terminal``, and press **Enter**.
+..       .. image:: images/CLI.png
+..         :width: 800
+..         :alt: Command-line interface
+
+..    .. group-tab:: MacOS
+
+..       - Go to the Spotlight Search (the magnifying glass icon), type in ``terminal``, and press **return**.
+
+..       .. image:: images/terminal-mac.png
+..         :width: 800
+..         :alt: Command-line interface
+
+..    .. group-tab:: Linux
+
+..       - Go to the search bar, type in ``terminal``, and press **Enter**.
 
 
 Secondly, in the CLI type in the following and press **Enter** or **return**.

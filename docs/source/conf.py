@@ -44,6 +44,9 @@ epub_show_urls = 'footnote'
 
 html_scaled_image_link = False
 
-extensions = ['sphinx_tabs.tabs',
-              'sphinx.ext.autosectionlabel',
+extensions = ['sphinx.ext.autosectionlabel',
               ]
+
+# extensions = ['sphinx_tabs.tabs',
+#               'sphinx.ext.autosectionlabel',
+#               ]
