@@ -1,6 +1,7 @@
-===================================================
 IMSE 440: Applied Statistical Models in Engineering
 ===================================================
+
+University of Michigan-Dearborn
 
 
 .. toctree::

@@ -1,9 +1,7 @@
-Template for the Read the Docs tutorial
-=======================================
+IMSE 440: Applied Statistical Models in Engineering
+===================================================
 
-This GitHub template includes fictional Python library
-with some basic Sphinx docs.
+This repository hosts the teaching materials for IMSE 440 **Applied Statistical Models in Engineering**, 
+an undergraduate-level course at the University of Michigan-Dearborn.
 
-Read the tutorial here:
-
-https://docs.readthedocs.io/en/stable/tutorial/
+Created by `Fred Feng <http://umich.edu/~fredfeng/>`__
