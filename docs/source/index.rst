@@ -1,8 +1,5 @@
-IMSE 440: Applied Statistical Models in Engineering
-===================================================
-
-University of Michigan-Dearborn
-
+IMSE 440 Applied Statistical Models in Engineering
+==================================================
 
 .. toctree::
    :maxdepth: 1
@@ -11,7 +8,6 @@ University of Michigan-Dearborn
    syllabus
    project
    software-setup
-
 
 `Course Canvas site <https://canvas.umd.umich.edu/courses/529246>`__
 
