@@ -32,19 +32,19 @@ How can I contact the instructors?
 
 **Email** is the preferred way to contact the instructors.
 
-- For most questions (e.g., homework or project), send email to <imse440instructors@umich.edu> which will be directed to all the instructors (i.e., Dr. Feng and the GSI). 
-- If you prefer to talk to Dr. Feng individually, send email to <fredfeng@umich.edu>
+* For most questions (e.g., homework or project), send email to <imse440instructors@umich.edu> which will be directed to all the instructors (i.e., Dr. Feng and the GSI). 
+* If you prefer to talk to Dr. Feng individually, send email to <fredfeng@umich.edu>
 
 Email rules
 ^^^^^^^^^^^
 
-- You should include the course number **IMSE 440** at the beginning of the subject line, followed by a brief description with a few words. For example: **IMSE 440 - homework 1 doubts**
-- Use your University of Michigan email
+* You should include the course number **IMSE 440** at the beginning of the subject line, followed by a brief description with a few words. For example: **IMSE 440 - homework 1 doubts**
+* Use your University of Michigan email
 
 .. note::
     The instructors may *not* respond to
-      - Emails that do not comply with the rules above.
-      - Canvas messages or comments under an assignment.
+      * Emails that do not comply with the rules above.
+      * Canvas messages or comments under an assignment.
 
 
 Office hours
