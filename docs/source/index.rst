@@ -1,22 +1,23 @@
-Welcome to Lumache's documentation!
-===================================
+===================================================
+IMSE 440: Applied Statistical Models in Engineering
+===================================================
 
-**Lumache** (/lu'make/) is a Python library for cooks and food lovers
-that creates recipes mixing random ingredients.
-It pulls data from the `Open Food Facts database <https://world.openfoodfacts.org/>`_
-and offers a *simple* and *intuitive* API.
-
-Check out the :doc:`usage` section for further information, including
-how to :ref:`installation` the project.
-
-.. note::
-
-   This project is under active development.
-
-Contents
---------
 
 .. toctree::
+   :maxdepth: 1
 
-   usage
-   api
+   schedule
+   software-setup
+   syllabus
+   project
+
+
+Course Calendar
+""""""""""""""""""""""
+
+.. raw:: html
+
+  <div>
+    <iframe src="https://calendar.google.com/calendar/embed?src=c_7889t1t9gohgjhmc6sboehela4%40group.calendar.google.com&ctz=America%2FDetroit" style="border: 0" width="700" height="500" frameborder="0" scrolling="no"></iframe>
+  </div>
+

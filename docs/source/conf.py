@@ -2,9 +2,9 @@
 
 # -- Project information
 
-project = 'Lumache'
-copyright = '2021, Graziella'
-author = 'Graziella'
+project = 'IMSE 440'
+copyright = '2023, Fred Feng'
+author = 'Fred Feng'
 
 release = '0.1'
 version = '0.1.0'
@@ -30,6 +30,20 @@ templates_path = ['_templates']
 # -- Options for HTML output
 
 html_theme = 'sphinx_rtd_theme'
+# html_static_path = ['_static']
+# html_logo = "imse440-logo.png"
+html_theme_options = {
+    'display_version': False,
+    'style_nav_header_background': '#00274C',
+    # 'navigation_depth': 2,
+    # 'titles_only': True,
+}
 
 # -- Options for EPUB output
 epub_show_urls = 'footnote'
+
+html_scaled_image_link = False
+
+extensions = ['sphinx_tabs.tabs',
+              'sphinx.ext.autosectionlabel',
+              ]
