@@ -73,19 +73,19 @@ Launch JupyterLab
 
 First, you will need to launch your operating system's command-line interface (CLI). 
 
-For Windows: Go to the search bar, type in ``anaconda prompt``, and press **Enter**.
+   - For Windows: Go to the search bar, type in ``anaconda prompt``, and press **Enter**.
 
-.. image:: images/CLI.png
-   :width: 800
-   :alt: Command-line interface
+      .. image:: images/CLI.png
+         :width: 800
+         :alt: Command-line interface
 
-For MacOS: Go to the Spotlight Search (the magnifying glass icon), type in ``terminal``, and press **return**.
+   For MacOS: Go to the Spotlight Search (the magnifying glass icon), type in ``terminal``, and press **return**.
 
-.. image:: images/terminal-mac.png
-   :width: 800
-   :alt: Command-line interface
+      .. image:: images/terminal-mac.png
+         :width: 800
+         :alt: Command-line interface
 
-For Linux: Go to the search bar, type in ``terminal``, and press **Enter**.
+   For Linux: Go to the search bar, type in ``terminal``, and press **Enter**.
 
 .. .. tabs::
 

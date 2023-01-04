@@ -7,13 +7,15 @@ IMSE 440: Applied Statistical Models in Engineering
    :maxdepth: 1
 
    schedule
-   software-setup
    syllabus
    project
+   software-setup
 
+
+`Course Canvas site <https://canvas.umd.umich.edu/courses/529246>`__
 
 Course Calendar
-""""""""""""""""""""""
+"""""""""""""""
 
 .. raw:: html
 
