@@ -21,25 +21,25 @@ Instructor
 
 `Dr. Fred Feng <http://www.umich.edu/~fredfeng/>`_ ("Fred" is fine)
 
-
 GSI
 ---------------------------------
 
-Rayane Moustafa <rayanem@umich.edu>
+Rayane Moustafa rayanem@umich.edu
 
 How can I contact the instructors?
 ----------------------------------
 
 **Email** is the preferred way to contact the instructors.
 
-* For most questions (e.g., homework or project), send email to <imse440instructors@umich.edu> which will be directed to all the instructors (i.e., Dr. Feng and the GSI). 
-* If you prefer to talk to Dr. Feng individually, send email to <fredfeng@umich.edu>
+- imse440instructors@umich.edu This is the instructor email address that you should use for most questions (e.g., homework doubts or project). Your email will be directed to all the instructors (i.e., Dr. Feng and the GSI) which may provide you with a faster response. 
+- If you prefer to talk to Dr. Feng individually, send email to fredfeng@umich.edu
 
 Email rules
 ^^^^^^^^^^^
 
-* You should include the course number **IMSE 440** at the beginning of the subject line, followed by a brief description with a few words. For example: **IMSE 440 - homework 1 doubts**
-* Use your University of Michigan email
+- You should include the course number **IMSE 440** at the beginning of the subject line, followed by a brief description with a few words. For example: **IMSE 440 - homework 1 doubts**
+- Use your University of Michigan email
+
 
 .. note::
     The instructors may *not* respond to
@@ -82,7 +82,7 @@ What is this course about?
 The course introduces you to develop statistical models and make inferences based on data.
 It introduces you to simple and multiple linear regression models, model evaluation and diagnosis, analysis of variance, and model selection. 
 It also briefly introduces students to design of experiments. 
-The course provides you with experience processing and analizing data for engineering applications via in-class activities, assignments, and a project. 
+The course provides you with experience processing and analyzing data for engineering applications via in-class activities, assignments, and a project. 
 
 This course is designed to help you
 
@@ -155,7 +155,7 @@ Homework format requirements
 
 .. attention::
     You should make sure your submitted notebook does not generate errors.
-    Before submission, you should click (on the JupyterLab menu) *Kernal -> Restart Kernal and Run All Cells...* to make sure it doesn't generate errors. 
+    Before submission, you should click (on the JupyterLab menu) *Kernel -> Restart Kernel and Run All Cells...* to make sure it doesn't generate errors. 
     Also remember to use **relative paths** when specifying file locations. 
     Any parts of your homework that generate errors (e.g., due to failing to read in data) will receive zero points.
 
@@ -170,7 +170,7 @@ Homework general suggestions
 - **Make your code more readable** 
 
     - Do not write all your code in a single cell or several large cells. 
-      Separate different parts of your code/answers in sperate cells for better readability.
+      Separate different parts of your code/answers in separate cells for better readability.
     - Use the Markdown cells to make your work more readable by briefly explaining what you are doing. 
     - Additionally, use comments in the code cells to explain your code.
     - Follow naming conventions (e.g., ``import pandas as pd``). 

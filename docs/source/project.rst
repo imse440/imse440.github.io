@@ -57,7 +57,7 @@ Proposal requirements
         - **Recompile** often in Overleaf, so that if an error occurs, it's easier to track it down. 
 
     .. note::
-        We expect *all* team members to use Overleaf as a collaberative tool (think of a Google Docs) when drafting the proposal (and the poster in the next section).
+        We expect *all* team members to use Overleaf as a collaborative tool (think of a Google Docs) when drafting the proposal (and the poster in the next section).
 
 - The proposal should be no more than two pages (not including the cover page or the references). It should include the following
 
@@ -128,7 +128,7 @@ Poster requirements
 - One submission per team.
 - Your poster should be different from your JupyterLab in some major ways:
 
-    - The audience of the poster is someone who have general knowledge about statistics, but may not necessarily be familair with either Python or the data sets you are using.
+    - The audience of the poster is someone who have general knowledge about statistics, but may not necessarily be familiar with either Python or the data sets you are using.
     - Thus, your poster should not include any codes (leave them in the notebook). Rather, describe things in plain English.
     - You should also avoid using programing jargons (e.g., function names such as ``groupby``), or anything specific to the data set (e.g., variable names such as "co2_level_mi").
 
@@ -157,7 +157,7 @@ Under each component are the descriptions for three levels of "Excellent", "Good
       Sentences were mostly grammatical and/or only a few spelling errors were present but they did not hinder the viewer.
     - The poster lacked overall organization;
       Content arrangement is confusing and the viewer has to make considerable effort to understand the order without narration.
-      Grammatical and spelling errors made it difficult for the viwer to interpret the text in places.
+      Grammatical and spelling errors made it difficult for the viewer to interpret the text in places.
 - **Visual presentation**
     - **Overall visually appealing; not cluttered; 
       Colors and patterns enhance readability; 
@@ -188,7 +188,7 @@ Note it is not a complete list.
 - **Are the texts in the figures or tables too small to read?** All text should be reasonably legible. 
 - **Are the figure axis clearly labled and with units?**
 - **Does the poster include dataset specific names (e.g., "co2_level_mi") or domain/programming-specific jargons?** 
-  They should be avoided as general audiance may not know what they mean.
+  They should be avoided as general audience may not know what they mean.
 - **Does the poster comply with the Honor Code, including avoiding plagiarism?** Have you cited all the work (e.g., text, images) in the poster that were not created by you? 
 - **Are all the numbers have clear units?** This is important for the viewer to be able to understand the results. E.g., The RMSE from the model is $123.4 US Dollars. 
 - **Are there in-depth discussions on the study limitations?** They should be included.
@@ -274,7 +274,7 @@ Project policies
 Project Honor Code
 ^^^^^^^^^^^^^^^^^^
 
-Before working on your project, make sure to understand the :ref:`Honor Code policies` in the Syllabys on what you are and are not allowed to do. 
+Before working on your project, make sure to understand the :ref:`Honor Code policies` in the Syllabus on what you are and are not allowed to do. 
 
 
 Lateness policies

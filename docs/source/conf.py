@@ -50,3 +50,6 @@ extensions = ['sphinx.ext.autosectionlabel',
 # extensions = ['sphinx_tabs.tabs',
 #               'sphinx.ext.autosectionlabel',
 #               ]
+
+
+html_title = 'IMSE 440'
