@@ -54,8 +54,8 @@ Dr. Feng's office hours
 ^^^^^^^^^^^^^^^^^^^^^^^
 
 - All office hours are held on Zoom at https://umich.zoom.us/my/fredfeng
-- Wednesdays 3:30 PM - 4:00 PM
-- Thursdays 3:00 PM - 4:30 PM
+- Wednesdays 2:00 PM - 3:00 PM
+- Fridays 1:00 PM - 2:00 PM
 - If you are not able to attend during the above time, you can email Dr. Feng with a request for an appointment.
 
 
@@ -63,7 +63,8 @@ GSI's office hours
 ^^^^^^^^^^^^^^^^^^
 
 - The GSI's office hours are held on Zoom at https://umich.zoom.us/my/rayanemoustafa
-- Time TBA
+- Thursdays 1:00 PM - 2:00 PM
+- Fridays 11:00 AM - 12:00 PM
 
 
 .. tip::

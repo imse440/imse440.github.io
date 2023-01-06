@@ -52,4 +52,4 @@ extensions = ['sphinx.ext.autosectionlabel',
 #               ]
 
 
-html_title = 'IMSE 440'
+html_title = ''
