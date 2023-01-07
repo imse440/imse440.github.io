@@ -147,7 +147,7 @@ Miscellaneous
   `An introduction to the JupyterLab interface <https://jupyterlab.readthedocs.io/en/stable/user/interface.html>`__
 
 .. - `JupyterLab official documentations - getting started <https://jupyterlab.readthedocs.io/en/stable/index.html>`__
-- `Introduction to the JupyterLab interface <https://jupyterlab.readthedocs.io/en/stable/user/interface.html>`__
+.. - `Introduction to the JupyterLab interface <https://jupyterlab.readthedocs.io/en/stable/user/interface.html>`__
 .. - How to Use JupyterLab - The official 7-min introductory YouTube video
 
 .. .. raw:: html
