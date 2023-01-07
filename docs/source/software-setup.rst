@@ -130,17 +130,18 @@ In the newly-created Jupyter notebook, try using Python as a calculator by typin
 If everything's working, you should see the mind-numbingly obvious result of **3** in the output. Congrats!
 
 
-Miscellaneous
--------------
 
-- To keep the JupyterLab running, you should *not* close the CLI window that you used earlier (you can minimize the window), as it works as a notebook's "local host server". 
+.. note::
 
-- If you wish to stop the Jupyter server, use Control-C in the CLI (twice to skip confirmation).
+  If you wish to open an existing Jupyter Notebook file (i.e., a file with the **ipynb** extension), first launch JupyterLab, then use the file browser (in the left sidebar Files tab) to navigate to the folder where the file is located, and then double-click on the file to open. 
 
-- If you wish to **open an existing Jupyter Notebook file** (i.e., a file with the **ipynb** extension), first launch JupyterLab, then use the file browser (in the left sidebar Files tab) to navigate to the folder where the file is located, and then double-click on the file to open. 
+.. attention::
 
-.. Further readings
-.. ----------------
+  To keep the JupyterLab running, you should *not* close the command line window (you can minimize it), as it works as JupterLab's "local host server". 
+
+.. tip::
+
+  If you wish to stop the Jupyter server in the command line, use Control-C (twice to skip confirmation).
 
 .. seealso::
 
