@@ -139,14 +139,19 @@ Miscellaneous
 
 - If you wish to **open an existing Jupyter Notebook file** (i.e., a file with the **ipynb** extension), first launch JupyterLab, then use the file browser (in the left sidebar Files tab) to navigate to the folder where the file is located, and then double-click on the file to open. 
 
-Further resources
------------------
+.. Further readings
+.. ----------------
 
-- `JupyterLab official documentations - getting started <https://jupyterlab.readthedocs.io/en/stable/index.html>`__
-- How to Use JupyterLab - The official 7-min introductory YouTube video
+.. seealso::
 
-.. raw:: html
+  `An introduction to the JupyterLab interface <https://jupyterlab.readthedocs.io/en/stable/user/interface.html>`__
 
-  <div class="jp-youtube-video">
-    <iframe width="700" height="450" src="https://www.youtube-nocookie.com/embed/A5YyoCKxEOU?rel=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-  </div>
+.. - `JupyterLab official documentations - getting started <https://jupyterlab.readthedocs.io/en/stable/index.html>`__
+- `Introduction to the JupyterLab interface <https://jupyterlab.readthedocs.io/en/stable/user/interface.html>`__
+.. - How to Use JupyterLab - The official 7-min introductory YouTube video
+
+.. .. raw:: html
+
+..   <div class="jp-youtube-video">
+..     <iframe width="700" height="450" src="https://www.youtube-nocookie.com/embed/A5YyoCKxEOU?rel=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+..   </div>
