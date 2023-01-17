@@ -140,25 +140,25 @@ Homework format requirements
 - Show your answers to the questions *clearly* and *explicitly*. 
   You can use the Markdown cells to type in your answers. 
   You can also use the ``print`` function to show the answers. 
-  The bottom line is I do not have to search for the answers buried in your code or output. 
-- You will submit a `ZIP <https://en.wikipedia.org/wiki/Zip_(file_format)>`__ file called **IMSE440_HWX_yourUniqueName.zip**, where X is the number of the current homework. 
-  So, if I were to submit for homework 1, it would be called **IMSE440_HW1_fredfeng.zip**.
-- When I extract your compressed file, the result should be a directory called **IMSE440_HWX_yourUniqueName**, 
-  containing, at a minimum, a Jupyter notebook file called **IMSE440_HWX_yourUniqueName.ipynb** and all other files (e.g., data files) needed to run your notebook on my machine. 
+  The bottom line is we do not have to search for the answers buried in your code or output. 
+- You will submit a `ZIP <https://en.wikipedia.org/wiki/Zip_(file_format)>`__ file called ``imse440-hwX-yourUniqueName.zip``, where X is the number of the current homework. 
+  For example, if I were to submit for homework 1, it would be called ``imse440-hw1-fredfeng.zip``.
+- When I extract your compressed file, the result should be a directory called ``imse440-hwX-yourUniqueName``, 
+  containing, at a minimum, a Jupyter notebook file called ``imse440-hwX-yourUniqueName.ipynb`` and all other files (e.g., data files) needed to run your notebook on my machine. 
   
 
 .. attention::
     Homework without complete Honor Code signing will not be graded and get an automatic zero.
 
 .. attention::
-    In your submission, you need to include all data files (even if you didn't make any changes to them), so that we can run your code off the bat.
-    
+    In your submission, you need to include *all* necessary files (including data files, even if you didn't make any changes to them), so that we can run your code off the bat.
+    We will not supply any files or make any changes before running your code on our machine. 
 
 .. attention::
     You should make sure your submitted notebook does not generate errors.
     Before submission, you should click (on the JupyterLab menu) *Kernel -> Restart Kernel and Run All Cells...* to make sure it doesn't generate errors. 
     Also remember to use **relative paths** when specifying file locations. 
-    Any parts of your homework that generate errors (e.g., due to failing to read in data) will receive zero points.
+    **Any parts of your homework that generate errors (e.g., due to failing to read in data) will receive zero points**.
 
 
 Homework general suggestions
