@@ -20,11 +20,13 @@ General requirements
 Important dates
 ---------------
 
-- **March 8 (Wed) at 6:11 PM**: Project proposal (team)
-- **April 5 (Wed) at 6:11 PM**: Project poster (team)
-- **April 18 (Tue) at 6:11 PM**: Final poster (team), Jupyter notebook and data (team)
-- **Date TBA**: Project poster presentation (team)
-- **Date TBA**: Project peer review form (individual)
+- **March 8 (Wed) at 6:11 PM**: Project proposal submission (team)
+- **April 4 (Tue) at 6:11 PM**: Project poster submission (team)
+- **April 11 (Tue) at 6:11 PM**: Final poster submission (team)
+- **April 13 (Thu) at time TBA**: Project poster presentation (team)
+- **April 14 (Fri) at time TBA**: `CECS Senior Design Day <https://umdearborn.edu/cecs/life-cecs/senior-design-competition>`__ poster presentation (for invited teams)
+- **April 18 (Tue) at 6:11 PM**: Jupyter notebook and data submission (team)
+- **April 19 (Wed) at 6:11 PM**: Project peer review form submission (individual)
 
 Project proposal 
 ----------------
@@ -259,6 +261,7 @@ Peer evaluation form
 --------------------
 
 A peer evaluation form will be provided for you to evaluate your peer team members with structured questions (0% of project grade). 
+The instructor may adjust an individual's project grades based on the responses at their discretion.
 Your response will not be shared with other students. 
 
 *For each person in your team (other than yourself), indicate the extent to which you agree with each of the statements below, using a scale of 1-5 (1=strongly disagree; 2=disagree; 3=neutral; 4=agree; 5=strongly agree).*

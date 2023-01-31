@@ -6,6 +6,7 @@ IMSE 440 Applied Statistical Models in Engineering
 
    schedule
    syllabus
+   lecture-notes
    project
    software-setup
 
