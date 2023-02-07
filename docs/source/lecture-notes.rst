@@ -62,7 +62,7 @@ Question: Is :math:`Y` a random variable?
 - :math:`\beta_1`: the *slope*, the expected change of :math:`Y` per unit change of :math:`x`.
 
 
-Visualize :math:`\beta_0` and :math:`\beta_1`
+.. Visualize :math:`\beta_0` and :math:`\beta_1`
 
 
 .. .center[![:scale 65%](images/xyplane.jpg)]
@@ -246,3 +246,212 @@ Further resources
 ^^^^^^^^^^^^^^^^^
 
 - `Seeing Theory <https://seeing-theory.brown.edu/regression-analysis/>`__
+
+
+
+Assessing the accuracy of the parameter estimates
+=================================================
+
+The slope estimator
+^^^^^^^^^^^^^^^^^^^
+
+From the OLS solution, we have
+
+.. math:: 
+
+    \hat{\beta}_1 =\frac{\sum{(x_i-\bar{x})(y_i-\bar{y})}}{\sum{(x_i-\bar{x})^2}}
+
+If we replace :math:`\beta` with :math:`B` (indicating it's a random variable), and replace :math:`y` with :math:`Y`, 
+we can write the OLS slope *estimator* :math:`\hat{B}_1` as
+
+.. math:: 
+    \hat{B}_1 =\frac{\sum(x_i-\bar{x})(Y_i-\bar{Y})}{\sum(x_i-\bar{x})^2}
+
+Below we show that the slope estimator :math:`\hat{B}_1` follows a normal distribution with the following mean and variance. 
+
+.. math:: 
+    \hat{B}_1 \sim \text{N}\bigg(\beta_1, \frac{\sigma^2}{\sum (x_i - \bar{x})^2}\bigg)
+
+To prove it we first show that :math:`\hat{B}_1` is a linear combination of :math:`\hat{Y}_i`'s.
+
+.. admonition:: Theorem
+
+    For :math:`n` sample data :math:`x_1, x_2, \cdots, x_n`, the sum of all deviations from the sample mean :math:`\bar{x}` is zero. 
+
+    **Proof**:
+
+    .. math:: 
+
+         \sum (x_i - \bar{x}) = \sum x_i - \sum \bar{x} = \sum x_i - n \bar{x} = \sum x_i - n \frac{\sum x_i}{n} = \sum x_i - \sum x_i = 0
+
+
+.. math:: 
+
+    \begin{align}
+    \hat{B}_1 &=\frac{\sum(x_i-\bar{x})(Y_i-\bar{Y})}{\sum(x_i-\bar{x})^2} \\
+    \\
+    &=\frac{\sum\big[(x_i-\bar{x})Y_i - (x_i-\bar{x})\bar{Y}\big]}{\sum(x_i-\bar{x})^2} \\
+    \\
+    &=\frac{\sum(x_i-\bar{x})Y_i - \sum(x_i-\bar{x})\bar{Y}}{\sum(x_i-\bar{x})^2} \\
+    \\
+    &=\frac{\sum(x_i-\bar{x})Y_i - \bar{Y}\sum(x_i-\bar{x})}{\sum(x_i-\bar{x})^2} \\
+    \\
+    &=\frac{\sum(x_i-\bar{x})Y_i - \bar{Y} \cdot 0}{\sum(x_i-\bar{x})^2} \\
+    \\
+    &=\frac{\sum(x_i-\bar{x})Y_i}{\sum(x_i-\bar{x})^2} \\
+    \end{align}
+
+.. admonition:: Theorem
+
+    Any linear combination of independent normally distributed random variables also follows a normal distribution (`see proof <https://statproofbook.github.io/P/norm-lincomb>`__).
+
+Since :math:`Y_i`'s are normally-distributed and independent of each other, :math:`\hat{B}_1`, a linear combination of :math:`Y_i`'s, follows a normal distribution.
+
+Next, we show that the expected value of :math:`\hat{B}_1` is :math:`\beta_1`.
+
+.. math:: 
+
+    \begin{align}
+    \text{E}[\hat{B}_1] &= \text{E}\bigg[\frac{\sum (x_i - \bar{x})Y_i}{\sum (x_i - \bar{x})^2}\bigg] \\
+    \\
+    &=\frac{\sum (x_i - \bar{x})\text{E}[Y_i]}{\sum (x_i - \bar{x})^2} \\
+    \\
+    &=\frac{\sum (x_i - \bar{x})(\beta_0+\beta_1 x_i)}{\sum (x_i - \bar{x})(x_i - \bar{x})} \\
+    \\
+    &=\frac{\sum (x_i - \bar{x})\beta_0 +\sum (x_i - \bar{x})\beta_1 x_i}{\sum (x_i - \bar{x})x_i - \sum (x_i - \bar{x})\bar{x}} \\
+    \\
+    &=\frac{\beta_0\sum (x_i - \bar{x}) + \beta_1 \sum (x_i - \bar{x}) x_i}{\sum (x_i - \bar{x})x_i - \bar{x}\sum (x_i - \bar{x})} \\
+    \\
+    &=\frac{\beta_0 \cdot 0 + \beta_1 \sum (x_i - \bar{x}) x_i}{\sum (x_i - \bar{x})x_i - \bar{x} \cdot 0} \\
+    \\
+    &=\frac{\beta_1 \sum (x_i - \bar{x}) x_i}{\sum (x_i - \bar{x})x_i} \\
+    \\
+    &=\beta_1
+    \end{align}
+
+When an estimator's expected value equals the true value of the parameter being estimated, we say that the estimator is `unbiased <https://en.wikipedia.org/wiki/Bias_of_an_estimator>`__.
+From the above we show that the OLS slope parameter :math:`\hat{B}_1` is an *unbiased* estimator for the slope parameter :math:`\beta_1` in the simple linear regression model. 
+
+Then, we show that the variance of :math:`\hat{B}_1` is :math:`\frac{\sigma^2}{\sum (x_i - \bar{x})^2}`.
+
+.. math:: 
+
+    \begin{align}
+    \text{var}(\hat{B}_1) &= \text{var}\bigg(\frac{\sum (x_i - \bar{x})Y_i}{\sum (x_i - \bar{x})^2}\bigg) \\
+    \\
+    &= \frac{\sum (x_i - \bar{x})^2\text{var}(Y_i)}{(\sum (x_i - \bar{x})^2)^2} \\
+    \\
+    &= \frac{\sum (x_i - \bar{x})^2 \sigma^2}{(\sum (x_i - \bar{x})^2)^2} \\
+    \\
+    &= \frac{\sigma^2 \sum (x_i - \bar{x})^2 }{(\sum (x_i - \bar{x})^2)^2} \\
+    \\
+    &= \frac{\sigma^2}{\sum (x_i - \bar{x})^2} \\
+    \end{align}
+
+
+.. admonition:: Important
+
+    The OLS slope estimator
+
+    .. math:: 
+        \hat{B}_1 \sim \text{N}\bigg(\beta_1, \frac{\sigma^2}{\sum (x_i - \bar{x})^2}\bigg)
+
+In practice, we do not know :math:`\sigma`, the *true* standard deviation of the error term :math:`\epsilon` in the regression model. 
+The best thing we can do is to estimate the variance from the data at hand. 
+
+.. math:: 
+        \hat{\sigma} = \text{RSE} = \sqrt{\frac{\text{RSS}}{n-2}}=\sqrt{\frac{\sum e_i^2}{n-2}}=\sqrt{\frac{\sum (y_i - \hat{y}_i)^2}{n-2}}
+
+The *estimated* standard deviation :math:`\hat{\sigma}` is often called Residual Standard Error (RSE). 
+
+After we replace :math:`\sigma` with :math:`\hat{\sigma}`, the variance of the slope estimator :math:`\hat{B}_1` becomes
+
+.. math:: 
+        \text{var}(\hat{B}_1) = \frac{\sigma^2}{\sum (x_i - \bar{x})^2} \approx \frac{\hat{\sigma}^2}{\sum (x_i - \bar{x})^2} = \frac{\text{RSS}}{(n-2)\sum (x_i - \bar{x})^2} 
+
+Similarly, the standard deviation of the slope estimator :math:`\hat{B}_1`, often called the Standard Error (SE) of the estimator, become
+
+.. math:: 
+        \text{SE}(\hat{B}_1) = \sqrt{\frac{\sigma^2}{\sum (x_i - \bar{x})^2}} \approx \sqrt{\frac{\text{RSS}}{(n-2)\sum (x_i - \bar{x})^2}}
+
+After replacing :math:`\sigma` with :math:`\hat{\sigma}`, the standardized version of the slope estimator :math:`\hat{B}_1` follows a `t-distribution <https://en.wikipedia.org/wiki/Student%27s_t-distribution>`__ with degree of freedom of :math:`n-2`.
+
+Confidence interval
+^^^^^^^^^^^^^^^^^^^
+
+We can construct a confidence interval (at confidence level :math:`1-\alpha`) for the slope parameter :math:`\beta_1`.
+
+.. math:: 
+
+    \begin{align}
+    \text{P}\bigg(-t_{\alpha/2, n-2} < \frac{\hat{B}_1 - \beta_1}{\text{SE}(\hat{B}_1)} < t_{\alpha/2, n-2}\bigg) &= 1-\alpha \\
+    \\
+    \text{P}\bigg(-t_{\alpha/2, n-2} \cdot \text{SE}(\hat{B}_1)  < \hat{B}_1 - \beta_1 < t_{\alpha/2, n-2} \cdot \text{SE}(\hat{B}_1)\bigg) &= 1-\alpha \\
+    \\
+    \text{P}\bigg(-\hat{B}_1 - t_{\alpha/2, n-2} \cdot \text{SE}(\hat{B}_1)  < - \beta_1 < - \hat{B}_1 + t_{\alpha/2, n-2} \cdot \text{SE}(\hat{B}_1)\bigg) &= 1-\alpha \\
+    \\
+    \text{P}\bigg(\hat{B}_1 - t_{\alpha/2, n-2} \cdot \text{SE}(\hat{B}_1)  < \beta_1 < \hat{B}_1 + t_{\alpha/2, n-2} \cdot \text{SE}(\hat{B}_1)\bigg) &= 1-\alpha \\
+    \end{align}
+
+Based on the above, we have the confidence interval (at confidence level :math:`1-\alpha`) for the slope parameter :math:`\beta_1` as
+
+.. math:: 
+
+    \bigg[\hat{\beta}_1- t_{\alpha/2, n-2} \cdot \text{SE}(\hat{B}_1),\;\; \hat{\beta}_1+ t_{\alpha/2, n-2} \cdot \text{SE}(\hat{B}_1)\bigg]
+
+or simply
+
+.. math:: 
+
+    \hat{\beta}_1 \pm t_{\alpha/2, n-2} \cdot \text{SE}(\hat{B}_1)
+
+where :math:`\hat{\beta}_1` is the OLS estimate of the slope parameter. 
+
+
+Hypothesis test
+^^^^^^^^^^^^^^^
+
+:math:`\text{H}_0`: There is *no* relationship between :math:`x` and :math:`y`.
+
+:math:`\text{H}_a`: There is *some* relationship between :math:`x` and :math:`y`.
+
+Mathematically, this corresponds to test
+
+.. math:: 
+
+    \begin{align}
+        \text{H}_0: \beta_1 = 0 \\
+        \\
+        \text{H}_a: \beta_1 \neq 0 \\
+    \end{align}
+
+
+We compute a t-statistic, given by
+
+.. math:: 
+
+    t=\frac{\hat{\beta}_1 - \beta_1}{\text{SE}(\hat{B}_1)} = \frac{\hat{\beta}_1 - 0}{\text{SE}(\hat{B}_1)} = \frac{\hat{\beta}_1}{\text{SE}(\hat{B}_1)}
+
+
+It measures the number of standard deviations that :math:`\hat{\beta}_1` is away from 0. 
+
+If there really is no relationship between :math:`x` and :math:`y`, the t-statistic will have a t-distribution with the degree of freedom of :math:`n-2`.
+
+We reject the null hypothesis :math:`\text{H}_0` if 
+
+.. math:: 
+
+    |t| > t_{\text{critical}}
+
+or 
+
+.. math:: 
+
+    p\text{-value} = 2\cdot \text{P}(t_{n-2} > |t|) < \alpha
+
+
+Roughly speaking, a small *p*-value means it's unlikely to observe such a relationship due to chance, if there really is *no* relationship. 
+
+Equivalently, we can also check if the confidence interval for :math:`\beta_1` include 0.
+If it does, it means the relationship is not significant. 
+
