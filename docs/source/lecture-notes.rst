@@ -455,3 +455,72 @@ Roughly speaking, a small *p*-value means it's unlikely to observe such a relati
 Equivalently, we can also check if the confidence interval for :math:`\beta_1` include 0.
 If it does, it means the relationship is not significant. 
 
+
+Assessing the accuracy of the model 
+===================================
+
+Once we reject the null hypothesis :math:`\text{H}_0` 
+(i.e., stating that there *is* some relationship between :math:`x` and :math:`y`), 
+we want to quantify the *extent* to which the model fits the data. 
+
+A natural thought is to use something that measures the "average amount of errors" that the model made. 
+The Residual Standard Error (RSE) that we used previously is such an measure. 
+
+.. math:: 
+        \text{RSE} = \sqrt{\frac{\text{RSS}}{n-2}}=\sqrt{\frac{\sum e_i^2}{n-2}}=\sqrt{\frac{\sum (y_i - \hat{y}_i)^2}{n-2}} =\sqrt{\frac{\sum \big(y_i - (\hat{\beta}_0 + \hat{\beta}_1 x_i)\big)^2}{n-2}}
+
+RSE provides an *absolute* measure of the model's lack of fit. 
+In the advertising example ``sales ~ TV``, the RSE is 3.26 (thousands of units). 
+It can be interpreted as the actual sales in each market deviates from the true regression line (the model prediction) by 3,260 units, on average. 
+
+One major limitation of using RSE as a measure of model accuracy is that it is not always clear what constitutes a "good" RSE. 
+For example, is an average error of 3,260 units good?
+
+:math:`R^2` statistic
+^^^^^^^^^^^^^^^^^^^^^
+
+Compare with the RSE, a more common metric to assess the model accuracy is the :math:`R^2` statistic. 
+
+We define the following:
+
+RSS (Residual Sum of Squares)
+
+.. math:: 
+
+    \text{RSS}=\sum_{i=1}^n \big(y_i-\hat{y}_i \big)^2 \text{, where } \hat{y}_i = \hat{\beta}_0 + \hat{\beta}_1 x_i.
+
+RSS measures the amount of variability in :math:`y` that is *left unexplained* after performing the regression on :math:`x`.
+
+TSS (Total Sum of Squares)
+
+.. math:: 
+
+    \text{TSS}=\sum_{i=1}^n \big(y_i-\bar{y}_i \big)^2 \text{, where } \bar{y}_i = \frac{1}{n}\sum y_i \text{ is the sample mean for } y.
+
+TSS measures the total amount of variability inherent in :math:`y` before performing the regression on :math:`x`.
+
+:math:`\text{TSS}-\text{RSS}` measures the amount of variability in :math:`y` that is explained by performing the regression on :math:`x`.
+
+.. math:: 
+
+    R^2 = \frac{\text{TSS}-\text{RSS}}{\text{TSS}} = 1 - \frac{\text{RSS}}{\text{TSS}}
+
+:math:`R^2` measures the *proportion* of variability in :math:`y` that is explained by performing the regression on :math:`x`.
+
+
+
+In the advertising example ``sales ~ TV``, the :math:`R^2` is 0.612. 
+It can be interpreted as 61.2% of the variability in the sales can be explained by a regression on the TV budget. 
+
+Notes
+
+- If a model is very accurate, the RSS will be much smaller when compared to TSS, which means the :math:`R^2` will be close to 1. 
+- The definition of :math:`R^2` does not rely on any specific form of the model. In fact, it can be computed for *any* model with the output :math:`\hat{y}_i`. 
+- For an OLS regression model, it can be proved that :math:`0 \leq R^2 \leq 1`. 
+- Generally, :math:`R^2 \geq 0` does *not* hold. Think of an arbitrarily "bad" model.  
+
+
+.. Confidence and prediction intervals
+.. ===================================
+
+
