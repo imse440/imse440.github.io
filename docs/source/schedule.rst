@@ -14,19 +14,19 @@ Schedule
    * - 3
      - Introduction to data analysis and visualization in Python
    * - 4
-     - `Simple linear regression, parameter estimation <https://imse440.github.io/lectures/simple-linear-regression/>`__
+     - Simple linear regression, parameter estimation
    * - 5
      - Assessing the accuracy of the parameter estimates
    * - 6
      - Assessing the accuracy of the model
    * - 7
-     - Confidence and prediction intervals
+     - Confidence and prediction intervals, multiple linear regression
    * - 8
-     - Multiple linear regression, categorical predictors
+     - Multiple linear regression (cont'd), interactions
    * - 9
-     - Model diagnostics & evaluation
+     - Categorical predictors, model diagnostics & evaluation
    * - 10
-     - Overfitting, cross-validation, more on linear regression
+     - Overfitting, cross-validation
    * - 11
      - Logistic regression
    * - 12
