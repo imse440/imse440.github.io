@@ -626,14 +626,14 @@ Previously, we compute the model prediction at a given :math:`x=x^*` using the f
 
 .. math::
 
-    \text{E}[Y] = \hat{\beta}_0 + \hat{\beta}_1 x^*
+    \hat{y} = \hat{\beta}_0 + \hat{\beta}_1 x^*
 
-If we describe the above as a general method, we have the estimator for the mean response :math:`\hat{Y}_{\text{mean}}` as follows.
+If we describe the above as a general method of estimating :math:`y` at a given :math:`x=x^*`, we have the estimator for the mean response :math:`\hat{Y}_{\text{mean}, x=x^*}`, or simply :math:`\hat{Y}_{\text{mean}}` as follows.
 
 
 .. math::
 
-    \hat{Y}_{\text{mean}} = \hat{\text{E}[Y]} = \hat{B}_0 + \hat{B}_1 x^*
+    \hat{Y}_{\text{mean}} = \hat{B}_0 + \hat{B}_1 x^*
 
 Let's construct a confidence interval for :math:`\hat{Y}_{\text{mean}}`, the mean response for all observations at :math:`x=x^*`.
 
