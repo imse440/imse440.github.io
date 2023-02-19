@@ -36,7 +36,7 @@ Your team will submit a project proposal (10% of project grade), so we can make 
 
 Your project needs to be
 
-- authentic (i.e., it comes from a *real-world* problem.)
+- authentic (i.e., the research questions come from a *real-world* problem and are answered by using *real-world* data.)
 - meaningful (i.e., the outcomes would provide values to others or are something you care deeply about.)
 - reasonably complex (so that you can try a variety of things you learned from this course with reasonable depth.) As a rule of thumb, your project should be significantly more complex than a typical homework problem.
 - feasible given the project timeline. 
@@ -44,6 +44,8 @@ Your project needs to be
 
 Proposal requirements
 ^^^^^^^^^^^^^^^^^^^^^
+
+- One submission per team.
 
 - **Proposal template**: You should use the proposal template on Overleaf which will be provided.
 
@@ -61,32 +63,45 @@ Proposal requirements
     .. note::
         We expect *all* team members to use Overleaf as a collaborative tool (think of a Google Docs) when drafting the proposal (and the poster in the next section).
 
-- The proposal should be no more than two pages (not including the cover page or the references). It should include the following
+The proposal should include the following:
 
-    - **Project tentative title**
-    - **Background**: A brief description of the background of the problem
-    - **Research questions**: What do you want to figure out?
-    - **Literature review**: What has been done by others regarding the research questions? 
-      Report on at least two relevant scientific articles.
-    - **Data set(s)**: Briefly describe the data set(s) you plan to use. 
-      Include the URLs to access the data. 
-      Typically a single data set is sufficient for this project. 
-      It is recommended to use publicly-available data. 
-      See the Data Sources section below (near the bottom of this document) for starting places to look for data. 
-    - **Method description**: what are the technical plans on how the research questions will be answered 
-      (e.g., how you plan to analyze the data? what modeling work to conduct? how to address the research questions based on the results?) 
-      Note I understand that we have not covered some of the modeling methods. 
-      See the [scheduled course topics](../) for more information. 
-      Describe your methods as best as you can.   
-    - (Optional) A brief description of what you have done so far.
+- **Project tentative title**: Note your team may choose a topic that is different from what you indicated in the course survey.
+- **Background**: A brief description of the background of the problem
+- **Research questions**: What do you want to figure out? 
+  You may want to check the :ref:`Schedule` on the remaining lecture topics (check the :ref:`Textbooks` and the web if you are unfamiliar with the topics).
+  Note your research questions should relate to statistical modeling, rather than exploratory data analysis (e.g., what are the five largest countries in the world?) 
+- **Literature review**: What has been done by others regarding the research questions? 
+  Report on at least two relevant scientific articles.
+  You can use `Google Scholar <https://scholar.google.com/schhp?hl=en>`__ to search for scientific articles.
+  
+      .. tip:: 
+        
+        To cite an scientific article in your proposal, you can follow the steps below. 
+        (Also check the example on the proposal template.)
 
-- One submission per team.
-
-.. attention::
-    Regression models are mostly suited for `cross-sectional data <https://en.wikipedia.org/wiki/Cross-sectional_data>`__
-    (Think of the data sets we used in the lectures and homework.)
-    Do *not* use `time-series data <https://en.wikipedia.org/wiki/Time_series>`__ (e.g., temperature by dates), as the independence assumption in regression models is likely violated.
-    .. For example, today's temperature is highly correlated with (thus not independent to) yesterday's temperature.
+          - First find the article on Google Scholar. 
+          - Click the **Cite** button near the bottom of the article.
+          - Click the **BibTeX** button.
+          - Copy and paste the text (starting with, for example, ``@article{feng2018drivers``) into the ``references.bib`` file on Overleaf.
+          - Go to the place where you want to cite the article, 
+            type something like ``A new study \autocite{feng2018drivers} found that``.
+            This will automatically generate the citation and the Reference section. 
+- **Data set(s)**: Briefly describe the data set(s) you plan to use. 
+  Include the URLs to access the data. 
+  Typically a single data set is sufficient for this project. 
+  It is recommended to use publicly-available data. 
+  See the :ref:`Data sources` section below for starting places to look for data. 
+    .. attention::
+        Regression models are mostly suited for `cross-sectional data <https://en.wikipedia.org/wiki/Cross-sectional_data>`__
+        (Think of the data sets we used in the lectures and homework.)
+        Do *not* use `time-series data <https://en.wikipedia.org/wiki/Time_series>`__ (e.g., temperature by dates), as the independence assumption in regression models is likely violated.
+        .. For example, today's temperature is highly correlated with (thus not independent to) yesterday's temperature.
+- **Method description**: what are the technical plans on how the research questions will be answered 
+  (e.g., how you plan to analyze the data? what modeling work to conduct? how to address the research questions based on the results?) 
+  We understand that we have not covered some of the modeling methods. 
+  Check the :ref:`Schedule` on the remaining lecture topics and describe your methods as best as you can.   
+- (Optional) A brief description of what you have done so far.
+- The proposal should be no more than two pages (not including the cover page or the references). 
 
 Proposal grading rubric
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -111,9 +126,9 @@ Under each component are the descriptions for three levels of "Excellent", "Good
     - Plan on how to answer question described but lacking clarity
     - No discussion of how analysis and modeling may be used to answer research questions
 - **Composition**
-    - **The proposal was clearly written, coherent, and well organized.**
+    - **The proposal was clearly written, coherent, and well organized**
     - Writing and organization needs improvement
-    - Not clear, coherent, or lacks overall organization.
+    - Not clear, coherent, or lacks overall organization
 
 
 Research poster
