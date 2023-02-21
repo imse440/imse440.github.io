@@ -735,7 +735,8 @@ The expected value of :math:`\hat{Y}`:
     \end{align}
 
 
-We see that the expected value of :math:`\hat{Y}` is the same as the expected value of :math:`\hat{Y}_{\text{mean}}`.
+We see that :math:`\hat{Y}` and :math:`\hat{Y}_{\text{mean}}` have the same expected value of :math:`\beta_0 + \beta_1 x^*`, 
+which is the *true* regression line's response at :math:`x=x^*`.
 
 
 The variance of :math:`\hat{Y}`:
@@ -745,16 +746,19 @@ The variance of :math:`\hat{Y}`:
     \begin{align}
     \text{var}\big(\hat{Y}\big) &= \text{var}\big(\hat{Y}_{\text{mean}} + \epsilon\big)\\
     \\
-    &= \text{var}\big(\hat{Y}_{\text{mean}}\big) + \text{var}(\epsilon) + 2 \text{cov}\big(\hat{Y}_{\text{mean}}, \epsilon\big) \\
+    &\text{Because the error $\epsilon$ from a new observation is independent to the mean}\\
+    & \text{response estimator $\hat{Y}_{\text{mean}}$ which is built based on previous observations,} \\
     \\
-    &= \text{var}\big(\hat{Y}_{\text{mean}}\big) + \text{var}(\epsilon) + 2 \text{cov}\big(\hat{B}_0 + \hat{B}_1 x^*, \epsilon\big) \\
+    &= \text{var}\big(\hat{Y}_{\text{mean}}\big) + \text{var}(\epsilon) \\
     \\
-    &\text{As the error $\epsilon$ from a new observation is independent to $\hat{B}_0$ and $\hat{B}_1$}, \\
+    &= \text{var}\big(\hat{Y}_{\text{mean}}\big) + \sigma^2 \\
     \\
-    &= \sigma^2\bigg(\frac{1}{n} + \frac{(x^* - \bar{x})^2}{S_{xx}}\bigg) + \sigma^2 + 2 \cdot 0 \\
+    &= \sigma^2\bigg(\frac{1}{n} + \frac{(x^* - \bar{x})^2}{S_{xx}}\bigg) + \sigma^2 \\
     \\
     &= \sigma^2\bigg(1 + \frac{1}{n} + \frac{(x^* - \bar{x})^2}{S_{xx}}\bigg) \\
     \end{align}
+
+We see that the variance of :math:`\hat{Y}` is larger than the variance of :math:`\hat{Y}_{\text{mean}}` by  :math:`\sigma^2`.
 
 The standard error of :math:`\hat{Y}`:
 
@@ -920,6 +924,7 @@ Roughly speaking, if a model is useful, the RSS is small, and the F-statistic is
 
 If the null hypothesis :math:`H_0` is true, the F-statistic follows a `F-distribution <https://en.wikipedia.org/wiki/F-distribution>`__ with degrees of freedom of :math:`p` and :math:`n-p-1`. 
 We reject the null hypothesis if the F-statistic is greater than the critical value :math:`F_{\alpha, p, n-p-1}`.
+Otherwise, we fail to reject the null hypothesis.
 Equivalently, we reject the null hypothesis if the *p*-value is less than the significant level :math:`\alpha`.
 
 
@@ -941,12 +946,12 @@ Equivalently, we reject the null hypothesis if the *p*-value is less than the si
      - :math:`n-p-1`
      - :math:`\text{RSS}=\sum (y_i-\hat{y}_i)^2`
      - :math:`\text{RSS}/(n-p-1)`
-     - 
+     - :math:`-`
    * - Total
      - :math:`n-1`
      - :math:`\text{TSS}=\sum (y_i-\bar{y})^2`
-     - 
-     -
+     - :math:`-`
+     - :math:`-`
 
 
 

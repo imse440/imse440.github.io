@@ -91,11 +91,11 @@ The proposal should include the following:
   Typically a single data set is sufficient for this project. 
   It is recommended to use publicly-available data. 
   See the :ref:`Data sources` section below for starting places to look for data. 
-    .. attention::
+      .. attention::
         Regression models are mostly suited for `cross-sectional data <https://en.wikipedia.org/wiki/Cross-sectional_data>`__
         (Think of the data sets we used in the lectures and homework.)
         Do *not* use `time-series data <https://en.wikipedia.org/wiki/Time_series>`__ (e.g., temperature by dates), as the independence assumption in regression models is likely violated.
-        .. For example, today's temperature is highly correlated with (thus not independent to) yesterday's temperature.
+        For example, today's temperature is highly correlated with (thus not independent to) yesterday's temperature.
 - **Method description**: what are the technical plans on how the research questions will be answered 
   (e.g., how you plan to analyze the data? what modeling work to conduct? how to address the research questions based on the results?) 
   We understand that we have not covered some of the modeling methods. 
