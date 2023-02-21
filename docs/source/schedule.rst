@@ -20,17 +20,17 @@ Schedule
    * - 6
      - Assessing the accuracy of the model
    * - 7
-     - Confidence and prediction intervals, multiple linear regression
+     - Confidence and prediction intervals, introduction to multiple linear regression
    * - 8
-     - Multiple linear regression (cont'd), interactions
+     - Interactions, categorical predictors
    * - 9
-     - Categorical predictors, model diagnostics & evaluation
+     - Model diagnostics & evaluation
    * - 10
      - Overfitting, cross-validation
    * - 11
-     - Logistic regression
+     - Logistic regression, classifier evaluation
    * - 12
-     - Classifier evaluation, Introduction to design of experiments
+     - Introduction to design of experiments
    * - 13
      - Comparing experiments, experiments with a single factor
    * - 14
