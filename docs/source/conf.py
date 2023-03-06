@@ -54,3 +54,5 @@ extensions = ['sphinx.ext.autosectionlabel',
 
 
 html_title = ''
+
+imgmath_latex_preamble = r'\usepackage{xcolor}'

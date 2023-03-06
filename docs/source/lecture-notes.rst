@@ -478,7 +478,7 @@ For example, is an average error of 3,260 units good?
 :math:`R^2` statistic
 ^^^^^^^^^^^^^^^^^^^^^
 
-Compare with the RSE, a more common metric to assess the model accuracy is the :math:`R^2` statistic (sometimes also called the *coefficient of determination*). 
+Compare with the RSE, a more common metric to assess the model accuracy is the :math:`R^2` statistic (also called the *coefficient of determination*). 
 
 We define the following:
 
@@ -954,6 +954,284 @@ Equivalently, we reject the null hypothesis if the *p*-value is less than the si
      - :math:`-`
 
 
+*t*-test
+^^^^^^^^
+
+If a multiple linear regression model passes the :ref:`model utility test`,
+and we conclude that the model is at least somewhat useful, 
+naturally, our next question is *which subset of the independent variables are useful*?
+We can perform a *t*-test to examine whether a specific independent variable (let's call it :math:`x_j`) is useful in predicting the dependent variable :math:`y`.
 
 
+- :math:`\text{H}_0`: There is *no* relationship between :math:`x_j` and :math:`y`.
+- :math:`\text{H}_a`: There is *some* relationship between :math:`x_j` and :math:`y`.
 
+Mathematically, this corresponds to
+
+.. math:: 
+
+    \begin{align}
+        &\text{H}_0: \beta_j = 0 \\
+        \\
+        &\text{H}_a: \beta_j \neq 0 \\
+    \end{align}
+
+
+We compute a t-statistic, given by
+
+.. math:: 
+
+    t=\frac{\hat{\beta}_j - \beta_j}{\text{SE}(\hat{B}_j)} = \frac{\hat{\beta}_j - 0}{\text{SE}(\hat{B}_j)} = \frac{\hat{\beta}_j}{\text{SE}(\hat{B}_j)}
+
+If there really is no relationship between :math:`x_j` and :math:`y`, the t-statistic will have a t-distribution with the degree of freedom of :math:`n-p-1`.
+
+We reject the null hypothesis :math:`\text{H}_0` if 
+
+.. math:: 
+
+    |t| > t_{\text{critical}}
+
+or 
+
+.. math:: 
+
+    p\text{-value} = 2\cdot \text{P}(t_{n-p-1} > |t|) < \alpha
+
+
+We can also construct a confidence interval for each slope parameter :math:`\beta_j`:
+
+.. math::
+
+    \hat{\beta}_j \pm t_{\alpha/2, n-p-1} \cdot \text{SE}(\hat{B}_j)
+
+Equivalently, we can also check if the confidence interval for :math:`\beta_j` include 0.
+If it does, it means the relationship is not significant. 
+
+Note the above parts are very similar to the :ref:`Hypothesis test` when we discussed simple linear regression in the earlier sections,
+with the only exception of the degree of freedom of the *t*-distribution now being :math:`n-p-1`.
+We can also see the simply linear regression as a special case of multiple linear regression where the number of independent variables :math:`p=1`.
+
+Similar to earlier we skipped the manual calculation of the OLS solution for the slope parameter :math:`\beta_j`,
+We skip the calculation of the :math:`\text{SE}(\hat{B}_j)` and rely on software packages such as the ``statsmodels`` library in Python to compute the solutions for us. 
+
+
+Accessing model accuracy
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+For simple linear regression, we can use RSE (residual standard error) as a measure of model accuracy. 
+
+
+.. math:: 
+        \text{RSE} = \sqrt{\frac{\text{RSS}}{n-2}}
+
+For multiple regression model, we can also compute the RSE with an adjustment to the degree of freedom in the above formula. 
+
+.. math:: 
+        \text{RSE} = \sqrt{\frac{\text{RSS}}{n-p-1}}
+
+Again, the formula above for simple linear regression can be seen as a special case of multiple linear regression when the number of independent variables :math:`p=1`.
+
+
+Similar to the arguments from the simple linear regression, RSE is an *absolute* measure of the model's lack of fit.  
+More commonly, we use the :math:`R^2` statistic to measure the model's accuracy. 
+
+.. math:: 
+
+    R^2 = \frac{\text{TSS}-\text{RSS}}{\text{TSS}} = 1 - \frac{\text{RSS}}{\text{TSS}}
+
+:math:`R^2` measures the *proportion* of variability in :math:`y` that is explained by performing the regression on all the independent variables :math:`x_1, x_2, \cdots, x_p`.
+
+Previously, we showed that in the advertising example if we build a simple linear regression ``sales ~ TV``, the :math:`R^2` is 0.612. 
+With a multiple linear regression ``sales ~ TV + radio + newspaper``, the :math:`R^2` is 0.897, which is an improvement in model accuracy after including the two additional independent variables. 
+
+
+Confidence and prediction intervals
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Once we build a multiple linear regression model, how can we use the model to make a prediction?
+And how *accurate* is the prediction?
+
+To make a prediction at a particular observation of the :math:`p` independent variables (:math:`x_1 = x_1^*, x_2 = x_2^*, \cdots, x_p = x_p^*`), 
+we use the following formula based on the OLS solution of the parameter estimates (:math:`\hat{\beta}_0, \hat{\beta}_1, \hat{\beta}_2, \cdots, \hat{\beta}_p`). 
+
+.. math::
+
+    \hat{y} = \hat{\beta}_0 + \hat{\beta}_1 x_1^* + \hat{\beta}_2 x_2^* + \cdots + \hat{\beta}_p x_p^*
+
+
+Similar to our discussion during the simple linear regression, to construct the confidence interval of the mean response we need to study the mean response estimator
+
+.. math::
+
+    \hat{Y}_{\text{mean}} = \hat{B}_0 + \hat{B}_1 x_1 + \hat{B}_2 x_2 + \cdots + \hat{B}_p x_p
+
+Skipping the details, we can show that the confidence interval of the mean is 
+
+.. math::
+
+    \hat{\beta}_0 + \hat{\beta}_1 x_1^* + \hat{\beta}_2 x_2^* + \cdots + \hat{\beta}_p x_p^* \;\pm\; t_{\alpha/2, n-p-1} \cdot \text{SE}(Y_{mean})
+
+It is a confidence interval of the *mean* response for *all* observations at :math:`x_1 = x_1^*, x_2 = x_2^*, \cdots, x_p = x_p^*`.
+
+
+Similarly, we can construct a prediction interval for a *single* observation at :math:`x_1 = x_1^*, x_2 = x_2^*, \cdots, x_p = x_p^*`.
+
+The single response estimator
+
+.. math::
+
+    \begin{align}
+    \hat{Y} &= \hat{B}_0 + \hat{B}_1 x_1 + \hat{B}_2 x_2 + \cdots + \hat{B}_p x_p + \epsilon \\
+    \\
+    &= \hat{Y}_{\text{mean}} + \epsilon
+    \end{align}
+
+We can show that
+
+.. math::
+
+    \begin{align}
+    \text{E}\big[\hat{Y}\big] &= \text{E}\big[\hat{Y}_{\text{mean}} + \epsilon \big] \\
+    \\
+    &= \text{E}\big[\hat{Y}_{\text{mean}}\big] + \text{E}[\epsilon] \\
+    \\
+    &= \text{E}\big[\hat{Y}_{\text{mean}}\big] + 0 \\
+    \\
+    &= \hat{\beta}_0 + \hat{\beta}_1 x_1^* + \hat{\beta}_2 x_2^* + \cdots + \hat{\beta}_p x_p^* \\
+    \end{align}
+
+And
+
+.. math::
+
+    \begin{align}
+    \text{var}\big(\hat{Y}\big) &= \text{var}\big(\hat{Y}_{\text{mean}} + \epsilon \big) \\
+    \\
+    &= \text{var}\big(\hat{Y}_{\text{mean}}\big) + \text{var}(\epsilon) \\
+    \\
+    &= \text{var}\big(\hat{Y}_{\text{mean}}\big) + \sigma^2 \\
+    \end{align}
+
+Skipping the details, we can show that the prediction interval is 
+
+.. math::
+
+    \hat{\beta}_0 + \hat{\beta}_1 x_1^* + \hat{\beta}_2 x_2^* + \cdots + \hat{\beta}_p x_p^* \;\pm\; t_{\alpha/2, n-p-1} \cdot \text{SE}(Y)
+
+It is a confidence interval of the response for a *single* observation at :math:`x_1 = x_1^*, x_2 = x_2^*, \cdots, x_p = x_p^*`.
+
+
+We rely on software packages such as the ``statsmodels`` library in Python to compute the confidence and prediction intervals for us. 
+
+
+Interactions
+============
+
+In the previous advertising data example, we can build a multiple linear regression model 
+
+.. math::
+    \text{sales} = \beta_0 + \beta_1 \cdot \text{TV} + \beta_2 \cdot \text{radio} + \epsilon
+
+After fitting a model based on the data, let's say we have the fitted model
+
+
+.. math::
+
+    \hat{\text{sales}} = 2.9211 + 0.0458 \cdot \text{TV} + 0.1880 \cdot \text{radio}
+
+In the above model, for a 1-unit increase in the TV budget, the effect on the sales is 0.0458. 
+Note this is always the case regardless of the level of the radio budget. 
+Similarly, for a 1-unit increase in radio budget, the effect on the sales is 0.1880, regardless of the level of the TV budget. 
+However, in reality maybe with a higher radio budget, the TV budget can be more effective (i.e., with a steeper slope).
+In other words, maybe the effectiveness of the TV budget depends on the level of radio budget, 
+or we say there may be "synergy" between the TV and radio budget.
+In statistics, this "synergy" is called *interactions* among the independent variables.
+
+We can model the (possible) interaction between the TV and radio budget by introducing an interaction term in the model with its own slope parameter. 
+
+
+.. math::
+    \text{sales} = \beta_0 + \beta_1 \cdot \text{TV} + \beta_2 \cdot \text{radio} \textcolor{red}{+ \beta_3 \cdot \text{TV} \cdot \text{radio}} + \epsilon
+
+
+In the above model, the terms for TV and radio are called the *main* effect, 
+and the term for :math:`\text{TV} \cdot \text{radio}` is called the *interaction* effect.
+
+We can show that 
+
+.. math::
+
+    \begin{align}
+    \text{sales} &= \beta_0 + \beta_1 \cdot \text{TV} + \beta_2 \cdot \text{radio} + \beta_3 \cdot \text{TV} \cdot \text{radio} + \epsilon \\
+    \\
+    &= \beta_0 + (\beta_1 + \beta_3 \cdot \text{radio}) \cdot \text{TV} + \beta_2 \cdot \text{radio} + \epsilon \\
+    \\
+    &= \beta_0 + \beta_1' \cdot \text{TV} + \beta_2 \cdot \text{radio} + \epsilon \\
+    \\
+    & \text{where $\beta_1' = \beta_1 + \beta_3 \cdot \text{radio}$}
+    \end{align}
+
+In the above model the effect of the TV budget on the sales is no longer constant, but depending on the level of radio budget. 
+We can perform the same :ref:`*t*-test` to determine if the interaction effect is significant or not. 
+
+Categorical variables
+=====================
+
+In the customer credit data set there's a variable indicating whether a customer is a student ("Yes") or not ("No").
+Intuitively, this piece of information may be helpful in predicting one's credit balance.
+However, unlike all the independent variable we have seen so far, this variable does not take numerical values, but rather, two categories of either "Yes" or "No".
+How can we incorporate this categorical variable into a regression model to predict the credit balance?
+
+We can create a dummy variable with values of either 0 (representing "No") or 1 (representing "Yes"). 
+
+.. math::
+
+    \text{student} =
+    \begin{cases}
+    0,& \text{if "No"}, \\
+    1,& \text{if "Yes"}. \\
+    \end{cases}
+
+
+Then we include this (binary) dummy variable into the regression model just like we would for any numerical variables. 
+
+.. math::
+
+    \text{balance} = \beta_0 + \beta_1 \cdot \text{income} + \textcolor{red}{\beta_2 \cdot \text{student}} + \epsilon
+
+Then 
+
+.. math::
+
+    \text{E[balance]} = \beta_0 + \beta_1 \cdot \text{income} + \beta_2 \cdot \text{student}
+
+For non-students (i.e., :math:`\text{student}=0`) the regression line becomes
+
+.. math::
+
+    \begin{align}
+    \text{E[balance]} &= \beta_0 + \beta_1 \cdot \text{income} + \beta_2 \cdot 0 \\
+    \\
+    &= \beta_0 + \beta_1 \cdot \text{income} \\
+    \end{align}
+    
+For students (i.e., :math:`\text{student}=1`) the regression line becomes
+
+.. math::
+
+    \begin{align}
+    \text{E[balance]} &= \beta_0 + \beta_1 \cdot \text{income} + \beta_2 \cdot 1 \\
+    \\
+    &= (\beta_0 + \beta_2) + \beta_1 \cdot \text{income} \\
+    \end{align}
+
+
+The above shows for both the students and non-students, the income have the same main effect (of :math:`\beta_1`) on the balance. 
+The difference is the intercept. 
+For a student and a non-student *with the same income*, the student's balance is :math:`\beta_2` higher [#]_ than the non-student. 
+Often the category that is set to 0 in the dummy variable (the non-student in this case) is called the *baseline*.
+
+
+.. rubric:: Footnotes
+
+.. [#] Note :math:`\beta_2` may be negative. 
