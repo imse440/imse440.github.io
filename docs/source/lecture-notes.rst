@@ -1174,26 +1174,30 @@ We can show that
 In the above model the effect of the TV budget on the sales is no longer constant, but depending on the level of radio budget. 
 We can perform the same :ref:`*t*-test` to determine if the interaction effect is significant or not. 
 
-Categorical variables
+Categorical predictor
 =====================
 
-In the customer credit data set there's a variable indicating whether a customer is a student ("Yes") or not ("No").
+A categorical predictor with two levels
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+In the customer credit data set there is a variable indicating whether a customer is a student ("Yes") or not ("No").
 Intuitively, this piece of information may be helpful in predicting one's credit balance.
 However, unlike all the independent variable we have seen so far, this variable does not take numerical values, but rather, two categories of either "Yes" or "No".
 How can we incorporate this categorical variable into a regression model to predict the credit balance?
 
-We can create a dummy variable with values of either 0 (representing "No") or 1 (representing "Yes"). 
+For a categorical variable that has two categories (e.g., "Yes" and "No", often referred to as having two "levels"),
+we can create a dummy variable with values of either 0 (representing "No") or 1 (representing "Yes"). 
 
 .. math::
 
     \text{student} =
     \begin{cases}
-    0,& \text{if "No"}, \\
+    0,& \text{if "No"}; \\
     1,& \text{if "Yes"}. \\
     \end{cases}
 
 
-Then we include this (binary) dummy variable into the regression model just like we would for any numerical variables. 
+Then we include this dummy (binary) variable into the regression model just like we would for any numerical variables. 
 
 .. math::
 
@@ -1230,6 +1234,188 @@ The above shows for both the students and non-students, the income have the same
 The difference is the intercept. 
 For a student and a non-student *with the same income*, the student's balance is :math:`\beta_2` higher [#]_ than the non-student. 
 Often the category that is set to 0 in the dummy variable (the non-student in this case) is called the *baseline*.
+
+
+A categorical predictor with more than two levels
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+In the customer credit data set there is a variable indicating a customer's ethnicity.
+The variable has three categories (i.e., levels): African American, Asian, and Caucasian.
+
+A natural thought may be to create a dummy variable that encodes the three ethnicity groups with values of 0, 1, and 2.
+For example, we can create a dummy variable ``ethnicity``:
+
+.. math::
+
+    \text{ethnicity} =
+    \begin{cases}
+    0,& \text{if African American}; \\
+    1,& \text{if Asian}; \\
+    2,& \text{if Caucasian}. \\
+    \end{cases}
+
+
+Then we include this dummy variable into the regression model just like we would for any numerical variables. 
+
+.. math::
+
+    \text{balance} = \beta_0 + \beta_1 \cdot \text{income} + \textcolor{red}{\beta_2 \cdot \text{ethnicity}} + \epsilon
+
+Then 
+
+.. math::
+
+    \text{E[balance]} = \beta_0 + \beta_1 \cdot \text{income} + \beta_2 \cdot \text{ethnicity}
+
+For African American (i.e., :math:`\text{ethnicity}=0`) the regression line becomes
+
+.. math::
+
+    \begin{align}
+    \text{E[balance]} &= \beta_0 + \beta_1 \cdot \text{income} + \beta_2 \cdot 0 \\
+    \\
+    &= \beta_0 + \beta_1 \cdot \text{income} \\
+    \end{align}
+
+For Asian (i.e., :math:`\text{ethnicity}=1`) the regression line becomes
+
+.. math::
+
+    \begin{align}
+    \text{E[balance]} &= \beta_0 + \beta_1 \cdot \text{income} + \beta_2 \cdot 1 \\
+    \\
+    &= (\beta_0 + \beta_2) + \beta_1 \cdot \text{income} \\
+    \end{align}
+
+
+For Caucasian (i.e., :math:`\text{ethnicity}=2`) the regression line becomes
+
+.. math::
+
+    \begin{align}
+    \text{E[balance]} &= \beta_0 + \beta_1 \cdot \text{income} + \beta_2 \cdot 2 \\
+    \\
+    &= (\beta_0 + 2\beta_2) + \beta_1 \cdot \text{income} \\
+    \end{align}
+
+
+The above three regression lines have the same slope of :math:`\beta_1`, 
+but different intercepts of :math:`\beta_0`, :math:`\beta_0 + \beta_2`, and :math:`\beta_0 + 2\beta_2`.
+
+This essentially assigns 
+(1) a particular order of the three ethnicity groups, and 
+(2) *equal distance* between African American and Asian, and between Asian and Caucasian who have the same income.
+In reality, there is little reason to believe these assumptions are valid.
+
+For this reason, a better way to include the Ethnicity variable into the model is to create not one, but two dummy (binary) variables. 
+
+.. math::
+
+    \text{asian} =
+    \begin{cases}
+    0,& \text{if Asian}; \\
+    1,& \text{if not Asian}. \\
+    \end{cases} \;\;\;\;
+    \text{caucasian} =
+    \begin{cases}
+    0,& \text{if Caucasian}; \\
+    1,& \text{if not Caucasian}. \\
+    \end{cases}
+
+
+In this setting we can encode the three ethnicity groups as shown the table below.
+This method is called `One Hot Encoding <https://en.wikipedia.org/wiki/One-hot>`_.
+
+.. list-table:: One Hot Encoding
+   :widths: 40 30 30
+   :header-rows: 1
+
+   * - Categories \\ Dummy variables
+     - :math:`\text{asian}`
+     - :math:`\text{caucasian}`
+   * - Asian
+     - 1
+     - 0
+   * - Caucasian
+     - 0
+     - 1
+   * - African American
+     - 0
+     - 0
+
+
+
+
+After applying the above encoding, we include the two dummy variable into the regression model. 
+
+.. math::
+
+    \text{balance} = \beta_0 + \beta_1 \cdot \text{income} + \textcolor{red}{\beta_2 \cdot \text{asian} + \beta_3 \cdot \text{caucasian}} + \epsilon
+
+Then 
+
+.. math::
+
+    \text{E[balance]} = \beta_0 + \beta_1 \cdot \text{income} + \beta_2 \cdot \text{asian} + \beta_3 \cdot \text{caucasian}
+
+For African American (i.e., :math:`\text{asian}=0, \text{caucasian}=0`) the regression line becomes
+
+.. math::
+
+    \begin{align}
+    \text{E[balance]} &= \beta_0 + \beta_1 \cdot \text{income} + \beta_2 \cdot 0 + \beta_3 \cdot 0 \\
+    \\
+    &= \beta_0 + \beta_1 \cdot \text{income} \\
+    \end{align}
+
+For Asian (i.e., :math:`\text{asian}=1, \text{caucasian}=0`) the regression line becomes
+
+
+.. math::
+
+    \begin{align}
+    \text{E[balance]} &= \beta_0 + \beta_1 \cdot \text{income} + \beta_2 \cdot 1 + \beta_3 \cdot 0 \\
+    \\
+    &= (\beta_0 + \beta_2) + \beta_1 \cdot \text{income} \\
+    \end{align}
+
+
+For Caucasian (i.e., :math:`\text{asian}=0, \text{caucasian}=1`) the regression line becomes
+
+
+.. math::
+
+    \begin{align}
+    \text{E[balance]} &= \beta_0 + \beta_1 \cdot \text{income} + \beta_2 \cdot 0 + \beta_3 \cdot 1 \\
+    \\
+    &= (\beta_0 + \beta_3) + \beta_1 \cdot \text{income} \\
+    \end{align}
+
+The above three regression lines have the same slope of :math:`\beta_1`, 
+but different intercepts of :math:`\beta_0`, :math:`\beta_0 + \beta_2`, and :math:`\beta_0 + \beta_3`.
+For the customers who have the same income, the distance between the African American (baseline) and Asian is :math:`\beta_2`,
+and the distance between the African American (baseline) and Caucasian is :math:`\beta_3`.
+This allows us to model these distances (which are likely different in reality) using two separate parameters.
+
+In general, we need to create *one fewer* dummy binary variables than the number of levels in the categorical predictor. 
+
+Similar to our discussion earlier on the interaction between the income and student, 
+we can further add the interaction effect to model the different income slopes for different ethnicity groups. 
+
+.. math::
+
+    \begin{align}
+    \text{balance} = \beta_0 &+ \beta_1 \cdot \text{income} \\
+    &+ \beta_2 \cdot \text{asian} \\
+    &+ \beta_3 \cdot \text{caucasian} \\
+    &+ \beta_4 \cdot \text{income $\cdot$ asian} \\
+    &+ \beta_5 \cdot \text{income $\cdot$ caucasian} \\
+    &+ \beta_6 \cdot \text{asian $\cdot$ caucasian} \\
+    &+ \beta_7 \cdot \text{income $\cdot$ asian $\cdot$ caucasian} \;\;\;\;\textcolor{gray}{\rightarrow\text{3-way interactions}}\\
+    &+ \epsilon \\
+    \end{align}
+
+
 
 
 .. rubric:: Footnotes
