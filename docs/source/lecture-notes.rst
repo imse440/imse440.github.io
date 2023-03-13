@@ -1416,8 +1416,231 @@ we can further add the interaction effect to model the different income slopes f
     \end{align}
 
 
-
-
 .. rubric:: Footnotes
 
 .. [#] Note :math:`\beta_2` may be negative. 
+
+Non-linear relationship
+=======================
+
+Question: Is the model below a linear regression model?
+
+.. math::
+
+    Y = \beta_0 + \beta_1 x + \beta_2 x^2 + \epsilon
+
+Let :math:`x_1=x, x_2=x^2`, we have
+
+.. math::
+
+    Y = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \epsilon
+
+After the transformation the model become a linear regression model. 
+If this is the case, we say the original model is *intrinsically* linear. 
+
+.. note::
+
+    The word "linear" in linear regression model does not mean the independent variables are linear. 
+    Rather, it means the regression coefficients (:math:`\beta_0, \beta_1, \beta_2`, etc.) are linear. 
+
+
+Question: Are the models below a linear regression model?
+
+.. math::
+
+    \begin{align}
+    Y &= \beta_0 + \beta_1 x_1 + \beta_1^2 x_2 + \epsilon \\
+    \\
+    Y &= \beta_0 + \beta_1 x_1 + \beta_0 \beta_1 x_2 + \epsilon \\
+    \end{align}
+
+Answer: They are not, as the regression coefficients are not linear. 
+
+
+Examples of other intrinsically linear models:
+
+
+Example 1:
+
+.. math::
+
+    Y = \beta_0 + \beta_1 \sin x + \beta_2 \cos x + \epsilon
+
+Let :math:`x_1=\sin x, x_2=\cos x`, we have
+
+
+.. math::
+
+    Y = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \epsilon
+
+As we can see, the model become linear regression model after the transformation, 
+thus it is intrinsically linear. 
+
+
+
+Example 2:
+
+.. math::
+
+    Y = \alpha \cdot e^{\beta_1 x^2 + \epsilon}
+
+Take natural logarithm on both side of the equation, we have
+
+
+.. math::
+
+    \ln Y = \ln \alpha + \beta_1 x^2 + \epsilon
+
+Let :math:`y'=\ln Y, \beta_0 = \ln \alpha, x'=x^2`, we have
+
+
+.. math::
+
+    y' = \beta_0 + \beta_1 x' + \epsilon
+
+
+As we can see, the model become linear regression model after the transformation, 
+thus it is intrinsically linear. 
+
+
+Polynomial regression
+^^^^^^^^^^^^^^^^^^^^^
+
+A polynomial regression model (with order :math:`p`) takes the following form
+
+.. math::
+
+    Y = \beta_0 + \beta_1 x + \beta_2 x^2 + \cdots + \beta_p x^p + \epsilon
+
+
+
+Model evaluation metrics
+========================
+
+Loosely speaking, we evaluate a model by looking at the average amount of errors that it makes. 
+The error at the :math:`i`-th observation :math:`e_i` is computed as the difference between the true value of the dependent variable :math:`y_i` and the model predicted value :math:`\hat{y}_i`.
+
+.. math::
+
+    e_i = y_i - \hat{y}_i
+
+
+We discussed earlier that when constructing a model performance metric, 
+it is not a good idea to simply sum up the errors, 
+as the positive errors and negative errors will cancel each other out. 
+This may give us a model that have very small overall errors, and yet has large positive and negative errors. 
+Commonly, we want to convert the negative errors to positive before summing them up. 
+
+A simple way is to take the absolute value of all errors before summing them up. 
+
+`Mean Absolute Error (MAE) <https://en.wikipedia.org/wiki/Mean_absolute_error>`_
+
+.. math::
+
+    \text{MAE}=\frac{1}{n}\sum_{i=1}^{n} |y_i-\hat{y}_i|
+
+Another common way is to square the errors before summing them up. 
+
+`Mean Squared Error (MSE) <https://en.wikipedia.org/wiki/Mean_squared_error>`_
+
+.. math::
+
+    \text{MSE}=\frac{\text{RSS}}{n}=\frac{1}{n}\sum_{i=1}^{n}(y_i-\hat{y}_i)^2
+
+Note because of the square operation, MSE effectively gives a heavier weight on the observations with large errors. 
+This may or may not be a desired property depending on the applications. 
+
+A practical drawback of MSE is that it has a unit of the square of the unit of the dependent variable :math:`y`.
+For example, if the dependent variable :math:`y` is house prices measured in dollars,
+the MSE will have the unit of dollars-squared, which may not be easy for one to directly understand and interpret. 
+A simple solution is to take a square root of the MSE, and get the Root Mean Squared Error (RMSE), 
+which shares the same unit as the dependent variable :math:`y`.
+
+.. math::
+
+    \text{RMSE}=\sqrt{\text{MSE}}=\sqrt{\frac{1}{n}\sum_{i=1}^{n}(y_i-\hat{y}_i)^2}
+
+
+As we discussed before, another commonly used metric to evaluate a model is :math:`R^2`, 
+which measures the proportion of variability in the dependent variable :math:`y` that can be explained by the model. 
+
+
+
+.. math::
+
+    R^2=\frac{\text{TSS}-\text{RSS}}{\text{TSS}}=1-\frac{\text{RSS}}{\text{TSS}}=1-\frac{\sum_{i=1}^{n}(y_i-\hat{y}_i)^2}{\sum_{i=1}^{n}(y_i-\bar{y})^2}
+
+
+Overfitting
+===========
+
+`Overfitting <https://en.wikipedia.org/wiki/Overfitting>`_ refers to a situation in which the model follows *too closely* to the data. 
+In other words, the model is working too hard to find patterns in the data, 
+and as a result, it may be picking up things that are just caused by noise, rather than the real underlying patterns. 
+Overfitting is undesirable because the fitted model will yield worse results with new data. 
+
+One limitation of using :math:`R^2` as a model evaluation metric is that it does not detect overfitting of a model.
+As a model becomes more complex, a possibly overfitted model with many parameters may actually result in a better metric (i.e., higher :math:`R^2`).
+For this reason, the adjusted :math:`R^2` is often used instead. 
+
+.. math::
+
+    R^2_{\text{adj}}=1-\frac{\text{RSS}/(n-p-1)}{\text{TSS}/(n-1)}
+
+where :math:`p` is the number of predictors. 
+
+Essentially, in the adjusted :math:`R^2`, both the RSS and TSS are divided by their corresponding degrees of freedom. 
+This effectively penalize a more complex model with large number of parameters :math:`p`.
+
+
+In some cases if we already know a model's :math:`R^2`, we can compute the adjusted :math:`R^2` from the :math:`R^2`.
+We replace :math:`\frac{\text{RSS}}{\text{TSS}}` in the first equation above with :math:`1-R^2`.
+Then we have:
+
+.. math::
+
+    R^2_{\text{adj}}=1-(1-R^2)\frac{(n-1)}{(n-p-1)}
+
+
+Train/test split
+^^^^^^^^^^^^^^^^
+
+An alternative approach to evaluate the models is to split the data into two parts: 
+
+- a training set
+- a test set
+
+Then we build the model using only the training set, and evaluate the model performance using only the test set. 
+
+Advantages over using the adjusted :math:`R^2`
+
+- More straightforward, provides a direct estimate of the test error. 
+
+Disadvantages
+
+- More computationally expensive (less of an issue nowadays)
+- Train/test split may have high variance.
+
+
+Cross-validation
+^^^^^^^^^^^^^^^^
+
+`Cross-validation <https://en.wikipedia.org/wiki/Cross-validation_(statistics)>`_ is a common method to combat the high variance of the train/test split method. 
+
+Procedure of conducting a (*k*-fold) cross-validation
+
+- The training set is split into :math:`k` groups, or *folds*, of approximately equal size.
+- A model is trained using :math:`(k-1)` of the folds as training data.
+- The resulting model is validated on the remaining fold. This fold is often called "held out validation set". 
+- The performance measure reported by the *k*-fold cross-validation is the average of the values.
+
+To use cross-validation we can use the scikit-learn ``cross_val_score`` function.
+
+Further resources
+
+- `scikit-learn official documentation on cross-validation <https://scikit-learn.org/stable/modules/cross_validation.html>`_
+
+
+
+
+
