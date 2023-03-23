@@ -1641,6 +1641,122 @@ Further resources
 - `scikit-learn official documentation on cross-validation <https://scikit-learn.org/stable/modules/cross_validation.html>`_
 
 
+Logistic regression
+===================
+
+
+Will a credit card customer default?
+
+
+.. code-block:: python
+    
+    import pandas as pd
+    df = pd.read_csv('./data/default.csv')
+    df.head()
+
+
+.. image:: images/lectures/logit-dataframe.png
+  :width: 300
+  :alt: credit default data
+
+
+We can create a dummy binary variable to indicate whether a customer will default or not. 
+
+.. math:: 
+
+    \text{default_binary}=
+    \begin{cases}
+        1, & \text{if } \text{default = Yes;} \\
+        0, & \text{if } \text{default = No.}
+    \end{cases}
+
+Let's make a scatter plot to examine the relationship between the binary variable for default and customers' credit balance. 
+
+.. code-block:: python
+    
+    plt.scatter(x='balance', y='default_binary', data=df)
+
+
+
+.. image:: images/lectures/logit-scatter.png
+  :width: 800
+  :alt: credit default data
+
+
+.. math:: 
+
+    p(x)=\frac{e^{\beta_0+\beta_1x}}{1+e^{\beta_0+\beta_1x}}
+
+
+Where :math:`p(x)` is probability that a customer with a credit balance of :math:`x` will default. 
+
+
+.. image:: images/lectures/logit-model.png
+  :width: 800
+  :alt: credit default data
+
+We can rearrange the above equation by doing the following
+
+.. math:: 
+
+    \begin{aligned}
+    p(x)&=\frac{e^{\beta_0+\beta_1x}}{1+e^{\beta_0+\beta_1x}} \\
+    \\
+    \frac{p(x)}{1-p(x)}&=e^{\beta_0+\beta_1x} \\
+    \\
+    \ln{\frac{p(x)}{1-p(x)}}&=\beta_0+\beta_1x \\
+    \end{aligned}
+
+In statistics :math:`\frac{p(x)}{1-p(x)}` is often referred to  as the `odds <https://en.wikipedia.org/wiki/Odds>`_. 
+It is the ratio of the probability that an event will occur to the probability that the event will not occur.
+We can see from above that the natural log of the odds, often called the *log-odds* or *logit*, is a linear function of :math:`x`.
+
+
+Interpretation of the slope parameter :math:`\beta_1`.
+
+
+.. math:: 
+
+    \frac{p(x)}{1-p(x)}=e^{\beta_0+\beta_1x}
+
+When we increase :math:`x` by one unit, the odds
+
+.. math:: 
+
+    \begin{aligned}
+    \frac{p(x+1)}{1-p(x+1)}&=e^{\beta_0+\beta_1(x+1)} \\
+    \\
+    &=e^{\beta_1}e^{\beta_0+\beta_1x} \\
+    \\
+    &=e^{\beta_1}\frac{p(x)}{1-p(x)} \\
+    \end{aligned}
+
+
+increase by a ratio of :math:`e^{\beta_1}`.
+
+If we take natural log to both side of the equation above, 
+
+.. math:: 
+
+    \ln{\frac{p(x)}{1-p(x)}}=\beta_0+\beta_1x
+
+This gives another way to interpret the slope parameter:
+When we increase :math:`x` by one unit, the log-odds
+
+.. math:: 
+
+    \begin{aligned}
+    \ln{\frac{p(x+1)}{1-p(x+1)}}&=\beta_0+\beta_1(x+1) \\
+    \\
+    &=\beta_0+\beta_1x+\beta_1 \\
+    \\
+    &=\ln{\frac{p(x)}{1-p(x)}}+\beta_1 \\
+    \end{aligned}
+
+
+increase by :math:`\beta_1`.
+
+
 
 
 
