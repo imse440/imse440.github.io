@@ -21,7 +21,7 @@ Important dates
 ---------------
 
 - **March 8 (Wed) at 6:11 PM**: Project proposal submission (team)
-- **April 4 (Tue) at 6:11 PM**: Project poster submission (team)
+- **April 5 (Wed) at 6:11 PM**: Project poster submission (team)
 - **April 11 (Tue) at 6:11 PM**: Final poster submission (team)
 - **April 13 (Thu) at time TBA**: Project poster presentation (team)
 - **April 14 (Fri) at time TBA**: `CECS Senior Design Day <https://umdearborn.edu/cecs/life-cecs/senior-design-competition>`__ poster presentation (for invited teams)
