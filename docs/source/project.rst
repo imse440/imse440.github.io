@@ -23,7 +23,7 @@ Important dates
 - **March 8 (Wed) at 6:11 PM**: Project proposal submission (team)
 - **April 5 (Wed) at 6:11 PM**: Project poster submission (team)
 - **April 11 (Tue) at 6:11 PM**: Final poster submission (team)
-- **April 13 (Thu) at time TBA**: Project poster presentation (team)
+- **April 12 (Wed) at 11:00 AM (lecture time)**: Project poster presentation (team)
 - **April 14 (Fri) at time TBA**: `CECS Senior Design Day <https://umdearborn.edu/cecs/life-cecs/senior-design-competition>`__ poster presentation (for invited teams)
 - **April 18 (Tue) at 6:11 PM**: Jupyter notebook and data submission (team)
 - **April 19 (Wed) at 6:11 PM**: Project peer review form submission (individual)
@@ -250,8 +250,21 @@ Notebook grading rubric
 Project poster presentation
 ---------------------------
 
-Your team will present your research poster at the project showcase event (10% of the project grade).
-The showcase will be an in-person event on campus. The date and venue are to be announced. 
+Your team will present your research poster to the class(10% of the project grade).
+During your presentation, your submitted project poster will be shown on the classroom screen. 
+The presentation should include all major parts of your project, including results and discussions.
+
+
+- The following time allocation should be roughly followed.
+    - 1 min: Introduction/background
+    - 1 min: Research questions and the methods to answer them.
+    - 1 min: Data description
+    - 3 min: Results (e.g., data analysis, modeling results, etc.)
+    - 1 min: Discussions (the implications of the results, study limitations, etc.)
+    - 1 min: Conclusions
+- The presentation should be **under 8 minutes**. A one-minute-left reminder will be given to the team.
+- In the presentation, each team member should speak for roughly even amount of time (i.e., about 2-3 minutes each).
+
 
 Presentation grading rubric
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -259,18 +272,53 @@ Presentation grading rubric
 Your poster presentation will be graded based on each of the following components. 
 Under each component are the descriptions for three levels of "Excellent", "Good", and "Poor".
 
-- **Knowledge**
-    - **The presenters demonstrated sufficient knowledge of the material.**
-    - The presenters demonstrated sufficient knowledge of most of the material but struggled with some.
-    - The presenters struggled with most of the material.
-- **Presentation**
-    - **The presenters spoke well and established rapport with the audience.**
-    - The presenters spoke well only some of the time. Established limited rapport with the audience.
-    - The presenters did not speak well most of the time and established little rapport with the audience.
-- **Questions and answers**
-    - **Narration and answering of questions are engaging, thorough, and adds greatly to the presentation.**
-    - Narration and/or answering of questions is somewhat lacking.
-    - Narration and/or answering of questions is lacking.
+.. - **Knowledge**
+..     - **The presenters demonstrated sufficient knowledge of the material.**
+..     - The presenters demonstrated sufficient knowledge of most of the material but struggled with some.
+..     - The presenters struggled with most of the material.
+.. - **Presentation**
+..     - **The presenters spoke well and established rapport with the audience.**
+..     - The presenters spoke well only some of the time. Established limited rapport with the audience.
+..     - The presenters did not speak well most of the time and established little rapport with the audience.
+.. - **Questions and answers**
+..     - **Narration and answering of questions are engaging, thorough, and adds greatly to the presentation.**
+..     - Narration and/or answering of questions is somewhat lacking.
+..     - Narration and/or answering of questions is lacking.
+
+- **Content**
+    - **The presentation demonstrated excellent knowledge of the course content. 
+      All major parts of the project were included. 
+      The presentation utilized an abundance of materials, including visuals to clearly and effectively communicate the work with the audience.**
+    - The presentation demonstrated good knowledge of the course content. 
+      All major parts of the project were included. 
+      The presentation utilized materials including some visuals to clearly and effectively communicate the work with the audience.
+    - The presentation did not demonstrate sufficient knowledge of the course content. 
+      Major parts (e.g., results, discussions) were absent. 
+      The presentation lacked materials to communicate with the audience.
+- **Coherence and organization**
+    - **The project was clearly presented. 
+      The transitions and flow were easy to follow. 
+      The visuals were error-free and logically presented.**
+    - The project was mostly clearly presented. 
+      The transitions and/or flow were some time difficult to follow. 
+      The visuals were mostly error-free and logically presented.
+    - The audience had to make considerable effort to understand the underlying logic and flow of ideas. 
+      The transitions and flow were not logical. 
+      The visuals contained many errors and a lack of logical progression.
+- **Presentation skills** (this part will be graded individually rather than team-based.)
+    - **The speaker was fluent on the topic and had clear articulation.
+      Enthusiasm and confidence were exuded. 
+      The materials were presented in a way that held audience attention. 
+      The presentation did not exceed the time allotment by more than one minute.**
+    - The speaker was mostly fluent on the topic. 
+      Light discomfort with public speaking was exuded. 
+      The presentation only somewhat held audience attention. 
+      The presentation did not exceed the time allotment by more than one minute.
+    - The speaker was not fluent on the topic. 
+      A high level of discomfort with public speaking was exuded. 
+      The presentation did not hold audience attention. 
+      The presentation went over by more than one minute.
+
 
 Peer evaluation form
 --------------------
@@ -298,8 +346,8 @@ Before working on your project, make sure to understand the :ref:`Honor Code pol
 Lateness policies
 ^^^^^^^^^^^^^^^^^
 
-- For *all* project submissions a late submission (within 24 hours) will receive an automatic 30% point deduction.
-- Late submission for more than 24 hours will receive 0 points.
+- A late project submission within 24 hours (16 hours for the final poster) will receive a 30% point deduction.
+- A late submission for more than the specified time above will receive 0 points.
 - The late penalties will by default apply to all team members and, in rare cases, may be adjusted at the instructor's discretion.
 
 Data sources
