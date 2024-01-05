@@ -117,8 +117,8 @@ You need to submit the PDF file generated from Overleaf to the according Canvas 
 
 One submission per team.
 
-Proposal grading rubric
-^^^^^^^^^^^^^^^^^^^^^^^
+Proposal rubric
+^^^^^^^^^^^^^^^
 
 Your proposal will be graded based on each of the following components. 
 Under each component are the descriptions for three levels of "Excellent", "Good", and "Poor".
@@ -229,7 +229,7 @@ Note it is not a complete list.
 - **Are the citations correctly used?**. Check the template for an example.
 
 
-Project poster presentation (10% of project grade)
+Project poster presentation (20% of project grade)
 ---------------------------
 
 Your team will present your research poster to the class.
@@ -301,7 +301,7 @@ Presentation rubric
       The presentation went over by more than one minute.
 
 
-Jupyter notebook & data (15% of project grade)
+Jupyter notebook & data (20% of project grade)
 ----------------------------------------------
 
 You are required to submit all the jupyter notebook(s) and data used for the project.
@@ -409,3 +409,8 @@ FAQ
 - Can we change the project topic or data sets after the proposal?
     - Yes. However, please contact the instructors for a discussion before doing so. 
 
+
+Miscellaneous
+-------------
+
+The instructor reserves the rights to make any changes to the project guidelines as deemed necessary.

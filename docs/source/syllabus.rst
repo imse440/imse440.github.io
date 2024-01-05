@@ -19,7 +19,7 @@ Location: 1165 SSB (Social Science Building)
 Instructor
 ----------
 
-`Fred Feng <http://www.umich.edu/~fredfeng/>`_ ("Fred" is fine)
+`Fred Feng <https://public.websites.umich.edu/~fredfeng/>`_ ("Fred" is fine)
 
 .. GSI
 .. ---------------------------------
