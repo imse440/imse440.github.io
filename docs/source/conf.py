@@ -3,7 +3,7 @@
 # -- Project information
 
 project = 'IMSE 440'
-copyright = '2023, Fred Feng'
+copyright = '2024, Fred Feng'
 author = 'Fred Feng'
 
 release = '0.1'

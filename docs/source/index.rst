@@ -10,7 +10,7 @@ IMSE 440 Applied Statistical Models in Engineering
    project
    software-setup
 
-`Course Canvas site <https://canvas.umd.umich.edu/courses/529246>`__
+`Course Canvas site <https://canvas.umd.umich.edu/courses/537100>`__
 
 Course Calendar
 """""""""""""""

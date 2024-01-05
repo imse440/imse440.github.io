@@ -8,19 +8,19 @@ Schedule
    * - Week
      - Topics
    * - 1
-     - `Course introduction <https://imse440.github.io/lectures/course-intro/>`_, Introduction to Python
+     - Course introduction, Introduction to Python
    * - 2
-     - Introduction to data analysis in Python
-   * - 3
      - Introduction to data analysis and visualization in Python
-   * - 4
+   * - 3
      - Simple linear regression, parameter estimation
-   * - 5
+   * - 4
      - Assessing the accuracy of the parameter estimates
-   * - 6
+   * - 5
      - Assessing the accuracy of the model
+   * - 6
+     - Confidence and prediction intervals
    * - 7
-     - Confidence and prediction intervals, introduction to multiple linear regression
+     - Introduction to multiple linear regression
    * - 8
      - Interactions, categorical predictors
    * - 9
@@ -35,3 +35,5 @@ Schedule
      - Comparing experiments, experiments with a single factor
    * - 14
      - Randomized design, blocking factors and common designs, Latin Squares design
+
+The schedule and topics are tentative and subject to change. 
