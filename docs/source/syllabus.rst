@@ -57,8 +57,7 @@ Office hours
 
 All office hours by Dr. Feng are held on Zoom at https://umich.zoom.us/my/fredfeng
 
-- Wednesdays 1:00 PM - 2:00 PM
-- Thursdays 1:30 PM - 2:30 PM
+- Wednesdays & Thursdays: 1:00 PM - 2:00 PM
 - Occasionally, the instructor may need to move an office hour to a different time. In this case, a Canvas announcement will be sent. You can also refer to our Course Calendar for the up-to-date office hour schedule.
 - If you are not able to attend during the above time, you can email the instructor with a request for an appointment.
 

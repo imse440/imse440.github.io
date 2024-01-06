@@ -8,7 +8,7 @@ Schedule
    * - Week
      - Topics
    * - 1
-     - Course introduction, Introduction to Python
+     - Course introduction, introduction to Python
    * - 2
      - Introduction to data analysis and visualization in Python
    * - 3
