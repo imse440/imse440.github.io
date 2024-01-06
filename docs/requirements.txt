@@ -4,6 +4,6 @@ sphinx_rtd_theme==2.0.0
 # sphinx_rtd_theme==1.1.1
 # sphinx-tabs<=3.4.1
 # sphinx-tabs==3.4.1
-docutils<=0.18   # working
+# docutils<=0.18   # working
 # docutils<=0.17   # working
 # docutils<=0.16   # not working
