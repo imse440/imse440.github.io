@@ -12,7 +12,7 @@ Schedule
    * - 2
      - Introduction to data analysis and visualization in Python
    * - 3
-     - Simple linear regression, parameter estimation
+     - `Simple linear regression <https://imse440.github.io/lectures/simple-linear-regression/>`__, parameter estimation
    * - 4
      - Assessing the accuracy of the parameter estimates
    * - 5
