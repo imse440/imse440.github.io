@@ -249,7 +249,7 @@ General course rules
     - Work (your homework, project submissions) that includes materials (e.g., texts, codes, images, figures, tables, etc.) derived in any way from the efforts of another person, by direct quotation, paraphrasing, or editing, should be fully and properly documented. 
     - To avoid plagiarism, you should cite all sources of both ideas and direct quotations, including those found on the internet. 
     - The citation should provide enough information so that the original source of the material can be located.
-- You are *not* allowed to share any of your lecture notes, codes, or other course materials with another student.
+- You are *not* allowed to share/use any of the lecture notes, codes, or other course materials with/from another student.
   If you was not able to attend a lecture or need help with lecture materials, please contact the instructor. 
 - If you have any questions about whether something is or is not allowed, ask the instructors *beforehand*.
 
