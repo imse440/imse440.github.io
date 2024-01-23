@@ -3,13 +3,14 @@
   <head>
     <title>IMSE 440 - simple linear regression</title>
     <meta charset="utf-8">
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script> 
     <style>
       @import url(https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap);
       @import url(https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap);
       @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
 
       body {font-family: 'Roboto'; font-weight: bold; line-height: 1.4;}
-      .remark-code, .remark-inline-code {font-family: 'Ubuntu Mono'; }
+      .remark-code, .remark-inline-code {font-family: 'Ubuntu Mono'; font-size:26px;}
       .remark-slide-content h1 {font-size: 40px; text-align: center;}
       .remark-slide-content p, .remark-slide-content li {font-size:30px; margin: 20px 0;}
       a:link {text-decoration: none;}
@@ -42,13 +43,13 @@ class: center, middle
 
 ## Linear regression
 
-[ISLR book](https://www.statlearning.com): Chapter 3.1
+[ISL with Python book](https://www.statlearning.com): Chapter 3.1
 
 ---
 
 ```
 import pandas as pd
-df = pd.read_csv('./data/advertising.csv')
+ads = pd.read_csv("./data/advertising.csv")
 ```
 
 .center[![:scale 50%](images/advertising.png)]
@@ -56,11 +57,14 @@ df = pd.read_csv('./data/advertising.csv')
 ---
 
 ```
-import matplotlib.pyplot as plt
-plt.scatter(x='TV', y='sales', data=df)
+import seaborn.objects as so
+(
+    so.Plot(data=ads, x='TV', y='sales')
+    .add(so.Dot())
+)
 ```
 
-.center[![:scale 100%](images/tv_sales.png)]
+.center[![:scale 70%](images/tv_sales.png)]
 
 
 
@@ -90,19 +94,19 @@ plt.scatter(x='TV', y='sales', data=df)
 
 # [Linear regression](https://en.wikipedia.org/wiki/Linear_regression)
 
-Study the relationship between two or more variables.
+Study the relationship between two or more variables
 
 $$\text{sales} = f(\text{TV}) = a + b \cdot \text{TV}$$
 
 --
 
-.green[Independent variables] ($x$): 
+.green[Independent variables] (x): 
 
 Input variables, also called .green[predictors] or .green[features].
 
 --
 
-.red[Dependent variable] ($y$):
+.red[Dependent variable] (y):
 
 Output variable, also called .red[response] or .red[target].
 
@@ -127,32 +131,32 @@ $$\text{where }\; \epsilon \sim \text{N}(0, \sigma^2)$$
 
 --
 
-$x$ is any given input to the model. 
+x is any given input to the model. 
 
 --
 
-$\epsilon$ is the error term. 
+epsilon is the error term. 
 
 - modeled as a [normally-distributed](https://probstats.org/normal.html) random variable
 
 --
 
-$\beta_0$ and $\beta_1$ are unknown parameters in the model.
+beta_0 & beta_1 are unknown parameters in the model.
 
 --
 
-.red[Question: Is $Y$ a random variable?]
+.red[Question: Is Y a random variable?]
 
 ---
 $$\require{color}\colorbox{yellow}{$Y= \beta_0 + \beta_1 \cdot x + \epsilon$}$$
 
 $$\text{where }\; \epsilon \sim \text{N}(0, \sigma^2)$$
 
-- What is the .red[expected value] of $Y$?
+- What is the .red[expected value] of Y?
 
-- What is the .red[variance] of $Y$?
+- What is the .red[variance] of Y?
 
-- What .red[distribution] does $Y$ follow?
+- What .red[distribution] does Y follow?
 
 
 ---
@@ -163,16 +167,16 @@ $$\text{where }\; \epsilon \sim \text{N}(0, \sigma^2)$$
 
 $$Y \sim \text{N}(\beta_0 + \beta_1 x, \sigma^2)$$
 
-$\beta_0$: .red[intercept]: expected value of $Y$ when $x=0$.
+beta_0: .red[intercept]: expected value of Y when x=0.
 
 
 --
 <br><br>
-$\beta_1$: .red[slope]: expected change of $Y$ per unit change of $x$.
+beta_1: .red[slope]: expected change of Y per unit change of x.
 
 
 ---
-# Visualizing $\beta_0$ and $\beta_1$
+# Visualizing beta_0 and beta_1
 
 .center[![:scale 65%](images/xyplane.jpg)]
 
@@ -181,19 +185,19 @@ $\beta_1$: .red[slope]: expected change of $Y$ per unit change of $x$.
 
 $$\text{E}[\text{sales}] = \beta_0 + \beta_1 \cdot \text{TV}$$
 
-.center[![:scale 85%](images/tv_sales.png)]
+.center[![:scale 80%](images/tv_sales.png)]
 
 
 ---
-What would be our "best" estimates of $\beta_0$ and $\beta_1$?
+What would be our "best" estimates of beta_0 and beta_1?
 
 (What it the model that .green[fits the data the best]?)
 
-.center[![:scale 60%](images/xyplane.jpg)]
+.center[![:scale 45%](images/xyplane.jpg)]
 
 --
 
-$$e_i=y_i-\hat{y}_i=y_i-(\beta_0+\beta_1x_i), \; i=1, 2, \cdots, n.$$
+$$e_i=y_i-\hat{y}_i=y_i-(\beta_0+\beta_1x_i), \;\; i=1, 2, \cdots, n.$$
 
 
 ---
@@ -222,11 +226,11 @@ It is called the [Residual Sum of Squares (RSS)](https://en.wikipedia.org/wiki/R
 
 ---
 
-Given $n$ pairs of data
+Given n pairs of data
 
 $$(x_1, y_1), (x_2, y_2), \cdots, (x_n, y_n)$$
 
-We choose $\beta_0$ and $\beta_1$ such that the RSS is minimized. 
+We choose beta_0 and beta_1 such that the RSS is minimized. 
 
 $$ \min\_{\beta\_0, \beta\_1}f(\beta\_0, \beta\_1)=\text{RSS}= \sum\_{i=1}^n \big[y\_i - (\beta\_0 + \beta\_1 x\_i)\big]^2 $$
 
@@ -242,7 +246,7 @@ $$ \min\_{\beta\_0, \beta\_1}f(\beta\_0, \beta\_1)=\sum\_{i=1}^n \big[y\_i - (\b
 --
 
 
-Take partial derivatives w.r.t. $\beta_0$ and $\beta_1$, set them to 0.
+Take partial derivatives w.r.t. beta_0 and beta_1, set them to 0.
 
 $$\begin{aligned}
 \frac{\partial f(\beta_0, \beta_1)}{\partial \beta_0} &=0 \\\
@@ -252,7 +256,25 @@ $$\begin{aligned}
 $$
 
 
-???
+<!-- ???
+
+$$\begin{aligned}
+\frac{\partial f(\beta_0, \beta_1)}{\partial \beta_0} &= -\sum2\big[y_i - (\beta_0 + \beta_1x_i)\big]=0 \\\
+\\\
+\frac{\partial f(\beta_0, \beta_1)}{\partial \beta_1} &= -\sum2\big[y_i - (\beta_0 + \beta_1x_i)\big]x_i=0
+\end{aligned}
+$$ -->
+
+---
+
+$$\begin{aligned}
+\frac{\partial f(\beta_0, \beta_1)}{\partial \beta_0} &=0 \\\
+\\\
+\frac{\partial f(\beta_0, \beta_1)}{\partial \beta_1} & =0
+\end{aligned}
+$$
+
+--
 
 $$\begin{aligned}
 \frac{\partial f(\beta_0, \beta_1)}{\partial \beta_0} &= -\sum2\big[y_i - (\beta_0 + \beta_1x_i)\big]=0 \\\
@@ -263,7 +285,7 @@ $$
 
 --
 
-Then use linear algebra to solve for $\beta_0$ and $\beta_1$.
+Then use linear algebra to solve for beta_0 & beta_1.
 
 ---
 
@@ -349,8 +371,8 @@ $$\small{\min_{\beta_0, \beta_1}f(\beta_0, \beta_1)=\sum\big[y_i - (\beta_0 + \b
 
 </textarea>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_HTML&delayStartupUntil=configured" type="text/javascript"></script>
-<script src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_HTML&delayStartupUntil=configured" type="text/javascript"></script> -->
+<!-- <script src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> -->
 
 <script>
 remark.macros.scale = function (percentage) {
@@ -361,7 +383,7 @@ remark.macros.scale = function (percentage) {
 var slideshow = remark.create({
   countIncrementalSlides: false,
   highlightLanguage: 'python',
-  highlightStyle: 'magula', 
+  highlightStyle: 'github', 
   highlightSpans: true,
   highlightLines: true,
 });
