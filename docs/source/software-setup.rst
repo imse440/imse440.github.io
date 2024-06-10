@@ -8,7 +8,7 @@ To install the above we will use Anaconda, a popular open-source Python distribu
 Download
 --------
 
-Go to the `Anaconda download page <https://www.anaconda.com/products/individual#Downloads>`__.
+Go to the `Anaconda download page <https://www.anaconda.com/download/success>`__.
 You will see something similar to the screenshot below.
 
 
